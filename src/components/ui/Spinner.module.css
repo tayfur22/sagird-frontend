@@ -1,0 +1,23 @@
+.wrapper {
+  display: inline-flex;
+  align-items: center;
+}
+
+.circle {
+  border: 2.5px solid var(--color-border);
+  border-top-color: var(--color-primary);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

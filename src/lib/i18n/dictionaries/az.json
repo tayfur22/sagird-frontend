@@ -1,0 +1,168 @@
+{
+  "common": {
+    "loading": "Yüklənir...",
+    "error": "Xəta baş verdi",
+    "retry": "Yenidən cəhd edin",
+    "save": "Yadda saxla",
+    "cancel": "Ləğv et",
+    "close": "Bağla",
+    "submitting": "Göndərilir...",
+    "required": "Məcburi"
+  },
+  "nav": {
+    "home": "Ana səhifə",
+    "exams": "İmtahanlar",
+    "leaderboard": "Liderlər",
+    "statistics": "Statistika",
+    "explanations": "İzahlar",
+    "about": "Haqqımızda",
+    "login": "Daxil ol",
+    "register": "Qeydiyyat",
+    "dashboard": "İdarə paneli",
+    "myExams": "İmtahanlarım",
+    "results": "Nəticələr",
+    "subscription": "Abunəlik",
+    "profile": "Profil",
+    "students": "Tələbələr",
+    "subscriptions": "Abunəliklər",
+    "payments": "Ödənişlər",
+    "questions": "Suallar",
+    "settings": "Parametrlər",
+    "logout": "Çıxış",
+    "mainNavigation": "Əsas naviqasiya"
+  },
+  "emptyState": {
+    "noExams": "Hələ heç bir imtahan yoxdur.",
+    "noResults": "Hələ heç bir nəticə yoxdur.",
+    "generic": "Göstəriləcək məlumat yoxdur."
+  },
+  "roles": {
+    "STUDENT": "Şagird",
+    "ADMIN": "Admin"
+  },
+  "auth": {
+    "login": {
+      "title": "Daxil ol",
+      "subtitle": "Hesabınıza daxil olaraq davam edin.",
+      "email": "E-poçt",
+      "password": "Şifrə",
+      "submit": "Daxil ol",
+      "noAccount": "Hesabınız yoxdur?",
+      "registerLink": "Qeydiyyatdan keçin"
+    },
+    "register": {
+      "title": "Qeydiyyat",
+      "subtitle": "Şagird hesabı yaradın.",
+      "firstName": "Ad",
+      "lastName": "Soyad",
+      "email": "E-poçt",
+      "password": "Şifrə",
+      "confirmPassword": "Şifrənin təkrarı",
+      "submit": "Hesab yarat",
+      "haveAccount": "Artıq hesabınız var?",
+      "loginLink": "Daxil olun"
+    },
+    "passwordRules": {
+      "title": "Şifrə tələbləri",
+      "minLength": "Ən azı 8 simvol",
+      "lowercase": "Kiçik hərf",
+      "uppercase": "Böyük hərf",
+      "digit": "Rəqəm"
+    },
+    "checkingSession": "Sessiya yoxlanılır..."
+  },
+  "profile": {
+    "title": "Profil",
+    "personalInfo": "Şəxsi məlumatlar",
+    "email": "E-poçt",
+    "emailHelp": "E-poçt ünvanı dəyişdirilə bilməz.",
+    "firstName": "Ad",
+    "lastName": "Soyad",
+    "phone": "Telefon",
+    "phonePlaceholder": "+994 50 123 45 67",
+    "grade": "Sinif",
+    "gradePlaceholder": "Sinif seçin",
+    "school": "Məktəb",
+    "city": "Şəhər",
+    "save": "Yadda saxla",
+    "saved": "Profil yeniləndi.",
+    "changePassword": "Şifrəni dəyiş",
+    "currentPassword": "Cari şifrə",
+    "newPassword": "Yeni şifrə",
+    "confirmNewPassword": "Yeni şifrənin təkrarı",
+    "changePasswordSubmit": "Şifrəni yenilə",
+    "passwordChanged": "Şifrə dəyişdirildi. Digər cihazlardakı sessiyalar bağlandı."
+  },
+  "dashboard": {
+    "welcome": "Xoş gəlmisiniz, {name}!"
+  },
+  "subscription": {
+    "title": "Abunəlik",
+    "subtitle": "Cari abunəlik vəziyyətiniz və keçmiş abunəliklərinizin tarixçəsi.",
+    "startDate": "Başlama tarixi",
+    "endDate": "Bitmə tarixi",
+    "cancelledAt": "Ləğv tarixi",
+    "remainingLabel": "Qalan müddət:",
+    "remainingDays": "{days} gün qalıb",
+    "remainingToday": "Bu gün bitir",
+    "plans": {
+      "MONTHLY": "Aylıq plan"
+    },
+    "statuses": {
+      "ACTIVE": "Aktiv",
+      "UPCOMING": "Gözlənilir",
+      "EXPIRED": "Bitib",
+      "CANCELLED": "Ləğv edilib"
+    },
+    "noSubscription": {
+      "title": "Aktiv abunəliyiniz yoxdur",
+      "description": "Hazırda heç bir abunəliyiniz görünmür. Ödəniş funksiyası növbəti mərhələdə əlavə olunacaq."
+    },
+    "history": {
+      "title": "Abunəlik tarixçəsi",
+      "empty": "Hələ heç bir abunəlik tarixçəsi yoxdur.",
+      "columns": {
+        "plan": "Plan",
+        "status": "Status",
+        "startDate": "Başlama tarixi",
+        "endDate": "Bitmə tarixi"
+      }
+    },
+    "dashboard": {
+      "cardTitle": "Abunəlik",
+      "activeUntil": "{date} tarixinədək aktivdir",
+      "inactiveHint": "Abunəliyinizin müddəti bitib.",
+      "noneHint": "Aktiv abunəliyiniz yoxdur.",
+      "viewDetails": "Ətraflı bax",
+      "upcomingHint": "{date} tarixindən aktiv olacaq.",
+      "cancelledHint": "Abunəliyiniz ləğv edilib."
+    }
+  },
+  "validation": {
+    "REQUIRED": "Bu sahə mütləqdir.",
+    "TOO_LONG": "Dəyər çox uzundur.",
+    "INVALID_EMAIL": "Düzgün e-poçt ünvanı daxil edin.",
+    "INVALID_PHONE": "Telefon nömrəsi düzgün deyil.",
+    "INVALID_GRADE": "Sinif 1 ilə 11 arasında olmalıdır.",
+    "PASSWORD_TOO_SHORT": "Şifrə ən azı 8 simvol olmalıdır.",
+    "PASSWORD_TOO_LONG": "Şifrə 72 simvoldan uzun ola bilməz.",
+    "PASSWORD_NEEDS_LOWERCASE": "Şifrədə ən azı bir kiçik hərf olmalıdır.",
+    "PASSWORD_NEEDS_UPPERCASE": "Şifrədə ən azı bir böyük hərf olmalıdır.",
+    "PASSWORD_NEEDS_DIGIT": "Şifrədə ən azı bir rəqəm olmalıdır.",
+    "PASSWORDS_MISMATCH": "Şifrələr uyğun gəlmir.",
+    "INVALID": "Dəyər düzgün deyil."
+  },
+  "errors": {
+    "INVALID_CREDENTIALS": "E-poçt və ya şifrə yanlışdır.",
+    "EMAIL_ALREADY_EXISTS": "Bu e-poçt ilə artıq hesab mövcuddur.",
+    "ACCOUNT_DISABLED": "Bu hesab deaktiv edilib.",
+    "INVALID_CURRENT_PASSWORD": "Cari şifrə yanlışdır.",
+    "PASSWORD_SAME_AS_CURRENT": "Yeni şifrə cari şifrədən fərqli olmalıdır.",
+    "INVALID_REFRESH_TOKEN": "Sessiyanın vaxtı bitib. Yenidən daxil olun.",
+    "UNAUTHORIZED": "Davam etmək üçün daxil olun.",
+    "FORBIDDEN": "Bu əməliyyat üçün icazəniz yoxdur.",
+    "VALIDATION_ERROR": "Daxil edilən məlumatları yoxlayın.",
+    "NETWORK": "Serverlə əlaqə qurmaq mümkün olmadı. İnternet bağlantınızı yoxlayın.",
+    "GENERIC": "Gözlənilməz xəta baş verdi. Bir az sonra yenidən cəhd edin."
+  }
+}

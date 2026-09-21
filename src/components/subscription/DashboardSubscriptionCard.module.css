@@ -1,0 +1,35 @@
+.wrapper {
+  margin-bottom: var(--space-6);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.planLine {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-weight: var(--font-weight-semibold);
+}
+
+.detail {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+.skeletonRow {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
