@@ -1,0 +1,332 @@
+{
+  "common": {
+    "loading": "Загрузка...",
+    "error": "Произошла ошибка",
+    "retry": "Повторить",
+    "save": "Сохранить",
+    "cancel": "Отмена",
+    "close": "Закрыть",
+    "submitting": "Отправка...",
+    "required": "Обязательно"
+  },
+  "nav": {
+    "home": "Главная",
+    "exams": "Экзамены",
+    "leaderboard": "Рейтинг",
+    "statistics": "Статистика",
+    "explanations": "Разборы",
+    "about": "О нас",
+    "login": "Войти",
+    "register": "Регистрация",
+    "dashboard": "Панель",
+    "myExams": "Мои экзамены",
+    "results": "Результаты",
+    "subscription": "Подписка",
+    "profile": "Профиль",
+    "students": "Ученики",
+    "subscriptions": "Подписки",
+    "payments": "Платежи",
+    "questions": "Вопросы",
+    "settings": "Настройки",
+    "logout": "Выйти",
+    "mainNavigation": "Основная навигация"
+  },
+  "language": {
+    "az": "Azərbaycan",
+    "en": "English",
+    "ru": "Русский",
+    "switchLabel": "Сменить язык"
+  },
+  "emptyState": {
+    "noExams": "Пока нет ни одного экзамена.",
+    "noResults": "Пока нет результатов.",
+    "generic": "Нет данных для отображения."
+  },
+  "roles": {
+    "STUDENT": "Ученик",
+    "ADMIN": "Администратор"
+  },
+  "auth": {
+    "login": {
+      "title": "Войти",
+      "subtitle": "Войдите в свой аккаунт, чтобы продолжить.",
+      "email": "Эл. почта",
+      "password": "Пароль",
+      "submit": "Войти",
+      "noAccount": "Нет аккаунта?",
+      "registerLink": "Зарегистрироваться"
+    },
+    "register": {
+      "title": "Регистрация",
+      "subtitle": "Создайте аккаунт ученика.",
+      "firstName": "Имя",
+      "lastName": "Фамилия",
+      "email": "Эл. почта",
+      "password": "Пароль",
+      "confirmPassword": "Повторите пароль",
+      "submit": "Создать аккаунт",
+      "haveAccount": "Уже есть аккаунт?",
+      "loginLink": "Войти"
+    },
+    "passwordRules": {
+      "title": "Требования к паролю",
+      "minLength": "Минимум 8 символов",
+      "lowercase": "Строчная буква",
+      "uppercase": "Заглавная буква",
+      "digit": "Цифра"
+    },
+    "checkingSession": "Проверка сессии..."
+  },
+  "profile": {
+    "title": "Профиль",
+    "personalInfo": "Личные данные",
+    "email": "Эл. почта",
+    "emailHelp": "Адрес электронной почты изменить нельзя.",
+    "firstName": "Имя",
+    "lastName": "Фамилия",
+    "phone": "Телефон",
+    "phonePlaceholder": "+994 50 123 45 67",
+    "grade": "Класс",
+    "gradePlaceholder": "Выберите класс",
+    "school": "Школа",
+    "city": "Город",
+    "save": "Сохранить",
+    "saved": "Профиль обновлён.",
+    "changePassword": "Изменить пароль",
+    "currentPassword": "Текущий пароль",
+    "newPassword": "Новый пароль",
+    "confirmNewPassword": "Повторите новый пароль",
+    "changePasswordSubmit": "Обновить пароль",
+    "passwordChanged": "Пароль изменён. Сессии на других устройствах завершены."
+  },
+  "dashboard": {
+    "welcome": "Добро пожаловать, {name}!"
+  },
+  "subscription": {
+    "title": "Подписка",
+    "subtitle": "Текущий статус подписки и история предыдущих подписок.",
+    "startDate": "Дата начала",
+    "endDate": "Дата окончания",
+    "cancelledAt": "Дата отмены",
+    "remainingLabel": "Осталось:",
+    "remainingDays": "Осталось {days} дн.",
+    "remainingToday": "Заканчивается сегодня",
+    "plans": {
+      "MONTHLY": "Месячный план"
+    },
+    "statuses": {
+      "ACTIVE": "Активна",
+      "UPCOMING": "Ожидается",
+      "EXPIRED": "Истекла",
+      "CANCELLED": "Отменена"
+    },
+    "noSubscription": {
+      "title": "У вас нет активной подписки",
+      "description": "Сейчас у вас нет подписки. Оплата будет добавлена на следующем этапе."
+    },
+    "history": {
+      "title": "История подписок",
+      "empty": "История подписок пока пуста.",
+      "columns": {
+        "plan": "План",
+        "status": "Статус",
+        "startDate": "Дата начала",
+        "endDate": "Дата окончания"
+      }
+    },
+    "dashboard": {
+      "cardTitle": "Подписка",
+      "activeUntil": "Активна до {date}",
+      "inactiveHint": "Срок вашей подписки истёк.",
+      "noneHint": "У вас нет активной подписки.",
+      "viewDetails": "Подробнее",
+      "upcomingHint": "Станет активной с {date}.",
+      "cancelledHint": "Ваша подписка отменена."
+    }
+  },
+  "payment": {
+    "providerUnknown": "Неизвестно",
+    "checkoutTitle": "Оформить подписку",
+    "checkoutSubtitle": "Начните оплату, чтобы оформить подписку на месячный план.",
+    "planLabel": "План",
+    "subscribeButton": "Оформить подписку",
+    "createFailedTitle": "Не удалось начать оплату",
+    "amountLabel": "Сумма",
+    "refreshStatus": "Обновить статус",
+    "retryPayment": "Повторить попытку",
+    "subscriptionActivated": "Ваша подписка активирована!",
+    "pending": {
+      "title": "Платёж ожидается",
+      "description": "Ваш платёж ещё не подтверждён. Проверьте немного позже."
+    },
+    "processing": {
+      "title": "Платёж обрабатывается",
+      "description": "Ваш платёж обрабатывается. Пожалуйста, подождите."
+    },
+    "succeeded": {
+      "title": "Платёж выполнен",
+      "description": "Ваш платёж подтверждён, и подписка активирована."
+    },
+    "failed": {
+      "title": "Платёж не выполнен",
+      "description": "Не удалось завершить платёж. Вы можете попробовать снова."
+    },
+    "cancelled": {
+      "title": "Платёж отменён",
+      "description": "Этот платёж отменён. Вы можете попробовать снова."
+    },
+    "statuses": {
+      "PENDING": "Ожидается",
+      "PROCESSING": "Обрабатывается",
+      "SUCCEEDED": "Успешно",
+      "FAILED": "Не выполнен",
+      "CANCELLED": "Отменён",
+      "REFUNDED": "Возвращён"
+    },
+    "detail": {
+      "title": "Детали платежа",
+      "id": "ID платежа",
+      "status": "Статус",
+      "plan": "План",
+      "amount": "Сумма",
+      "provider": "Провайдер",
+      "failureReason": "Причина неудачи",
+      "paidAt": "Дата оплаты",
+      "createdAt": "Дата создания"
+    },
+    "history": {
+      "title": "История платежей",
+      "empty": "У вас пока нет платежей.",
+      "viewDetails": "Подробнее",
+      "columns": {
+        "amount": "Сумма",
+        "status": "Статус",
+        "provider": "Провайдер",
+        "date": "Дата"
+      }
+    }
+  },
+  "exam": {
+    "adminList": {
+      "title": "Экзамены",
+      "subtitle": "Управляйте всеми экзаменами: создавайте, публикуйте и архивируйте.",
+      "createButton": "Новый экзамен",
+      "empty": "Экзамены ещё не созданы.",
+      "columns": {
+        "title": "Название",
+        "type": "Тип",
+        "status": "Статус",
+        "duration": "Длительность",
+        "price": "Цена",
+        "subscriptionRequired": "Подписка",
+        "registration": "Период регистрации",
+        "publishAt": "Дата публикации",
+        "actions": "Действия"
+      },
+      "actions": {
+        "view": "Просмотр",
+        "edit": "Редактировать",
+        "publish": "Опубликовать",
+        "archive": "Архивировать"
+      }
+    },
+    "create": {
+      "title": "Новый экзамен",
+      "subtitle": "Новый экзамен создаётся со статусом «Черновик» и скрыт от студентов до публикации.",
+      "submit": "Создать"
+    },
+    "edit": {
+      "title": "Редактировать экзамен",
+      "submit": "Сохранить изменения"
+    },
+    "detail": {
+      "type": "Тип",
+      "status": "Статус",
+      "duration": "Длительность",
+      "durationValue": "{minutes} мин",
+      "price": "Цена",
+      "subscriptionRequired": "Требуется подписка",
+      "registrationPeriod": "Период регистрации",
+      "publishAt": "Дата публикации",
+      "notScheduled": "Не назначено",
+      "createdAt": "Создано",
+      "updatedAt": "Обновлено",
+      "backToList": "← Назад к списку"
+    },
+    "form": {
+      "title": "Название",
+      "description": "Описание",
+      "type": "Тип",
+      "durationMinutes": "Длительность (мин)",
+      "price": "Цена",
+      "currency": "Валюта",
+      "subscriptionRequired": "Требуется подписка",
+      "registrationStartAt": "Начало регистрации",
+      "registrationEndAt": "Окончание регистрации",
+      "publishAt": "Дата публикации",
+      "publishAtHelp": "Оставьте пустым, если хотите опубликовать экзамен вручную кнопкой «Опубликовать»."
+    },
+    "statuses": {
+      "DRAFT": "Черновик",
+      "PUBLISHED": "Опубликован",
+      "ARCHIVED": "Архивирован"
+    },
+    "types": {
+      "WEEKLY": "Еженедельный",
+      "SPECIAL": "Специальный",
+      "MONTHLY": "Ежемесячный"
+    },
+    "subscriptionRequired": {
+      "yes": "Да",
+      "no": "Нет"
+    },
+    "toasts": {
+      "created": "Экзамен создан.",
+      "updated": "Экзамен обновлён.",
+      "published": "Экзамен опубликован.",
+      "archived": "Экзамен архивирован."
+    },
+    "student": {
+      "empty": "Сейчас нет опубликованных экзаменов.",
+      "viewDetails": "Подробнее",
+      "listTitle": "Мои экзамены",
+      "listSubtitle": "Опубликованные экзамены, в которых вы можете участвовать.",
+      "startExam": "Начать экзамен",
+      "startExamHelp": "Возможность начать экзамен появится на следующем этапе."
+    }
+  },
+  "validation": {
+    "REQUIRED": "Это поле обязательно.",
+    "TOO_LONG": "Значение слишком длинное.",
+    "INVALID_EMAIL": "Введите корректный адрес электронной почты.",
+    "INVALID_PHONE": "Некорректный номер телефона.",
+    "INVALID_GRADE": "Класс должен быть от 1 до 11.",
+    "PASSWORD_TOO_SHORT": "Пароль должен содержать не менее 8 символов.",
+    "PASSWORD_TOO_LONG": "Пароль не может быть длиннее 72 символов.",
+    "PASSWORD_NEEDS_LOWERCASE": "Пароль должен содержать хотя бы одну строчную букву.",
+    "PASSWORD_NEEDS_UPPERCASE": "Пароль должен содержать хотя бы одну заглавную букву.",
+    "PASSWORD_NEEDS_DIGIT": "Пароль должен содержать хотя бы одну цифру.",
+    "PASSWORDS_MISMATCH": "Пароли не совпадают.",
+    "INVALID": "Значение некорректно.",
+    "INVALID_DURATION": "Длительность должна быть больше 0.",
+    "INVALID_PRICE": "Цена не может быть отрицательной.",
+    "INVALID_CURRENCY": "Код валюты должен состоять из 3 букв (например, AZN).",
+    "INVALID_EXAM_REGISTRATION_PERIOD": "Окончание регистрации должно быть позже начала."
+  },
+  "errors": {
+    "INVALID_CREDENTIALS": "Неверный адрес электронной почты или пароль.",
+    "EMAIL_ALREADY_EXISTS": "Аккаунт с этим email уже существует.",
+    "ACCOUNT_DISABLED": "Этот аккаунт отключён.",
+    "INVALID_CURRENT_PASSWORD": "Текущий пароль неверен.",
+    "PASSWORD_SAME_AS_CURRENT": "Новый пароль должен отличаться от текущего.",
+    "INVALID_REFRESH_TOKEN": "Сессия истекла. Войдите снова.",
+    "UNAUTHORIZED": "Войдите, чтобы продолжить.",
+    "FORBIDDEN": "У вас нет прав для этого действия.",
+    "VALIDATION_ERROR": "Проверьте введённые данные.",
+    "NETWORK": "Не удалось связаться с сервером. Проверьте подключение к интернету.",
+    "GENERIC": "Произошла непредвиденная ошибка. Попробуйте немного позже.",
+    "INVALID_EXAM_STATUS_TRANSITION": "Такое изменение статуса экзамена невозможно.",
+    "EXAM_NOT_EDITABLE": "Архивированный экзамен больше нельзя редактировать.",
+    "INVALID_EXAM_REGISTRATION_PERIOD": "Окончание регистрации должно быть позже начала."
+  }
+}

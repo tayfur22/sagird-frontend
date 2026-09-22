@@ -1,0 +1,22 @@
+.grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.fieldLabel {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+.fieldValue {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  word-break: break-word;
+}

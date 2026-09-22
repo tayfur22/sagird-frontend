@@ -1,12 +1,12 @@
 import type { Locale } from "./config";
 import az from "./dictionaries/az.json";
+import en from "./dictionaries/en.json";
+import ru from "./dictionaries/ru.json";
 
 const dictionaries: Record<Locale, typeof az> = {
   az,
-  // English and Russian dictionaries are added in a future phase; the
-  // lookup already falls back to Azerbaijani so nothing breaks meanwhile.
-  en: az,
-  ru: az,
+  en,
+  ru,
 };
 
 export function getDictionary(locale: Locale) {

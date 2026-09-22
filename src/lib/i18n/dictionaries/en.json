@@ -1,0 +1,332 @@
+{
+  "common": {
+    "loading": "Loading...",
+    "error": "Something went wrong",
+    "retry": "Try again",
+    "save": "Save",
+    "cancel": "Cancel",
+    "close": "Close",
+    "submitting": "Submitting...",
+    "required": "Required"
+  },
+  "nav": {
+    "home": "Home",
+    "exams": "Exams",
+    "leaderboard": "Leaderboard",
+    "statistics": "Statistics",
+    "explanations": "Explanations",
+    "about": "About",
+    "login": "Log in",
+    "register": "Sign up",
+    "dashboard": "Dashboard",
+    "myExams": "My exams",
+    "results": "Results",
+    "subscription": "Subscription",
+    "profile": "Profile",
+    "students": "Students",
+    "subscriptions": "Subscriptions",
+    "payments": "Payments",
+    "questions": "Questions",
+    "settings": "Settings",
+    "logout": "Log out",
+    "mainNavigation": "Main navigation"
+  },
+  "language": {
+    "az": "Azərbaycan",
+    "en": "English",
+    "ru": "Русский",
+    "switchLabel": "Change language"
+  },
+  "emptyState": {
+    "noExams": "No exams yet.",
+    "noResults": "No results yet.",
+    "generic": "Nothing to show here."
+  },
+  "roles": {
+    "STUDENT": "Student",
+    "ADMIN": "Admin"
+  },
+  "auth": {
+    "login": {
+      "title": "Log in",
+      "subtitle": "Sign in to your account to continue.",
+      "email": "Email",
+      "password": "Password",
+      "submit": "Log in",
+      "noAccount": "Don't have an account?",
+      "registerLink": "Sign up"
+    },
+    "register": {
+      "title": "Sign up",
+      "subtitle": "Create a student account.",
+      "firstName": "First name",
+      "lastName": "Last name",
+      "email": "Email",
+      "password": "Password",
+      "confirmPassword": "Confirm password",
+      "submit": "Create account",
+      "haveAccount": "Already have an account?",
+      "loginLink": "Log in"
+    },
+    "passwordRules": {
+      "title": "Password requirements",
+      "minLength": "At least 8 characters",
+      "lowercase": "A lowercase letter",
+      "uppercase": "An uppercase letter",
+      "digit": "A digit"
+    },
+    "checkingSession": "Checking session..."
+  },
+  "profile": {
+    "title": "Profile",
+    "personalInfo": "Personal information",
+    "email": "Email",
+    "emailHelp": "The email address cannot be changed.",
+    "firstName": "First name",
+    "lastName": "Last name",
+    "phone": "Phone",
+    "phonePlaceholder": "+994 50 123 45 67",
+    "grade": "Grade",
+    "gradePlaceholder": "Select grade",
+    "school": "School",
+    "city": "City",
+    "save": "Save",
+    "saved": "Profile updated.",
+    "changePassword": "Change password",
+    "currentPassword": "Current password",
+    "newPassword": "New password",
+    "confirmNewPassword": "Confirm new password",
+    "changePasswordSubmit": "Update password",
+    "passwordChanged": "Password changed. Sessions on other devices have been signed out."
+  },
+  "dashboard": {
+    "welcome": "Welcome, {name}!"
+  },
+  "subscription": {
+    "title": "Subscription",
+    "subtitle": "Your current subscription status and past subscription history.",
+    "startDate": "Start date",
+    "endDate": "End date",
+    "cancelledAt": "Cancelled on",
+    "remainingLabel": "Time remaining:",
+    "remainingDays": "{days} days left",
+    "remainingToday": "Ends today",
+    "plans": {
+      "MONTHLY": "Monthly plan"
+    },
+    "statuses": {
+      "ACTIVE": "Active",
+      "UPCOMING": "Upcoming",
+      "EXPIRED": "Expired",
+      "CANCELLED": "Cancelled"
+    },
+    "noSubscription": {
+      "title": "You don't have an active subscription",
+      "description": "You don't currently have a subscription. Payment will be added in the next phase."
+    },
+    "history": {
+      "title": "Subscription history",
+      "empty": "No subscription history yet.",
+      "columns": {
+        "plan": "Plan",
+        "status": "Status",
+        "startDate": "Start date",
+        "endDate": "End date"
+      }
+    },
+    "dashboard": {
+      "cardTitle": "Subscription",
+      "activeUntil": "Active until {date}",
+      "inactiveHint": "Your subscription has expired.",
+      "noneHint": "You don't have an active subscription.",
+      "viewDetails": "View details",
+      "upcomingHint": "Will become active on {date}.",
+      "cancelledHint": "Your subscription has been cancelled."
+    }
+  },
+  "payment": {
+    "providerUnknown": "Unknown",
+    "checkoutTitle": "Subscribe",
+    "checkoutSubtitle": "Start a payment to subscribe to the monthly plan.",
+    "planLabel": "Plan",
+    "subscribeButton": "Subscribe",
+    "createFailedTitle": "Could not start payment",
+    "amountLabel": "Amount",
+    "refreshStatus": "Refresh status",
+    "retryPayment": "Try again",
+    "subscriptionActivated": "Your subscription has been activated!",
+    "pending": {
+      "title": "Payment pending",
+      "description": "Your payment hasn't been confirmed yet. Check back shortly."
+    },
+    "processing": {
+      "title": "Payment processing",
+      "description": "Your payment is being processed. Please wait a moment."
+    },
+    "succeeded": {
+      "title": "Payment succeeded",
+      "description": "Your payment was confirmed and your subscription is now active."
+    },
+    "failed": {
+      "title": "Payment failed",
+      "description": "We couldn't complete this payment. You can try again."
+    },
+    "cancelled": {
+      "title": "Payment cancelled",
+      "description": "This payment was cancelled. You can try again."
+    },
+    "statuses": {
+      "PENDING": "Pending",
+      "PROCESSING": "Processing",
+      "SUCCEEDED": "Succeeded",
+      "FAILED": "Failed",
+      "CANCELLED": "Cancelled",
+      "REFUNDED": "Refunded"
+    },
+    "detail": {
+      "title": "Payment details",
+      "id": "Payment ID",
+      "status": "Status",
+      "plan": "Plan",
+      "amount": "Amount",
+      "provider": "Provider",
+      "failureReason": "Failure reason",
+      "paidAt": "Paid at",
+      "createdAt": "Created at"
+    },
+    "history": {
+      "title": "Payment history",
+      "empty": "You don't have any payments yet.",
+      "viewDetails": "View details",
+      "columns": {
+        "amount": "Amount",
+        "status": "Status",
+        "provider": "Provider",
+        "date": "Date"
+      }
+    }
+  },
+  "exam": {
+    "adminList": {
+      "title": "Exams",
+      "subtitle": "Manage every exam: create, publish and archive them.",
+      "createButton": "New exam",
+      "empty": "No exams have been created yet.",
+      "columns": {
+        "title": "Title",
+        "type": "Type",
+        "status": "Status",
+        "duration": "Duration",
+        "price": "Price",
+        "subscriptionRequired": "Subscription",
+        "registration": "Registration period",
+        "publishAt": "Publish date",
+        "actions": "Actions"
+      },
+      "actions": {
+        "view": "View",
+        "edit": "Edit",
+        "publish": "Publish",
+        "archive": "Archive"
+      }
+    },
+    "create": {
+      "title": "New exam",
+      "subtitle": "A new exam is created as DRAFT and stays hidden from students until it's published.",
+      "submit": "Create"
+    },
+    "edit": {
+      "title": "Edit exam",
+      "submit": "Save changes"
+    },
+    "detail": {
+      "type": "Type",
+      "status": "Status",
+      "duration": "Duration",
+      "durationValue": "{minutes} min",
+      "price": "Price",
+      "subscriptionRequired": "Subscription required",
+      "registrationPeriod": "Registration period",
+      "publishAt": "Publish date",
+      "notScheduled": "Not scheduled",
+      "createdAt": "Created",
+      "updatedAt": "Updated",
+      "backToList": "← Back to list"
+    },
+    "form": {
+      "title": "Title",
+      "description": "Description",
+      "type": "Type",
+      "durationMinutes": "Duration (minutes)",
+      "price": "Price",
+      "currency": "Currency",
+      "subscriptionRequired": "Subscription required",
+      "registrationStartAt": "Registration start",
+      "registrationEndAt": "Registration end",
+      "publishAt": "Publish date",
+      "publishAtHelp": "Leave empty and you'll publish the exam manually with the \"Publish\" button."
+    },
+    "statuses": {
+      "DRAFT": "Draft",
+      "PUBLISHED": "Published",
+      "ARCHIVED": "Archived"
+    },
+    "types": {
+      "WEEKLY": "Weekly",
+      "SPECIAL": "Special",
+      "MONTHLY": "Monthly"
+    },
+    "subscriptionRequired": {
+      "yes": "Yes",
+      "no": "No"
+    },
+    "toasts": {
+      "created": "Exam created.",
+      "updated": "Exam updated.",
+      "published": "Exam published.",
+      "archived": "Exam archived."
+    },
+    "student": {
+      "empty": "There are no published exams right now.",
+      "viewDetails": "View details",
+      "listTitle": "My Exams",
+      "listSubtitle": "Published exams you can take part in.",
+      "startExam": "Start exam",
+      "startExamHelp": "Starting an exam will be available in a later phase."
+    }
+  },
+  "validation": {
+    "REQUIRED": "This field is required.",
+    "TOO_LONG": "This value is too long.",
+    "INVALID_EMAIL": "Enter a valid email address.",
+    "INVALID_PHONE": "This phone number is not valid.",
+    "INVALID_GRADE": "Grade must be between 1 and 11.",
+    "PASSWORD_TOO_SHORT": "Password must be at least 8 characters.",
+    "PASSWORD_TOO_LONG": "Password cannot be longer than 72 characters.",
+    "PASSWORD_NEEDS_LOWERCASE": "Password must contain at least one lowercase letter.",
+    "PASSWORD_NEEDS_UPPERCASE": "Password must contain at least one uppercase letter.",
+    "PASSWORD_NEEDS_DIGIT": "Password must contain at least one digit.",
+    "PASSWORDS_MISMATCH": "Passwords do not match.",
+    "INVALID": "This value is not valid.",
+    "INVALID_DURATION": "Duration must be greater than 0.",
+    "INVALID_PRICE": "Price cannot be negative.",
+    "INVALID_CURRENCY": "Currency code must be 3 letters (e.g. AZN).",
+    "INVALID_EXAM_REGISTRATION_PERIOD": "Registration end must be after the start."
+  },
+  "errors": {
+    "INVALID_CREDENTIALS": "Email or password is incorrect.",
+    "EMAIL_ALREADY_EXISTS": "An account with this email already exists.",
+    "ACCOUNT_DISABLED": "This account has been disabled.",
+    "INVALID_CURRENT_PASSWORD": "Current password is incorrect.",
+    "PASSWORD_SAME_AS_CURRENT": "The new password must be different from the current one.",
+    "INVALID_REFRESH_TOKEN": "Your session has expired. Please log in again.",
+    "UNAUTHORIZED": "Please log in to continue.",
+    "FORBIDDEN": "You don't have permission to do this.",
+    "VALIDATION_ERROR": "Please check the information you entered.",
+    "NETWORK": "Could not reach the server. Check your internet connection.",
+    "GENERIC": "Something unexpected happened. Please try again shortly.",
+    "INVALID_EXAM_STATUS_TRANSITION": "This exam status change isn't allowed.",
+    "EXAM_NOT_EDITABLE": "An archived exam can no longer be edited.",
+    "INVALID_EXAM_REGISTRATION_PERIOD": "Registration end must be after the start."
+  }
+}

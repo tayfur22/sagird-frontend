@@ -138,6 +138,163 @@
       "cancelledHint": "Abunəliyiniz ləğv edilib."
     }
   },
+  "payment": {
+    "providerUnknown": "Naməlum",
+    "checkoutTitle": "Abunə ol",
+    "checkoutSubtitle": "Aylıq plana abunə olmaq üçün ödənişi başladın.",
+    "planLabel": "Plan",
+    "subscribeButton": "Abunə ol",
+    "createFailedTitle": "Ödənişi başlatmaq mümkün olmadı",
+    "amountLabel": "Məbləğ",
+    "refreshStatus": "Statusu yenilə",
+    "retryPayment": "Yenidən cəhd edin",
+    "subscriptionActivated": "Abunəliyiniz aktivləşdirildi!",
+    "pending": {
+      "title": "Ödəniş gözləyir",
+      "description": "Ödənişiniz hələ təsdiqlənməyib. Bir az sonra yoxlayın."
+    },
+    "processing": {
+      "title": "Ödəniş işlənir",
+      "description": "Ödənişiniz işlənir. Bir az gözləyin."
+    },
+    "succeeded": {
+      "title": "Ödəniş uğurludur",
+      "description": "Ödənişiniz təsdiqləndi və abunəliyiniz aktivdir."
+    },
+    "failed": {
+      "title": "Ödəniş uğursuz oldu",
+      "description": "Bu ödənişi tamamlamaq mümkün olmadı. Yenidən cəhd edə bilərsiniz."
+    },
+    "cancelled": {
+      "title": "Ödəniş ləğv edildi",
+      "description": "Bu ödəniş ləğv edildi. Yenidən cəhd edə bilərsiniz."
+    },
+    "statuses": {
+      "PENDING": "Gözləyir",
+      "PROCESSING": "İşlənir",
+      "SUCCEEDED": "Uğurlu",
+      "FAILED": "Uğursuz",
+      "CANCELLED": "Ləğv edilib",
+      "REFUNDED": "Geri qaytarılıb"
+    },
+    "detail": {
+      "title": "Ödəniş təfərrüatları",
+      "id": "Ödəniş ID",
+      "status": "Status",
+      "plan": "Plan",
+      "amount": "Məbləğ",
+      "provider": "Provayder",
+      "failureReason": "Uğursuzluq səbəbi",
+      "paidAt": "Ödənilmə tarixi",
+      "createdAt": "Yaradılma tarixi"
+    },
+    "history": {
+      "title": "Ödəniş tarixçəsi",
+      "empty": "Hələ heç bir ödənişiniz yoxdur.",
+      "viewDetails": "Təfərrüatlara bax",
+      "columns": {
+        "amount": "Məbləğ",
+        "status": "Status",
+        "provider": "Provayder",
+        "date": "Tarix"
+      }
+    }
+  },
+  "exam": {
+    "adminList": {
+      "title": "İmtahanlar",
+      "subtitle": "Bütün imtahanları idarə edin: yaradın, dərc edin və arxivləşdirin.",
+      "createButton": "Yeni imtahan",
+      "empty": "Hələ heç bir imtahan yaradılmayıb.",
+      "columns": {
+        "title": "Başlıq",
+        "type": "Tip",
+        "status": "Status",
+        "duration": "Müddət",
+        "price": "Qiymət",
+        "subscriptionRequired": "Abunəlik",
+        "registration": "Qeydiyyat dövrü",
+        "publishAt": "Dərc tarixi",
+        "actions": "Əməliyyatlar"
+      },
+      "actions": {
+        "view": "Bax",
+        "edit": "Redaktə et",
+        "publish": "Dərc et",
+        "archive": "Arxivləşdir"
+      }
+    },
+    "create": {
+      "title": "Yeni imtahan",
+      "subtitle": "Yeni imtahan DRAFT statusu ilə yaradılır və dərc olunana qədər tələbələrə görünmür.",
+      "submit": "Yarat"
+    },
+    "edit": {
+      "title": "İmtahanı redaktə et",
+      "submit": "Yadda saxla"
+    },
+    "detail": {
+      "type": "Tip",
+      "status": "Status",
+      "duration": "Müddət",
+      "durationValue": "{minutes} dəqiqə",
+      "price": "Qiymət",
+      "subscriptionRequired": "Abunəlik tələb olunur",
+      "registrationPeriod": "Qeydiyyat dövrü",
+      "publishAt": "Dərc tarixi",
+      "notScheduled": "Təyin edilməyib",
+      "createdAt": "Yaradılıb",
+      "updatedAt": "Yenilənib",
+      "backToList": "← Siyahıya qayıt"
+    },
+    "form": {
+      "title": "Başlıq",
+      "description": "Təsvir",
+      "type": "Tip",
+      "durationMinutes": "Müddət (dəqiqə)",
+      "price": "Qiymət",
+      "currency": "Valyuta",
+      "subscriptionRequired": "Abunəlik tələb olunur",
+      "registrationStartAt": "Qeydiyyat başlanğıcı",
+      "registrationEndAt": "Qeydiyyat sonu",
+      "publishAt": "Dərc tarixi",
+      "publishAtHelp": "Boş saxlasanız, imtahanı \"Dərc et\" düyməsi ilə əl ilə dərc etməli olacaqsınız."
+    },
+    "statuses": {
+      "DRAFT": "Qaralama",
+      "PUBLISHED": "Dərc olunub",
+      "ARCHIVED": "Arxivləşdirilib"
+    },
+    "types": {
+      "WEEKLY": "Həftəlik",
+      "SPECIAL": "Xüsusi",
+      "MONTHLY": "Aylıq"
+    },
+    "subscriptionRequired": {
+      "yes": "Bəli",
+      "no": "Xeyr"
+    },
+    "toasts": {
+      "created": "İmtahan yaradıldı.",
+      "updated": "İmtahan yeniləndi.",
+      "published": "İmtahan dərc olundu.",
+      "archived": "İmtahan arxivləşdirildi."
+    },
+    "student": {
+      "empty": "Hazırda dərc olunmuş imtahan yoxdur.",
+      "viewDetails": "Ətraflı bax",
+      "listTitle": "İmtahanlarım",
+      "listSubtitle": "Qoşula biləcəyiniz dərc olunmuş imtahanlar.",
+      "startExam": "İmtahana başla",
+      "startExamHelp": "İmtahana başlama funksiyası növbəti mərhələdə əlavə olunacaq."
+    }
+  },
+  "language": {
+    "az": "Azərbaycan",
+    "en": "English",
+    "ru": "Русский",
+    "switchLabel": "Dili dəyiş"
+  },
   "validation": {
     "REQUIRED": "Bu sahə mütləqdir.",
     "TOO_LONG": "Dəyər çox uzundur.",
@@ -150,7 +307,11 @@
     "PASSWORD_NEEDS_UPPERCASE": "Şifrədə ən azı bir böyük hərf olmalıdır.",
     "PASSWORD_NEEDS_DIGIT": "Şifrədə ən azı bir rəqəm olmalıdır.",
     "PASSWORDS_MISMATCH": "Şifrələr uyğun gəlmir.",
-    "INVALID": "Dəyər düzgün deyil."
+    "INVALID": "Dəyər düzgün deyil.",
+    "INVALID_DURATION": "Müddət 0-dan böyük olmalıdır.",
+    "INVALID_PRICE": "Qiymət mənfi ola bilməz.",
+    "INVALID_CURRENCY": "Valyuta kodu 3 hərfdən ibarət olmalıdır (məs. AZN).",
+    "INVALID_EXAM_REGISTRATION_PERIOD": "Qeydiyyat sonu başlanğıcdan sonra olmalıdır."
   },
   "errors": {
     "INVALID_CREDENTIALS": "E-poçt və ya şifrə yanlışdır.",
@@ -163,6 +324,9 @@
     "FORBIDDEN": "Bu əməliyyat üçün icazəniz yoxdur.",
     "VALIDATION_ERROR": "Daxil edilən məlumatları yoxlayın.",
     "NETWORK": "Serverlə əlaqə qurmaq mümkün olmadı. İnternet bağlantınızı yoxlayın.",
-    "GENERIC": "Gözlənilməz xəta baş verdi. Bir az sonra yenidən cəhd edin."
+    "GENERIC": "Gözlənilməz xəta baş verdi. Bir az sonra yenidən cəhd edin.",
+    "INVALID_EXAM_STATUS_TRANSITION": "İmtahanın bu status dəyişikliyi mümkün deyil.",
+    "EXAM_NOT_EDITABLE": "Arxivləşdirilmiş imtahan artıq redaktə oluna bilməz.",
+    "INVALID_EXAM_REGISTRATION_PERIOD": "Qeydiyyat sonu başlanğıcdan sonra olmalıdır."
   }
 }
