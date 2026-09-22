@@ -8,7 +8,7 @@ const ADMIN_NAV: NavItem[] = [
   { label: "Abunəliklər", href: "/admin/subscriptions", disabled: true },
   { label: "Ödənişlər", href: "/admin/payments", disabled: true },
   { label: "İmtahanlar", href: "/admin/exams" },
-  { label: "Suallar", href: "/admin/questions", disabled: true },
+  { label: "Suallar", href: "/admin/questions" },
   { label: "Nəticələr", href: "/admin/results", disabled: true },
   { label: "Liderlər", href: "/admin/leaderboard", disabled: true },
   { label: "Statistika", href: "/admin/statistics", disabled: true },

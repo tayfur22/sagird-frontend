@@ -295,6 +295,119 @@
       "startExamHelp": "Starting an exam will be available in a later phase."
     }
   },
+  "question": {
+    "adminList": {
+      "title": "Questions",
+      "subtitle": "Manage the question bank: create, edit, activate and deactivate questions.",
+      "createButton": "New question",
+      "empty": "No questions have been created yet."
+    },
+    "create": {
+      "title": "New question",
+      "subtitle": "A new question is added to the bank as soon as it's created and can then be added to exams.",
+      "submit": "Create"
+    },
+    "edit": {
+      "title": "Edit question",
+      "submit": "Save"
+    },
+    "detail": {
+      "backToList": "← Back to list",
+      "type": "Type",
+      "status": "Status",
+      "points": "Points",
+      "explanation": "Explanation",
+      "options": "Options",
+      "correct": "Correct",
+      "correctCount": "Correct answers",
+      "createdAt": "Created",
+      "updatedAt": "Updated",
+      "activate": "Activate",
+      "deactivate": "Deactivate"
+    },
+    "form": {
+      "questionText": "Question text",
+      "type": "Type",
+      "points": "Points",
+      "explanation": "Explanation",
+      "explanationHelp": "Optional - can be shown to the student after they answer."
+    },
+    "options": {
+      "label": "Options",
+      "correct": "Correct",
+      "textLabel": "Option text",
+      "moveUp": "Move up",
+      "moveDown": "Move down",
+      "remove": "Remove",
+      "add": "Add option",
+      "shortAnswerNote": "This question type doesn't need options.",
+      "trueLabel": "True",
+      "falseLabel": "False"
+    },
+    "types": {
+      "SINGLE_CHOICE": "Single choice",
+      "MULTIPLE_CHOICE": "Multiple choice",
+      "TRUE_FALSE": "True/False",
+      "SHORT_ANSWER": "Short answer"
+    },
+    "statuses": {
+      "active": "Active",
+      "inactive": "Inactive"
+    },
+    "table": {
+      "searchLabel": "Search",
+      "searchPlaceholder": "Search by question text...",
+      "typeFilterLabel": "Type",
+      "statusFilterLabel": "Status",
+      "allTypes": "All types",
+      "allStatuses": "All statuses",
+      "empty": "No questions found.",
+      "columns": {
+        "questionText": "Question",
+        "type": "Type",
+        "points": "Points",
+        "status": "Status",
+        "actions": "Actions"
+      },
+      "actions": {
+        "view": "View",
+        "edit": "Edit"
+      }
+    },
+    "picker": {
+      "add": "Add",
+      "alreadyAdded": "Already added",
+      "empty": "No questions found."
+    },
+    "examQuestions": {
+      "title": "Questions for \"{title}\"",
+      "manageLink": "Manage questions",
+      "addButton": "Add question",
+      "readOnlyNotice": "This exam is published or archived, so the question list is read-only.",
+      "empty": "No questions have been added to this exam yet.",
+      "pickerTitle": "Add from question bank",
+      "moveUp": "Move up",
+      "moveDown": "Move down",
+      "remove": "Remove",
+      "columns": {
+        "order": "Order",
+        "questionText": "Question",
+        "type": "Type",
+        "points": "Points",
+        "actions": "Actions"
+      },
+      "toasts": {
+        "added": "Question added to the exam.",
+        "removed": "Question removed from the exam."
+      }
+    },
+    "toasts": {
+      "created": "Question created.",
+      "updated": "Question updated.",
+      "activated": "Question activated.",
+      "deactivated": "Question deactivated."
+    }
+  },
   "validation": {
     "REQUIRED": "This field is required.",
     "TOO_LONG": "This value is too long.",
@@ -311,7 +424,9 @@
     "INVALID_DURATION": "Duration must be greater than 0.",
     "INVALID_PRICE": "Price cannot be negative.",
     "INVALID_CURRENCY": "Currency code must be 3 letters (e.g. AZN).",
-    "INVALID_EXAM_REGISTRATION_PERIOD": "Registration end must be after the start."
+    "INVALID_EXAM_REGISTRATION_PERIOD": "Registration end must be after the start.",
+    "INVALID_QUESTION_OPTIONS": "The options aren't valid for this question type.",
+    "INVALID_POINTS": "Points must be a positive whole number."
   },
   "errors": {
     "INVALID_CREDENTIALS": "Email or password is incorrect.",
@@ -327,6 +442,10 @@
     "GENERIC": "Something unexpected happened. Please try again shortly.",
     "INVALID_EXAM_STATUS_TRANSITION": "This exam status change isn't allowed.",
     "EXAM_NOT_EDITABLE": "An archived exam can no longer be edited.",
-    "INVALID_EXAM_REGISTRATION_PERIOD": "Registration end must be after the start."
+    "INVALID_EXAM_REGISTRATION_PERIOD": "Registration end must be after the start.",
+    "INVALID_QUESTION_OPTIONS": "The options aren't valid for this question type.",
+    "EXAM_QUESTION_ALREADY_ADDED": "This question has already been added to the exam.",
+    "INVALID_EXAM_QUESTION_ORDER": "The question order isn't valid.",
+    "INVALID_POINTS": "Points must be a positive whole number."
   }
 }

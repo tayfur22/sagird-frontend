@@ -289,6 +289,119 @@
       "startExamHelp": "İmtahana başlama funksiyası növbəti mərhələdə əlavə olunacaq."
     }
   },
+  "question": {
+    "adminList": {
+      "title": "Suallar",
+      "subtitle": "Bütün sualları idarə edin: yaradın, redaktə edin, aktivləşdirin və ya deaktiv edin.",
+      "createButton": "Yeni sual",
+      "empty": "Hələ heç bir sual yaradılmayıb."
+    },
+    "create": {
+      "title": "Yeni sual",
+      "subtitle": "Yeni sual yaradılan kimi sual bankına əlavə olunur və imtahanlara əlavə edilə bilər.",
+      "submit": "Yarat"
+    },
+    "edit": {
+      "title": "Sualı redaktə et",
+      "submit": "Yadda saxla"
+    },
+    "detail": {
+      "backToList": "← Siyahıya qayıt",
+      "type": "Tip",
+      "status": "Status",
+      "points": "Bal",
+      "explanation": "İzah",
+      "options": "Variantlar",
+      "correct": "Düzgün",
+      "correctCount": "Düzgün cavablar",
+      "createdAt": "Yaradılıb",
+      "updatedAt": "Yenilənib",
+      "activate": "Aktivləşdir",
+      "deactivate": "Deaktiv et"
+    },
+    "form": {
+      "questionText": "Sual mətni",
+      "type": "Tip",
+      "points": "Bal",
+      "explanation": "İzah",
+      "explanationHelp": "İstəyə bağlıdır - şagirdə cavabdan sonra göstərilə bilər."
+    },
+    "options": {
+      "label": "Variantlar",
+      "correct": "Düzgün",
+      "textLabel": "Variant mətni",
+      "moveUp": "Yuxarı köçür",
+      "moveDown": "Aşağı köçür",
+      "remove": "Sil",
+      "add": "Variant əlavə et",
+      "shortAnswerNote": "Bu tip sual üçün variant tələb olunmur.",
+      "trueLabel": "Doğru",
+      "falseLabel": "Yanlış"
+    },
+    "types": {
+      "SINGLE_CHOICE": "Tək seçim",
+      "MULTIPLE_CHOICE": "Çox seçim",
+      "TRUE_FALSE": "Doğru/Yanlış",
+      "SHORT_ANSWER": "Qısa cavab"
+    },
+    "statuses": {
+      "active": "Aktiv",
+      "inactive": "Qeyri-aktiv"
+    },
+    "table": {
+      "searchLabel": "Axtarış",
+      "searchPlaceholder": "Sual mətni üzrə axtar...",
+      "typeFilterLabel": "Tip",
+      "statusFilterLabel": "Status",
+      "allTypes": "Bütün tiplər",
+      "allStatuses": "Bütün statuslar",
+      "empty": "Heç bir sual tapılmadı.",
+      "columns": {
+        "questionText": "Sual",
+        "type": "Tip",
+        "points": "Bal",
+        "status": "Status",
+        "actions": "Əməliyyatlar"
+      },
+      "actions": {
+        "view": "Bax",
+        "edit": "Redaktə et"
+      }
+    },
+    "picker": {
+      "add": "Əlavə et",
+      "alreadyAdded": "Artıq əlavə edilib",
+      "empty": "Heç bir sual tapılmadı."
+    },
+    "examQuestions": {
+      "title": "\"{title}\" imtahanının sualları",
+      "manageLink": "Sualları idarə et",
+      "addButton": "Sual əlavə et",
+      "readOnlyNotice": "İmtahan dərc olunub və ya arxivləşdirilib, buna görə sual siyahısı yalnız oxumaq üçündür.",
+      "empty": "Bu imtahana hələ heç bir sual əlavə edilməyib.",
+      "pickerTitle": "Sual bankından əlavə et",
+      "moveUp": "Yuxarı köçür",
+      "moveDown": "Aşağı köçür",
+      "remove": "Sil",
+      "columns": {
+        "order": "Sıra",
+        "questionText": "Sual",
+        "type": "Tip",
+        "points": "Bal",
+        "actions": "Əməliyyatlar"
+      },
+      "toasts": {
+        "added": "Sual imtahana əlavə edildi.",
+        "removed": "Sual imtahandan silindi."
+      }
+    },
+    "toasts": {
+      "created": "Sual yaradıldı.",
+      "updated": "Sual yeniləndi.",
+      "activated": "Sual aktivləşdirildi.",
+      "deactivated": "Sual deaktiv edildi."
+    }
+  },
   "language": {
     "az": "Azərbaycan",
     "en": "English",
@@ -311,7 +424,9 @@
     "INVALID_DURATION": "Müddət 0-dan böyük olmalıdır.",
     "INVALID_PRICE": "Qiymət mənfi ola bilməz.",
     "INVALID_CURRENCY": "Valyuta kodu 3 hərfdən ibarət olmalıdır (məs. AZN).",
-    "INVALID_EXAM_REGISTRATION_PERIOD": "Qeydiyyat sonu başlanğıcdan sonra olmalıdır."
+    "INVALID_EXAM_REGISTRATION_PERIOD": "Qeydiyyat sonu başlanğıcdan sonra olmalıdır.",
+    "INVALID_QUESTION_OPTIONS": "Variantlar bu sual tipi üçün düzgün deyil.",
+    "INVALID_POINTS": "Bal müsbət tam ədəd olmalıdır."
   },
   "errors": {
     "INVALID_CREDENTIALS": "E-poçt və ya şifrə yanlışdır.",
@@ -327,6 +442,10 @@
     "GENERIC": "Gözlənilməz xəta baş verdi. Bir az sonra yenidən cəhd edin.",
     "INVALID_EXAM_STATUS_TRANSITION": "İmtahanın bu status dəyişikliyi mümkün deyil.",
     "EXAM_NOT_EDITABLE": "Arxivləşdirilmiş imtahan artıq redaktə oluna bilməz.",
-    "INVALID_EXAM_REGISTRATION_PERIOD": "Qeydiyyat sonu başlanğıcdan sonra olmalıdır."
+    "INVALID_EXAM_REGISTRATION_PERIOD": "Qeydiyyat sonu başlanğıcdan sonra olmalıdır.",
+    "INVALID_QUESTION_OPTIONS": "Variantlar bu sual tipi üçün düzgün deyil.",
+    "EXAM_QUESTION_ALREADY_ADDED": "Bu sual artıq imtahana əlavə edilib.",
+    "INVALID_EXAM_QUESTION_ORDER": "Sualların sırası düzgün deyil.",
+    "INVALID_POINTS": "Bal müsbət tam ədəd olmalıdır."
   }
 }

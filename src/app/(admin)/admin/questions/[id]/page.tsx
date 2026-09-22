@@ -7,37 +7,37 @@ import { Alert } from "@/components/ui/Alert";
 import { Button, ButtonLink } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { Skeleton } from "@/components/ui/Skeleton";
-import { ExamDetailFields } from "@/components/exam/ExamDetailFields";
-import { ExamStatusBadge } from "@/components/exam/ExamStatusBadge";
-import { adminExamApi } from "@/lib/exam/exam-api";
+import { QuestionDetailFields } from "@/components/question/QuestionDetailFields";
+import { QuestionStatusBadge } from "@/components/question/QuestionStatusBadge";
+import { useToast } from "@/hooks/useToast";
+import { adminQuestionApi } from "@/lib/question/question-api";
 import { apiErrorMessage } from "@/lib/i18n/translate-error";
 import { useTranslation } from "@/lib/i18n/LocaleProvider";
-import type { ExamResponse } from "@/types/exam";
+import type { QuestionResponse } from "@/types/question";
 import styles from "./page.module.css";
 
-/**
- * Read-only admin view of a single exam (GET /api/v1/admin/exams/{id}).
- * Questions are intentionally not shown here - Question Bank is Phase 6.
- */
-export default function AdminExamDetailPage() {
+/** Read-only admin view of a single question (GET /api/v1/admin/questions/{id}), with activate/deactivate. */
+export default function AdminQuestionDetailPage() {
   const t = useTranslation();
+  const { showToast } = useToast();
   const params = useParams<{ id: string }>();
   const id = params.id;
 
-  const [exam, setExam] = useState<ExamResponse | null>(null);
+  const [question, setQuestion] = useState<QuestionResponse | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [retryToken, setRetryToken] = useState(0);
+  const [actioning, setActioning] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
     setLoading(true);
     setError(null);
 
-    adminExamApi
+    adminQuestionApi
       .getById(id)
       .then((response) => {
-        if (!cancelled) setExam(response);
+        if (!cancelled) setQuestion(response);
       })
       .catch((err: unknown) => {
         if (!cancelled) setError(apiErrorMessage(err));
@@ -51,10 +51,24 @@ export default function AdminExamDetailPage() {
     };
   }, [id, retryToken]);
 
+  async function handleToggleActive() {
+    if (!question) return;
+    setActioning(true);
+    try {
+      const updated = question.active ? await adminQuestionApi.deactivate(id) : await adminQuestionApi.activate(id);
+      setQuestion(updated);
+      showToast(updated.active ? t.question.toasts.activated : t.question.toasts.deactivated, "success");
+    } catch (err) {
+      showToast(apiErrorMessage(err), "error");
+    } finally {
+      setActioning(false);
+    }
+  }
+
   return (
     <div className={styles.page}>
-      <Link href="/admin/exams" className={styles.backLink}>
-        {t.exam.detail.backToList}
+      <Link href="/admin/questions" className={styles.backLink}>
+        {t.question.detail.backToList}
       </Link>
 
       {loading && (
@@ -77,30 +91,32 @@ export default function AdminExamDetailPage() {
         </Alert>
       )}
 
-      {!loading && !error && exam && (
+      {!loading && !error && question && (
         <>
           <div className={styles.header}>
             <div className={styles.titleRow}>
-              <h1 className={styles.heading}>{exam.title}</h1>
-              <ExamStatusBadge status={exam.status} />
+              <h1 className={styles.heading}>{question.questionText}</h1>
+              <QuestionStatusBadge active={question.active} />
             </div>
 
             <div className={styles.actions}>
-              {exam.status === "DRAFT" && (
-                <ButtonLink href={`/admin/exams/${exam.id}/edit`} variant="secondary" size="sm">
-                  {t.exam.adminList.actions.edit}
-                </ButtonLink>
-              )}
-              <ButtonLink href={`/admin/exams/${exam.id}/questions`} variant="secondary" size="sm">
-                {t.question.examQuestions.manageLink}
+              <ButtonLink href={`/admin/questions/${question.id}/edit`} variant="secondary" size="sm">
+                {t.question.table.actions.edit}
               </ButtonLink>
+              <Button
+                variant={question.active ? "danger" : "primary"}
+                size="sm"
+                onClick={() => void handleToggleActive()}
+                loading={actioning}
+                disabled={actioning}
+              >
+                {question.active ? t.question.detail.deactivate : t.question.detail.activate}
+              </Button>
             </div>
           </div>
 
-          {exam.description && <p className={styles.description}>{exam.description}</p>}
-
           <Card>
-            <ExamDetailFields exam={exam} showAdminFields />
+            <QuestionDetailFields question={question} />
           </Card>
         </>
       )}
