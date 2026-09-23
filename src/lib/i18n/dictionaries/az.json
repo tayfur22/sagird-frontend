@@ -484,6 +484,16 @@
       "title": "İmtahan təqdim edildi",
       "description": "Cavablarınız uğurla qeydə alındı."
     },
+    "result": {
+      "title": "İmtahan tamamlandı",
+      "scoreLabel": "Bal",
+      "maxScoreLabel": "Maksimum bal",
+      "percentageLabel": "Faiz",
+      "statusLabel": "Nəticə",
+      "passed": "Keçdi",
+      "notPassed": "Keçmədi",
+      "pending": "Nəticə statusu gözləmədə"
+    },
     "expired": {
       "title": "İmtahanın vaxtı bitib",
       "description": "Bu cəhd üçün ayrılmış vaxt başa çatdı və artıq davam etdirilə bilməz."

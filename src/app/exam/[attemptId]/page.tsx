@@ -9,6 +9,7 @@ import { EmptyState } from "@/components/ui/EmptyState";
 import { Modal } from "@/components/ui/Modal";
 import { Skeleton } from "@/components/ui/Skeleton";
 import { RequireAuth } from "@/components/auth/RequireAuth";
+import { AttemptResult } from "@/components/exam/AttemptResult";
 import { AttemptStatusBadge } from "@/components/exam/AttemptStatusBadge";
 import { AttemptTimer } from "@/components/exam/AttemptTimer";
 import { ExamQuestionView } from "@/components/exam/ExamQuestionView";
@@ -17,6 +18,7 @@ import { useAnswerAutosave } from "@/hooks/useAnswerAutosave";
 import { useAttemptTimer } from "@/hooks/useAttemptTimer";
 import { attemptApi } from "@/lib/attempt/attempt-api";
 import { examApi } from "@/lib/exam/exam-api";
+import { ApiError } from "@/lib/api/errors";
 import { apiErrorMessage } from "@/lib/i18n/translate-error";
 import { useTranslation } from "@/lib/i18n/LocaleProvider";
 import type { ExamAttemptResponse } from "@/types/attempt";
@@ -161,7 +163,19 @@ function AttemptView() {
       setAttempt(updated);
       setConfirmOpen(false);
     } catch (err: unknown) {
-      setSubmitError(apiErrorMessage(err));
+      // The attempt was already submitted (e.g. a duplicate click, or a retry after a
+      // dropped response) - recover the persisted result instead of showing a failure.
+      if (ApiError.isApiError(err) && err.code === "ATTEMPT_ALREADY_SUBMITTED") {
+        try {
+          const current = await attemptApi.getById(attemptId);
+          setAttempt(current);
+          setConfirmOpen(false);
+        } catch {
+          setSubmitError(apiErrorMessage(err));
+        }
+      } else {
+        setSubmitError(apiErrorMessage(err));
+      }
     } finally {
       submittingRef.current = false;
       setSubmitting(false);
@@ -268,14 +282,7 @@ function AttemptView() {
         </>
       )}
 
-      {attempt.status === "SUBMITTED" && (
-        <Alert variant="success" title={t.attempt.submitted.title}>
-          <p>{t.attempt.submitted.description}</p>
-          <ButtonLink href="/student/exams" variant="secondary" size="sm" style={{ marginTop: "var(--space-3)" }}>
-            {t.attempt.backToExams}
-          </ButtonLink>
-        </Alert>
-      )}
+      {attempt.status === "SUBMITTED" && <AttemptResult attempt={attempt} />}
 
       {attempt.status === "EXPIRED" && (
         <Alert variant="warning" title={t.attempt.expired.title}>

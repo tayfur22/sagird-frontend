@@ -484,6 +484,16 @@
       "title": "Exam submitted",
       "description": "Your attempt has been recorded."
     },
+    "result": {
+      "title": "Exam completed",
+      "scoreLabel": "Score",
+      "maxScoreLabel": "Max score",
+      "percentageLabel": "Percentage",
+      "statusLabel": "Result",
+      "passed": "Passed",
+      "notPassed": "Not passed",
+      "pending": "Result status pending"
+    },
     "expired": {
       "title": "Exam time is up",
       "description": "The time allotted for this attempt has run out and it can no longer be continued."
