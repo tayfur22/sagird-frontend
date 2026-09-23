@@ -286,7 +286,7 @@
       "listTitle": "İmtahanlarım",
       "listSubtitle": "Qoşula biləcəyiniz dərc olunmuş imtahanlar.",
       "startExam": "İmtahana başla",
-      "startExamHelp": "İmtahana başlama funksiyası növbəti mərhələdə əlavə olunacaq."
+      "startExamHelp": "Başladıqdan sonra vaxt sayılmağa başlayacaq və dayandırıla bilməz."
     }
   },
   "question": {
@@ -446,6 +446,76 @@
     "INVALID_QUESTION_OPTIONS": "Variantlar bu sual tipi üçün düzgün deyil.",
     "EXAM_QUESTION_ALREADY_ADDED": "Bu sual artıq imtahana əlavə edilib.",
     "INVALID_EXAM_QUESTION_ORDER": "Sualların sırası düzgün deyil.",
-    "INVALID_POINTS": "Bal müsbət tam ədəd olmalıdır."
+    "INVALID_POINTS": "Bal müsbət tam ədəd olmalıdır.",
+    "ACTIVE_ATTEMPT_ALREADY_EXISTS": "Bu imtahan üçün artıq davam edən cəhdiniz var.",
+    "ATTEMPT_ALREADY_SUBMITTED": "Bu cəhd artıq təqdim edilib.",
+    "ATTEMPT_EXPIRED": "Cəhdin vaxtı bitib, artıq təqdim edilə bilməz.",
+    "EXAM_SUBSCRIPTION_REQUIRED": "Bu imtahana başlamaq üçün aktiv abunəlik tələb olunur.",
+    "QUESTION_NOT_IN_ATTEMPT": "Bu sual sizin imtahanınıza aid deyil.",
+    "INVALID_ANSWER_OPTION": "Bu cavab sual üçün etibarlı deyil."
+  },
+  "attempt": {
+    "start": {
+      "action": "İmtahana başla",
+      "starting": "Başlanılır...",
+      "continueAction": "İmtahana davam et"
+    },
+    "statuses": {
+      "IN_PROGRESS": "Davam edir",
+      "SUBMITTED": "Təqdim edilib",
+      "EXPIRED": "Vaxtı bitib",
+      "CANCELLED": "Ləğv edilib"
+    },
+    "timer": {
+      "remaining": "Qalan vaxt",
+      "expired": "Vaxt bitib"
+    },
+    "inProgress": {
+      "title": "İmtahan davam edir",
+      "description": "Cavablarınızı vaxtında tamamlayın. Bu mərhələdə suallar hələ mövcud deyil.",
+      "submitAction": "İmtahanı bitir",
+      "submitting": "Göndərilir...",
+      "confirmTitle": "İmtahanı təqdim etmək istədiyinizə əminsiniz?",
+      "confirmDescription": "Təqdim etdikdən sonra bu cəhdə geri qayıda bilməyəcəksiniz.",
+      "confirmAction": "Bəli, təqdim et",
+      "confirmCancel": "Ləğv et"
+    },
+    "submitted": {
+      "title": "İmtahan təqdim edildi",
+      "description": "Cavablarınız uğurla qeydə alındı."
+    },
+    "expired": {
+      "title": "İmtahanın vaxtı bitib",
+      "description": "Bu cəhd üçün ayrılmış vaxt başa çatdı və artıq davam etdirilə bilməz."
+    },
+    "cancelled": {
+      "title": "Cəhd ləğv edilib",
+      "description": "Bu imtahan cəhdi ləğv edilib."
+    },
+    "backToExam": "İmtahana qayıt",
+    "backToExams": "İmtahanlara qayıt",
+    "notFound": {
+      "title": "Cəhd tapılmadı",
+      "description": "Axtardığınız imtahan cəhdi mövcud deyil və ya sizə aid deyil."
+    },
+    "exam": {
+      "questionOf": "{current} / {total} sual",
+      "questionShort": "Sual",
+      "navigatorLabel": "Suallar arasında keçid",
+      "previous": "Əvvəlki",
+      "next": "Növbəti",
+      "answered": "Cavablandırılıb",
+      "unanswered": "Cavablandırılmayıb",
+      "saving": "Yadda saxlanılır...",
+      "saved": "Yadda saxlanıldı",
+      "saveFailed": "Yadda saxlanılmadı",
+      "loadError": "Suallar yüklənə bilmədi.",
+      "noQuestions": {
+        "title": "Sual yoxdur",
+        "description": "Bu imtahan üçün hələ sual əlavə edilməyib."
+      },
+      "confirmUnanswered": "{count} sual hələ cavablandırılmayıb.",
+      "confirmAllAnswered": "Bütün suallar cavablandırılıb."
+    }
   }
 }

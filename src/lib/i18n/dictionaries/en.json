@@ -292,7 +292,7 @@
       "listTitle": "My Exams",
       "listSubtitle": "Published exams you can take part in.",
       "startExam": "Start exam",
-      "startExamHelp": "Starting an exam will be available in a later phase."
+      "startExamHelp": "Once started, the timer begins and cannot be paused."
     }
   },
   "question": {
@@ -446,6 +446,76 @@
     "INVALID_QUESTION_OPTIONS": "The options aren't valid for this question type.",
     "EXAM_QUESTION_ALREADY_ADDED": "This question has already been added to the exam.",
     "INVALID_EXAM_QUESTION_ORDER": "The question order isn't valid.",
-    "INVALID_POINTS": "Points must be a positive whole number."
+    "INVALID_POINTS": "Points must be a positive whole number.",
+    "ACTIVE_ATTEMPT_ALREADY_EXISTS": "You already have an active attempt for this exam.",
+    "ATTEMPT_ALREADY_SUBMITTED": "This attempt has already been submitted.",
+    "ATTEMPT_EXPIRED": "This attempt has expired and can no longer be submitted.",
+    "EXAM_SUBSCRIPTION_REQUIRED": "An active subscription is required to start this exam.",
+    "QUESTION_NOT_IN_ATTEMPT": "This question does not belong to your exam.",
+    "INVALID_ANSWER_OPTION": "This answer is not valid for the question."
+  },
+  "attempt": {
+    "start": {
+      "action": "Start exam",
+      "starting": "Starting...",
+      "continueAction": "Continue exam"
+    },
+    "statuses": {
+      "IN_PROGRESS": "In progress",
+      "SUBMITTED": "Submitted",
+      "EXPIRED": "Time's up",
+      "CANCELLED": "Cancelled"
+    },
+    "timer": {
+      "remaining": "Time remaining",
+      "expired": "Time's up"
+    },
+    "inProgress": {
+      "title": "Exam in progress",
+      "description": "Finish within the time limit. Questions aren't available in this phase yet.",
+      "submitAction": "Finish exam",
+      "submitting": "Submitting...",
+      "confirmTitle": "Submit this exam?",
+      "confirmDescription": "Once submitted, you won't be able to return to this attempt.",
+      "confirmAction": "Yes, submit",
+      "confirmCancel": "Cancel"
+    },
+    "submitted": {
+      "title": "Exam submitted",
+      "description": "Your attempt has been recorded."
+    },
+    "expired": {
+      "title": "Exam time is up",
+      "description": "The time allotted for this attempt has run out and it can no longer be continued."
+    },
+    "cancelled": {
+      "title": "Attempt cancelled",
+      "description": "This exam attempt has been cancelled."
+    },
+    "backToExam": "Back to exam",
+    "backToExams": "Back to my exams",
+    "notFound": {
+      "title": "Attempt not found",
+      "description": "The exam attempt you're looking for doesn't exist or isn't yours."
+    },
+    "exam": {
+      "questionOf": "Question {current} of {total}",
+      "questionShort": "Question",
+      "navigatorLabel": "Jump to question",
+      "previous": "Previous",
+      "next": "Next",
+      "answered": "Answered",
+      "unanswered": "Unanswered",
+      "saving": "Saving…",
+      "saved": "Saved",
+      "saveFailed": "Save failed",
+      "loadError": "Could not load the questions.",
+      "noQuestions": {
+        "title": "No questions yet",
+        "description": "This exam doesn't have any questions added yet."
+      },
+      "confirmUnanswered": "{count} question(s) are still unanswered.",
+      "confirmAllAnswered": "All questions are answered."
+    }
   }
 }

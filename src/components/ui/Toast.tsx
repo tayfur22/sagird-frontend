@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useCallback, useContext, useMemo, useState, type ReactNode } from "react";
+import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
 import { createPortal } from "react-dom";
 import { cn } from "@/lib/utils/cn";
 import styles from "./Toast.module.css";
@@ -23,6 +23,18 @@ let nextId = 1;
 
 export function ToastProvider({ children }: { children: ReactNode }) {
   const [toasts, setToasts] = useState<Toast[]>([]);
+  // The portal must not render on the server (no document) or during the
+  // client's first (hydration) pass - both must produce identical markup.
+  // `typeof document !== "undefined"` alone is already true on the client's
+  // very first render, before hydration reconciles, which is exactly what
+  // caused the mismatch. Gating on state that starts false and only flips
+  // true in an effect (i.e. strictly after hydration) fixes that without
+  // disabling SSR or suppressing the warning.
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const showToast = useCallback((message: string, variant: ToastVariant = "info") => {
     const id = nextId++;
@@ -37,7 +49,7 @@ export function ToastProvider({ children }: { children: ReactNode }) {
   return (
     <ToastContext.Provider value={value}>
       {children}
-      {typeof document !== "undefined" &&
+      {mounted &&
         createPortal(
           <div className={styles.viewport} role="region" aria-label="Bildirişlər">
             {toasts.map((toast) => (
