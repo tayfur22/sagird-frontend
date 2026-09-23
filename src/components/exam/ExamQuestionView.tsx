@@ -10,10 +10,12 @@ import type { AnswerValue, SaveStatus } from "@/hooks/useAnswerAutosave";
 import type { StudentQuestion } from "@/types/attempt-question";
 import { AnswerInput } from "./AnswerInput";
 import { AutosaveIndicator } from "./AutosaveIndicator";
+import { ListeningQuestion } from "./ListeningQuestion";
 import { QuestionNavigator } from "./QuestionNavigator";
 import styles from "./ExamQuestionView.module.css";
 
 interface ExamQuestionViewProps {
+  attemptId: string;
   questions: StudentQuestion[];
   loading: boolean;
   error: string | null;
@@ -26,6 +28,7 @@ interface ExamQuestionViewProps {
   disabled: boolean;
   currentIndex: number;
   onIndexChange: (index: number) => void;
+  onListeningPlaybackUpdate: (questionId: string, update: { playCount: number; maxPlays: number; remainingPlays: number }) => void;
 }
 
 /**
@@ -34,6 +37,7 @@ interface ExamQuestionViewProps {
  * computes or shows correctness/score (Phase 8A never sends it either).
  */
 export function ExamQuestionView({
+  attemptId,
   questions,
   loading,
   error,
@@ -46,6 +50,7 @@ export function ExamQuestionView({
   disabled,
   currentIndex,
   onIndexChange,
+  onListeningPlaybackUpdate,
 }: ExamQuestionViewProps) {
   const t = useTranslation();
 
@@ -83,9 +88,16 @@ export function ExamQuestionView({
   }
 
   const question = questions[currentIndex];
-  const value = answers[question.questionId] ?? { selectedOptionIds: [], textAnswer: null };
-  const status = statuses[question.questionId] ?? "idle";
 
+if (!question) {
+  return null;
+}
+
+const value = answers[question.questionId] ?? {
+  selectedOptionIds: [],
+  textAnswer: null,
+};
+const status = statuses[question.questionId] ?? "idle";
   return (
     <div className={styles.wrapper}>
       <QuestionNavigator questions={questions} answers={answers} currentIndex={currentIndex} onSelect={onIndexChange} />
@@ -97,6 +109,15 @@ export function ExamQuestionView({
           </span>
           <span className={styles.questionType}>{t.question.types[question.type]}</span>
         </div>
+
+        {question.modality === "LISTENING" && (
+          <ListeningQuestion
+            attemptId={attemptId}
+            question={question}
+            disabled={disabled}
+            onPlaybackUpdate={onListeningPlaybackUpdate}
+          />
+        )}
 
         <p className={styles.questionText}>{question.questionText}</p>
 

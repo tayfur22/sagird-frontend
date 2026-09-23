@@ -117,9 +117,18 @@ export function QuestionOptionEditor({ type, options, onChange, errorText }: Que
   function move(index: number, direction: -1 | 1) {
     const target = index + direction;
     if (target < 0 || target >= options.length) return;
-    const next = options.slice();
-    [next[index], next[target]] = [next[target], next[index]];
-    onChange(next);
+
+const next = options.slice();
+
+const source = next[index];
+const destination = next[target];
+
+if (!source || !destination) return;
+
+next[index] = destination;
+next[target] = source;
+
+onChange(next);
   }
 
   return (

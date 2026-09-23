@@ -452,7 +452,13 @@
     "ATTEMPT_EXPIRED": "This attempt has expired and can no longer be submitted.",
     "EXAM_SUBSCRIPTION_REQUIRED": "An active subscription is required to start this exam.",
     "QUESTION_NOT_IN_ATTEMPT": "This question does not belong to your exam.",
-    "INVALID_ANSWER_OPTION": "This answer is not valid for the question."
+    "INVALID_ANSWER_OPTION": "This answer is not valid for the question.",
+    "QUESTION_NOT_LISTENING": "This question is not a listening question.",
+    "LISTENING_MAX_PLAYS_REACHED": "You've reached the maximum number of plays for this question.",
+    "INVALID_LISTENING_CONFIGURATION": "This listening question isn't configured correctly.",
+    "EXAM_SECURITY_TERMINATED": "Your attempt was ended because the exam security policy was triggered.",
+    "INVALID_SECURITY_EVENT": "The reported security event was not valid.",
+    "SECURITY_EVENT_NOT_ALLOWED": "Security events aren't allowed for this exam."
   },
   "attempt": {
     "start": {
@@ -526,6 +532,38 @@
       },
       "confirmUnanswered": "{count} question(s) are still unanswered.",
       "confirmAllAnswered": "All questions are answered."
+    },
+    "listening": {
+      "label": "Listening",
+      "preparationTitle": "Get ready",
+      "preparationDescription": "Audio will be available in {seconds} seconds.",
+      "play": "Play audio",
+      "playAgain": "Play again",
+      "playing": "Playing...",
+      "pause": "Pause",
+      "requesting": "Requesting playback...",
+      "loadingAudio": "Loading audio...",
+      "audioCompleted": "Audio finished",
+      "playsRemaining": "{count} plays remaining",
+      "playsUsed": "{used} / {max} used",
+      "maxPlaysReached": "You've used all available plays for this question.",
+      "playbackUnavailable": "Audio isn't available right now.",
+      "audioError": "The audio could not be loaded or played.",
+      "retry": "Try again"
+    },
+    "security": {
+      "title": "Exam security notice",
+      "warning": "Exam security warning",
+      "warningDetails": "Please remain on the exam page. Further violations may end your attempt.",
+      "fullscreenRequired": "Fullscreen required",
+      "fullscreenExit": "This exam must be taken in fullscreen. Please stay in fullscreen until you submit.",
+      "tabSwitch": "Please stay on the exam page while your attempt is in progress.",
+      "securityConnectionError": "Couldn't confirm your exam security status just now. This isn't a problem with your progress - it will be reported again automatically.",
+      "terminated": "Exam ended",
+      "terminatedDetails": "Your attempt was ended because the exam security policy was triggered.",
+      "continue": "Continue",
+      "returnToExams": "Return to my exams",
+      "enterFullscreen": "Enter fullscreen"
     }
   }
 }

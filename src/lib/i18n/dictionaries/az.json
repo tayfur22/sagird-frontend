@@ -452,7 +452,13 @@
     "ATTEMPT_EXPIRED": "Cəhdin vaxtı bitib, artıq təqdim edilə bilməz.",
     "EXAM_SUBSCRIPTION_REQUIRED": "Bu imtahana başlamaq üçün aktiv abunəlik tələb olunur.",
     "QUESTION_NOT_IN_ATTEMPT": "Bu sual sizin imtahanınıza aid deyil.",
-    "INVALID_ANSWER_OPTION": "Bu cavab sual üçün etibarlı deyil."
+    "INVALID_ANSWER_OPTION": "Bu cavab sual üçün etibarlı deyil.",
+    "QUESTION_NOT_LISTENING": "Bu sual dinləmə sualı deyil.",
+    "LISTENING_MAX_PLAYS_REACHED": "Bu sual üçün maksimum dinləmə sayına çatılıb.",
+    "INVALID_LISTENING_CONFIGURATION": "Dinləmə sualının konfiqurasiyası düzgün deyil.",
+    "EXAM_SECURITY_TERMINATED": "Təhlükəsizlik qaydalarının pozulması səbəbindən cəhdiniz bitirilib.",
+    "INVALID_SECURITY_EVENT": "Təhlükəsizlik hadisəsi düzgün göndərilmədi.",
+    "SECURITY_EVENT_NOT_ALLOWED": "Bu imtahan üçün təhlükəsizlik hadisələrinin göndərilməsinə icazə verilmir."
   },
   "attempt": {
     "start": {
@@ -526,6 +532,38 @@
       },
       "confirmUnanswered": "{count} sual hələ cavablandırılmayıb.",
       "confirmAllAnswered": "Bütün suallar cavablandırılıb."
+    },
+    "listening": {
+      "label": "Dinləmə",
+      "preparationTitle": "Hazır olun",
+      "preparationDescription": "Audio {seconds} saniyə sonra mövcud olacaq.",
+      "play": "Audio-nu dinlə",
+      "playAgain": "Yenidən dinlə",
+      "playing": "Səslənir...",
+      "pause": "Dayandır",
+      "requesting": "İcazə istənilir...",
+      "loadingAudio": "Audio yüklənir...",
+      "audioCompleted": "Audio bitdi",
+      "playsRemaining": "{count} dinləmə hüququ qalıb",
+      "playsUsed": "{used} / {max} istifadə edilib",
+      "maxPlaysReached": "Bu sual üçün bütün dinləmə hüquqlarınız istifadə olunub.",
+      "playbackUnavailable": "Audio hazırda mövcud deyil.",
+      "audioError": "Audio yüklənə və ya oxudula bilmədi.",
+      "retry": "Yenidən cəhd et"
+    },
+    "security": {
+      "title": "İmtahan təhlükəsizlik bildirişi",
+      "warning": "İmtahan təhlükəsizlik xəbərdarlığı",
+      "warningDetails": "Zəhmət olmasa imtahan səhifəsində qalın. Təkrar pozuntular cəhdinizin bitirilməsinə səbəb ola bilər.",
+      "fullscreenRequired": "Tam ekran tələb olunur",
+      "fullscreenExit": "Bu imtahan tam ekran rejimində verilməlidir. Zəhmət olmasa təqdim edənə qədər tam ekranda qalın.",
+      "tabSwitch": "Zəhmət olmasa cəhdiniz davam edərkən imtahan səhifəsində qalın.",
+      "securityConnectionError": "Təhlükəsizlik statusunuzu hazırda təsdiqləmək mümkün olmadı. Bu, irəliləyişinizlə bağlı problem deyil - avtomatik olaraq yenidən göndəriləcək.",
+      "terminated": "İmtahan bitirildi",
+      "terminatedDetails": "Cəhdiniz imtahan təhlükəsizlik qaydası pozulduğu üçün bitirildi.",
+      "continue": "Davam et",
+      "returnToExams": "İmtahanlarıma qayıt",
+      "enterFullscreen": "Tam ekrana keç"
     }
   }
 }

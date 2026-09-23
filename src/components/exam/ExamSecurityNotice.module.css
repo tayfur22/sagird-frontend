@@ -1,0 +1,9 @@
+.notices {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.action {
+  margin-top: var(--space-3);
+}

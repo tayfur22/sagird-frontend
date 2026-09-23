@@ -87,26 +87,36 @@ export function ExamQuestionList({ examId, examStatus }: ExamQuestionListProps) 
     }
   }
 
-  async function handleMove(index: number, direction: -1 | 1) {
-    if (!rows) return;
-    const target = index + direction;
-    if (target < 0 || target >= rows.length) return;
+ async function handleMove(index: number, direction: -1 | 1) {
+  if (!rows) return;
 
-    const reordered = rows.slice();
-    [reordered[index], reordered[target]] = [reordered[target], reordered[index]];
+  const target = index + direction;
+  if (target < 0 || target >= rows.length) return;
 
-    setBusyId(rows[index].id);
-    try {
-      const updated = await adminExamQuestionApi.reorder(examId, {
-        questionIds: reordered.map((item) => item.question.id),
-      });
-      setRows(updated.slice().sort((a, b) => a.displayOrder - b.displayOrder));
-    } catch (err) {
-      showToast(apiErrorMessage(err), "error");
-    } finally {
-      setBusyId(null);
-    }
+  const source = rows[index];
+  const destination = rows[target];
+
+  if (!source || !destination) return;
+
+  const reordered = rows.slice();
+
+  reordered[index] = destination;
+  reordered[target] = source;
+
+  setBusyId(source.id);
+
+  try {
+    const updated = await adminExamQuestionApi.reorder(examId, {
+      questionIds: reordered.map((item) => item.question.id),
+    });
+
+    setRows(updated.slice().sort((a, b) => a.displayOrder - b.displayOrder));
+  } catch (err) {
+    showToast(apiErrorMessage(err), "error");
+  } finally {
+    setBusyId(null);
   }
+}
 
   const baseColumns: TableColumn<ExamQuestionResponse>[] = [
     { key: "order", header: t.question.examQuestions.columns.order, render: (row) => row.displayOrder + 1 },

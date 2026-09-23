@@ -24,6 +24,10 @@ export interface ExamResponse {
   publishAt: string | null;
   createdAt: string;
   updatedAt: string;
+  /** Phase 12A: whether the exam-attempt security/anti-cheat policy is active for this exam. */
+  antiCheatEnabled: boolean;
+  /** Phase 12A: whether the frontend is expected to enforce fullscreen while this exam is attempted. */
+  fullscreenRequired: boolean;
 }
 
 /**

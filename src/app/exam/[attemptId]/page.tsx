@@ -13,9 +13,12 @@ import { AttemptResult } from "@/components/exam/AttemptResult";
 import { AttemptStatusBadge } from "@/components/exam/AttemptStatusBadge";
 import { AttemptTimer } from "@/components/exam/AttemptTimer";
 import { ExamQuestionView } from "@/components/exam/ExamQuestionView";
+import { ExamSecurityNotice } from "@/components/exam/ExamSecurityNotice";
+import { SecurityTerminatedModal } from "@/components/exam/SecurityTerminatedModal";
 import { isAnswerFilled } from "@/components/exam/QuestionNavigator";
 import { useAnswerAutosave } from "@/hooks/useAnswerAutosave";
 import { useAttemptTimer } from "@/hooks/useAttemptTimer";
+import { useExamSecurity } from "@/hooks/useExamSecurity";
 import { attemptApi } from "@/lib/attempt/attempt-api";
 import { examApi } from "@/lib/exam/exam-api";
 import { ApiError } from "@/lib/api/errors";
@@ -114,6 +117,19 @@ function AttemptView() {
 
   const attemptInProgress = attempt?.status === "IN_PROGRESS";
 
+  const security = useExamSecurity(
+    attemptId,
+    attemptInProgress && Boolean(exam?.antiCheatEnabled),
+    Boolean(exam?.fullscreenRequired)
+  );
+  const securityTerminated = security.securityState?.terminated === true;
+
+  // The backend already terminated the attempt (security-events response) - sync the
+  // attempt's own lifecycle status (IN_PROGRESS -> CANCELLED) so a refresh reflects it too.
+  useEffect(() => {
+    if (securityTerminated) reloadAttempt();
+  }, [securityTerminated, reloadAttempt]);
+
   useEffect(() => {
     if (!attemptInProgress) return;
     let cancelled = false;
@@ -142,7 +158,7 @@ function AttemptView() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [attemptId, attemptInProgress, questionsRetryToken]);
 
-  const canSaveAnswers = attemptInProgress && !submitting;
+  const canSaveAnswers = attemptInProgress && !submitting && !securityTerminated;
   const {
     answers,
     statuses: saveStatuses,
@@ -152,6 +168,22 @@ function AttemptView() {
   } = useAnswerAutosave(attemptId, questions, canSaveAnswers);
 
   const unansweredCount = questions.length - questions.filter((q) => isAnswerFilled(answers[q.questionId])).length;
+
+  // Phase 11B: keeps the in-memory question list's listening counts consistent with what the
+  // playback endpoint just authorized, so returning to a listening question (or opening the
+  // submit confirmation) always reflects the server-authoritative play count without a refetch.
+  const handleListeningPlaybackUpdate = useCallback(
+    (questionId: string, update: { playCount: number; maxPlays: number; remainingPlays: number }) => {
+      setQuestions((prev) =>
+        prev.map((q) =>
+          q.questionId === questionId
+            ? { ...q, playCount: update.playCount, maxPlays: update.maxPlays, remainingPlays: update.remainingPlays }
+            : q
+        )
+      );
+    },
+    []
+  );
 
   async function handleSubmit() {
     if (submittingRef.current) return;
@@ -231,9 +263,13 @@ function AttemptView() {
         {attempt.status === "IN_PROGRESS" && <AttemptTimer seconds={seconds} urgency={urgency} />}
       </div>
 
-      {attempt.status === "IN_PROGRESS" && (
-        <>
+      {attempt.status === "IN_PROGRESS" && securityTerminated && <SecurityTerminatedModal />}
+
+      {attempt.status === "IN_PROGRESS" && !securityTerminated && (
+        <div ref={security.containerRef}>
+          <ExamSecurityNotice security={security} />
           <ExamQuestionView
+            attemptId={attemptId}
             questions={questions}
             loading={questionsLoading}
             error={questionsError}
@@ -246,6 +282,7 @@ function AttemptView() {
             disabled={!canSaveAnswers}
             currentIndex={currentIndex}
             onIndexChange={setCurrentIndex}
+            onListeningPlaybackUpdate={handleListeningPlaybackUpdate}
           />
 
           <Card>
@@ -279,7 +316,7 @@ function AttemptView() {
               </Button>
             </div>
           </Modal>
-        </>
+        </div>
       )}
 
       {attempt.status === "SUBMITTED" && <AttemptResult attempt={attempt} />}
