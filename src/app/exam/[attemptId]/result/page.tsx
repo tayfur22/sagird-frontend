@@ -173,6 +173,9 @@ function DetailedResultView() {
         <ButtonLink href={`/student/exams/${result.examId}/leaderboard`} variant="secondary" size="sm">
           {t.leaderboard.viewLeaderboard}
         </ButtonLink>
+        <ButtonLink href={`/student/exams/${result.examId}/statistics`} variant="secondary" size="sm">
+          {t.statistics.viewStatistics}
+        </ButtonLink>
         <ButtonLink href="/student/exams" variant="primary" size="sm">
           {t.attempt.backToExams}
         </ButtonLink>

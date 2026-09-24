@@ -80,3 +80,9 @@
     display: none;
   }
 }
+
+@media (max-width: 480px) {
+  .actions {
+    gap: var(--space-1);
+  }
+}

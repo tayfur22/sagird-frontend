@@ -622,5 +622,98 @@
     },
     "loadError": "Reytinq yüklənə bilmədi.",
     "viewLeaderboard": "Reytinqə bax"
+  },
+  "statistics": {
+    "title": "Statistika",
+    "description": "Platformanın necə istifadə olunduğuna ümumi baxış. Göstərilən rəqəmlər bütün şagirdlər üzrə yekun göstəricilərdir - fərdi nəticələr və şəxsi məlumatlar göstərilmir.",
+    "viewStatistics": "Statistikaya bax",
+    "notAvailable": "Hələ məlumat yoxdur",
+    "students": {
+      "one": "şagird",
+      "few": "şagird",
+      "many": "şagird",
+      "other": "şagird"
+    },
+    "overview": {
+      "title": "Platformaya ümumi baxış",
+      "description": "Bütün platforma üzrə əsas göstəricilər.",
+      "loadError": "Ümumi məlumat yüklənə bilmədi.",
+      "cards": {
+        "totalStudents": "Ümumi şagird sayı",
+        "totalExams": "Ümumi imtahan sayı",
+        "submittedAttempts": "Təqdim olunmuş cəhdlər",
+        "participants": "İştirakçılar",
+        "cities": "Şəhərlər",
+        "studentsWithCity": "Şəhəri qeyd edən şagirdlər"
+      },
+      "hints": {
+        "submittedAttempts": "Təkrar cəhdlər daxil olmaqla bütün təqdim olunmuş cəhdlər",
+        "participants": "Ən azı bir cəhdi təqdim etmiş şagirdlər"
+      }
+    },
+    "topCities": {
+      "title": "Ən çox şagirdi olan şəhərlər",
+      "description": "Qeydiyyatdan keçmiş şagirdlərin ən çox olduğu şəhərlər.",
+      "empty": "Şəhər məlumatı hələ mövcud deyil."
+    },
+    "cities": {
+      "title": "Şəhərlər üzrə şagirdlər",
+      "description": "Qeydiyyatlı şagirdlər profilində göstərilən şəhərə görə qruplaşdırılıb.",
+      "loadError": "Şəhər statistikası yüklənə bilmədi.",
+      "empty": {
+        "title": "Şəhər statistikası hələ mövcud deyil.",
+        "description": "Şagirdlər profillərinə şəhər əlavə etdikdən sonra burada görünəcək."
+      },
+      "columns": {
+        "order": "№",
+        "city": "Şəhər",
+        "students": "Şagirdlər"
+      }
+    },
+    "weekly": {
+      "title": "Bu həftənin imtahanları",
+      "description": "Hazırda aktiv olan həftəlik imtahanların xülasəsi.",
+      "loadError": "Həftəlik statistika yüklənə bilmədi.",
+      "noActive": {
+        "title": "Hazırda aktiv həftəlik imtahan yoxdur.",
+        "description": "Həftəlik imtahan açıldıqdan və şagirdlər onu təqdim etdikdən sonra nəticələr burada görünəcək."
+      },
+      "cards": {
+        "activeExams": "Aktiv həftəlik imtahanlar",
+        "participants": "İştirakçılar",
+        "submittedAttempts": "Təqdim olunmuş cəhdlər",
+        "averagePercentage": "Orta faiz",
+        "highestPercentage": "Ən yüksək faiz"
+      },
+      "hints": {
+        "submittedAttempts": "Təkrar cəhdlər daxil olmaqla bütün təqdim olunmuş cəhdlər",
+        "averagePercentage": "Hər şagirdin ən yaxşı nəticəsinə əsasən"
+      }
+    },
+    "exam": {
+      "title": "İmtahan statistikası",
+      "description": "Bu imtahan üzrə ümumi nəticələr.",
+      "back": "← İmtahana qayıt",
+      "loadError": "İmtahan statistikası yüklənə bilmədi.",
+      "notFound": {
+        "title": "Bu imtahan üçün statistika mövcud deyil.",
+        "description": "İmtahan dərc olunmamış ola bilər və ya artıq mövcud deyil."
+      },
+      "cards": {
+        "participants": "İştirakçılar",
+        "submittedAttempts": "Təqdim olunmuş cəhdlər",
+        "averagePercentage": "Orta faiz",
+        "highestPercentage": "Ən yüksək faiz"
+      },
+      "hints": {
+        "submittedAttempts": "Təkrar cəhdlər daxil olmaqla bütün təqdim olunmuş cəhdlər",
+        "averagePercentage": "Hər şagirdin ən yaxşı nəticəsinə əsasən"
+      }
+    },
+    "pagination": {
+      "label": "Şəhər səhifələri",
+      "previous": "Əvvəlki səhifə",
+      "next": "Növbəti səhifə"
+    }
   }
 }

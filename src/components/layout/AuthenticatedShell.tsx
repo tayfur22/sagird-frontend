@@ -3,7 +3,7 @@
 import type { ReactNode } from "react";
 import { RequireAuth } from "@/components/auth/RequireAuth";
 import { useAuth } from "@/lib/auth/AuthProvider";
-import { t } from "@/lib/i18n/t";
+import { useTranslation } from "@/lib/i18n/LocaleProvider";
 import type { NavItem } from "@/types/nav";
 import type { Role } from "@/types/auth";
 import { DashboardShell } from "./DashboardShell";
@@ -32,6 +32,7 @@ export function AuthenticatedShell({ role, brandLabel, navItems, children }: Aut
 
 function ShellWithUser({ brandLabel, navItems, children }: Omit<AuthenticatedShellProps, "role">) {
   const { user, logout } = useAuth();
+  const t = useTranslation();
   return (
     <DashboardShell
       brandLabel={brandLabel}

@@ -12,17 +12,14 @@ export function LanguageSwitcher() {
 
   const items: DropdownItem[] = locales.map((code) => ({
     label: t.language[code],
-    disabled: code === locale,
+    current: code === locale,
     onSelect: () => setLocale(code),
   }));
 
   return (
     <Dropdown
-      trigger={
-        <span className={styles.trigger} aria-label={t.language.switchLabel}>
-          {locale.toUpperCase()}
-        </span>
-      }
+      trigger={<span className={styles.trigger}>{locale.toUpperCase()}</span>}
+      triggerLabel={`${t.language.switchLabel}: ${t.language[locale]}`}
       items={items}
     />
   );

@@ -7,14 +7,18 @@ export interface DropdownItem {
   label: string;
   onSelect: () => void;
   disabled?: boolean;
+  /** Marks the currently selected item: exposed via aria-current and a visible check mark (not colour alone). */
+  current?: boolean;
 }
 
 export interface DropdownProps {
   trigger: ReactNode;
   items: DropdownItem[];
+  /** Accessible name for the trigger button when its visible content is not descriptive (e.g. "AZ"). */
+  triggerLabel?: string;
 }
 
-export function Dropdown({ trigger, items }: DropdownProps) {
+export function Dropdown({ trigger, items, triggerLabel }: DropdownProps) {
   const [open, setOpen] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
 
@@ -41,6 +45,7 @@ export function Dropdown({ trigger, items }: DropdownProps) {
         type="button"
         className={styles.trigger}
         aria-haspopup="menu"
+        aria-label={triggerLabel}
         aria-expanded={open}
         onClick={() => setOpen((value) => !value)}
       >
@@ -54,11 +59,15 @@ export function Dropdown({ trigger, items }: DropdownProps) {
                 role="menuitem"
                 className={styles.item}
                 disabled={item.disabled}
+                aria-current={item.current ? "true" : undefined}
                 onClick={() => {
                   item.onSelect();
                   setOpen(false);
                 }}
               >
+                <span className={styles.check} aria-hidden="true">
+                  {item.current ? "✓" : ""}
+                </span>
                 {item.label}
               </button>
             </li>

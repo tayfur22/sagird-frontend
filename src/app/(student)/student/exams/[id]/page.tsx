@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { Alert } from "@/components/ui/Alert";
-import { Button } from "@/components/ui/Button";
+import { Button, ButtonLink } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { Skeleton } from "@/components/ui/Skeleton";
 import { ExamDetailFields } from "@/components/exam/ExamDetailFields";
@@ -128,6 +128,11 @@ export default function StudentExamDetailPage() {
           <div className={styles.header}>
             <h1 className={styles.heading}>{exam.title}</h1>
             {exam.description && <p className={styles.description}>{exam.description}</p>}
+            <div style={{ marginTop: "var(--space-3)" }}>
+              <ButtonLink href={`/student/exams/${exam.id}/statistics`} variant="secondary" size="sm">
+                {t.statistics.viewStatistics}
+              </ButtonLink>
+            </div>
           </div>
 
           <Card>

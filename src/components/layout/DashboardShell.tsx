@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { useState, type ReactNode } from "react";
 import { cn } from "@/lib/utils/cn";
+import { useTranslation } from "@/lib/i18n/LocaleProvider";
+import { LanguageSwitcher } from "./LanguageSwitcher";
 import type { NavItem } from "@/types/nav";
 import styles from "./DashboardShell.module.css";
 
@@ -30,6 +32,8 @@ export function DashboardShell({
   onLogout,
 }: DashboardShellProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const t = useTranslation();
+  const navLabel = (item: NavItem) => (item.labelKey ? (t.nav as Record<string, string>)[item.labelKey] : undefined) ?? item.label;
 
   return (
     <div className={styles.shell}>
@@ -39,7 +43,7 @@ export function DashboardShell({
           {navItems.map((item) =>
             item.disabled ? (
               <span key={item.href} className={styles.navItemDisabled} aria-disabled="true">
-                {item.label}
+                {navLabel(item)}
               </span>
             ) : (
               <Link
@@ -48,7 +52,7 @@ export function DashboardShell({
                 className={styles.navItem}
                 onClick={() => setMobileOpen(false)}
               >
-                {item.label}
+                {navLabel(item)}
               </Link>
             )
           )}
@@ -70,6 +74,7 @@ export function DashboardShell({
           <span className={styles.topbarTitle}>{brandLabel}</span>
           {onLogout && (
             <div className={styles.userArea}>
+              <LanguageSwitcher />
               {userName && <span className={styles.userName}>{userName}</span>}
               <button type="button" className={styles.logoutButton} onClick={onLogout}>
                 {logoutLabel}

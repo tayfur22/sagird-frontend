@@ -622,5 +622,98 @@
     },
     "loadError": "The leaderboard could not be loaded.",
     "viewLeaderboard": "View leaderboard"
+  },
+  "statistics": {
+    "title": "Statistics",
+    "description": "An aggregate look at how the platform is used. These figures are totals across all students - no individual results or personal details are shown.",
+    "viewStatistics": "View statistics",
+    "notAvailable": "No data yet",
+    "students": {
+      "one": "student",
+      "few": "students",
+      "many": "students",
+      "other": "students"
+    },
+    "overview": {
+      "title": "Platform overview",
+      "description": "Key totals across the whole platform.",
+      "loadError": "The overview could not be loaded.",
+      "cards": {
+        "totalStudents": "Total students",
+        "totalExams": "Total exams",
+        "submittedAttempts": "Submitted attempts",
+        "participants": "Participants",
+        "cities": "Cities",
+        "studentsWithCity": "Students with a city"
+      },
+      "hints": {
+        "submittedAttempts": "Every submitted attempt, retakes included",
+        "participants": "Students with at least one submitted attempt"
+      }
+    },
+    "topCities": {
+      "title": "Top cities",
+      "description": "Cities with the most registered students.",
+      "empty": "No city information is available yet."
+    },
+    "cities": {
+      "title": "Students by city",
+      "description": "Registered students grouped by the city in their profile.",
+      "loadError": "City statistics could not be loaded.",
+      "empty": {
+        "title": "No city statistics available yet.",
+        "description": "They will appear once students add a city to their profile."
+      },
+      "columns": {
+        "order": "No.",
+        "city": "City",
+        "students": "Students"
+      }
+    },
+    "weekly": {
+      "title": "This week's exams",
+      "description": "A summary of the weekly exams that are currently active.",
+      "loadError": "Weekly statistics could not be loaded.",
+      "noActive": {
+        "title": "No weekly exam is active right now.",
+        "description": "Results will appear here once a weekly exam is open and students submit it."
+      },
+      "cards": {
+        "activeExams": "Active weekly exams",
+        "participants": "Participants",
+        "submittedAttempts": "Submitted attempts",
+        "averagePercentage": "Average percentage",
+        "highestPercentage": "Highest percentage"
+      },
+      "hints": {
+        "submittedAttempts": "Every submitted attempt, retakes included",
+        "averagePercentage": "Based on each student's best result"
+      }
+    },
+    "exam": {
+      "title": "Exam statistics",
+      "description": "Aggregate results for this exam.",
+      "back": "← Back to exam",
+      "loadError": "Exam statistics could not be loaded.",
+      "notFound": {
+        "title": "Statistics are not available for this exam.",
+        "description": "The exam may not be published or may no longer exist."
+      },
+      "cards": {
+        "participants": "Participants",
+        "submittedAttempts": "Submitted attempts",
+        "averagePercentage": "Average percentage",
+        "highestPercentage": "Highest percentage"
+      },
+      "hints": {
+        "submittedAttempts": "Every submitted attempt, retakes included",
+        "averagePercentage": "Based on each student's best result"
+      }
+    },
+    "pagination": {
+      "label": "City pages",
+      "previous": "Previous page",
+      "next": "Next page"
+    }
   }
 }
