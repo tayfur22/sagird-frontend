@@ -6,7 +6,7 @@ const STUDENT_NAV: NavItem[] = [
   { label: "İdarə paneli", href: "/student/dashboard" },
   { label: "İmtahanlarım", href: "/student/exams" },
   { label: "Nəticələr", href: "/student/results", disabled: true },
-  { label: "Liderlər", href: "/student/leaderboard", disabled: true },
+  { label: "Liderlər", href: "/student/leaderboard" },
   { label: "Abunəlik", href: "/student/subscription" },
   { label: "Profil", href: "/student/profile" },
 ];

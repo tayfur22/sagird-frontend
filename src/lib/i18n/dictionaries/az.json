@@ -458,7 +458,11 @@
     "INVALID_LISTENING_CONFIGURATION": "Dinləmə sualının konfiqurasiyası düzgün deyil.",
     "EXAM_SECURITY_TERMINATED": "Təhlükəsizlik qaydalarının pozulması səbəbindən cəhdiniz bitirilib.",
     "INVALID_SECURITY_EVENT": "Təhlükəsizlik hadisəsi düzgün göndərilmədi.",
-    "SECURITY_EVENT_NOT_ALLOWED": "Bu imtahan üçün təhlükəsizlik hadisələrinin göndərilməsinə icazə verilmir."
+    "SECURITY_EVENT_NOT_ALLOWED": "Bu imtahan üçün təhlükəsizlik hadisələrinin göndərilməsinə icazə verilmir.",
+    "RESULT_NOT_AVAILABLE": "Bu cəhd üçün ətraflı nəticə hazırda əlçatan deyil.",
+    "EXPLANATION_NOT_AVAILABLE": "Bu izah hazırda əlçatan deyil.",
+    "EXPLANATION_NOT_FOUND": "Bu sual üçün izah əlavə edilməyib.",
+    "UNSUPPORTED_LOCALE": "Seçilmiş dil dəstəklənmir."
   },
   "attempt": {
     "start": {
@@ -498,7 +502,31 @@
       "statusLabel": "Nəticə",
       "passed": "Keçdi",
       "notPassed": "Keçmədi",
-      "pending": "Nəticə statusu gözləmədə"
+      "pending": "Nəticə statusu gözləmədə",
+      "submittedAtLabel": "Təqdim edilmə tarixi",
+      "reviewAction": "Cavablara bax"
+    },
+    "detailedResult": {
+      "title": "Ətraflı nəticə",
+      "questionLabel": "Sual {number}",
+      "pointsFormat": "{awarded} / {points} bal",
+      "yourAnswer": "Sizin cavabınız",
+      "notAnswered": "Cavab verilməyib.",
+      "correctLabel": "Düzgün",
+      "incorrectLabel": "Səhv",
+      "loadError": "Ətraflı nəticə yüklənə bilmədi.",
+      "empty": {
+        "title": "Sual məlumatı tapılmadı",
+        "description": "Bu cəhd üçün ətraflı sual nəticələri mövcud deyil."
+      },
+      "optionsUnavailable": "Bu sual üçün variant mətnləri hazırda göstərilə bilmir.",
+      "explanation": {
+        "showAction": "İzahı göstər",
+        "hideAction": "İzahı gizlə",
+        "heading": "İzah",
+        "loading": "İzah yüklənir...",
+        "fallbackNotice": "Bu izah hazırda yalnız {locale} dilində mövcuddur."
+      }
     },
     "expired": {
       "title": "İmtahanın vaxtı bitib",
@@ -565,5 +593,34 @@
       "returnToExams": "İmtahanlarıma qayıt",
       "enterFullscreen": "Tam ekrana keç"
     }
+  },
+  "leaderboard": {
+    "exam": {
+      "title": "İmtahan reytinqi",
+      "back": "← İmtahana qayıt"
+    },
+    "weekly": {
+      "title": "Həftəlik reytinq",
+      "description": "Hazırda aktiv olan həftəlik imtahanlar üzrə ən yaxşı nəticələr."
+    },
+    "columns": {
+      "rank": "Yer",
+      "student": "Şagird",
+      "score": "Bal",
+      "percentage": "Faiz"
+    },
+    "you": "Siz",
+    "myPosition": {
+      "title": "Mövqeyiniz",
+      "notRanked": {
+        "title": "Hələ reytinqdə deyilsiniz",
+        "description": "Reytinqdə görünmək üçün bu imtahanı tamamlayıb təqdim edin."
+      }
+    },
+    "empty": {
+      "title": "Hələ reytinq nəticəsi yoxdur."
+    },
+    "loadError": "Reytinq yüklənə bilmədi.",
+    "viewLeaderboard": "Reytinqə bax"
   }
 }

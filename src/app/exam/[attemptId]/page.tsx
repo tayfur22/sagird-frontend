@@ -319,7 +319,15 @@ function AttemptView() {
         </div>
       )}
 
-      {attempt.status === "SUBMITTED" && <AttemptResult attempt={attempt} />}
+      {attempt.status === "SUBMITTED" && (
+        <AttemptResult
+          score={attempt.score}
+          maxScore={attempt.maxScore}
+          percentage={attempt.percentage}
+          passed={attempt.passed}
+          reviewHref={`/exam/${attemptId}/result`}
+        />
+      )}
 
       {attempt.status === "EXPIRED" && (
         <Alert variant="warning" title={t.attempt.expired.title}>

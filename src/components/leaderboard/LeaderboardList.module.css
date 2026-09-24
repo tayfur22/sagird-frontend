@@ -1,0 +1,125 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.headerRow,
+.row {
+  display: grid;
+  grid-template-columns: 2.5rem 1fr auto auto;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-2);
+}
+
+.headerRow {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.row {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.row:last-child {
+  border-bottom: none;
+}
+
+.rowHighlight {
+  background: var(--color-primary-light);
+  border-radius: var(--radius-md);
+  border-bottom-color: transparent;
+}
+
+.colRank {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.rankNumber {
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-muted);
+  min-width: 1.5rem;
+}
+
+.rankBadge {
+  min-width: 1.75rem;
+  justify-content: center;
+  font-weight: var(--font-weight-bold);
+}
+
+.colName {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-width: 0;
+}
+
+.name {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  font-weight: var(--font-weight-medium);
+}
+
+.youBadge {
+  flex-shrink: 0;
+  padding: 1px var(--space-2);
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--color-primary);
+  color: var(--color-primary);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+}
+
+.colScore {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+  white-space: nowrap;
+}
+
+.colPercentage {
+  font-weight: var(--font-weight-semibold);
+  white-space: nowrap;
+  min-width: 3.5rem;
+  text-align: right;
+}
+
+@media (max-width: 480px) {
+  .headerRow {
+    display: none;
+  }
+
+  .row {
+    grid-template-columns: 2rem 1fr auto;
+    grid-template-areas:
+      "rank name percentage"
+      "rank score percentage";
+    row-gap: 2px;
+  }
+
+  .colRank {
+    grid-area: rank;
+    align-self: start;
+  }
+
+  .colName {
+    grid-area: name;
+  }
+
+  .colScore {
+    grid-area: score;
+  }
+
+  .colPercentage {
+    grid-area: percentage;
+    align-self: center;
+  }
+}

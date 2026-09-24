@@ -458,7 +458,11 @@
     "INVALID_LISTENING_CONFIGURATION": "This listening question isn't configured correctly.",
     "EXAM_SECURITY_TERMINATED": "Your attempt was ended because the exam security policy was triggered.",
     "INVALID_SECURITY_EVENT": "The reported security event was not valid.",
-    "SECURITY_EVENT_NOT_ALLOWED": "Security events aren't allowed for this exam."
+    "SECURITY_EVENT_NOT_ALLOWED": "Security events aren't allowed for this exam.",
+    "RESULT_NOT_AVAILABLE": "Detailed result is not available for this attempt yet.",
+    "EXPLANATION_NOT_AVAILABLE": "This explanation isn't available right now.",
+    "EXPLANATION_NOT_FOUND": "No explanation has been added for this question.",
+    "UNSUPPORTED_LOCALE": "The selected language isn't supported."
   },
   "attempt": {
     "start": {
@@ -498,7 +502,31 @@
       "statusLabel": "Result",
       "passed": "Passed",
       "notPassed": "Not passed",
-      "pending": "Result status pending"
+      "pending": "Result status pending",
+      "submittedAtLabel": "Submitted at",
+      "reviewAction": "Review answers"
+    },
+    "detailedResult": {
+      "title": "Detailed result",
+      "questionLabel": "Question {number}",
+      "pointsFormat": "{awarded} / {points} pts",
+      "yourAnswer": "Your answer",
+      "notAnswered": "Not answered.",
+      "correctLabel": "Correct",
+      "incorrectLabel": "Incorrect",
+      "loadError": "Couldn't load the detailed result.",
+      "empty": {
+        "title": "No question data found",
+        "description": "No detailed question results are available for this attempt."
+      },
+      "optionsUnavailable": "This question's option text can't be shown right now.",
+      "explanation": {
+        "showAction": "Show explanation",
+        "hideAction": "Hide explanation",
+        "heading": "Explanation",
+        "loading": "Loading explanation...",
+        "fallbackNotice": "This explanation is currently only available in {locale}."
+      }
     },
     "expired": {
       "title": "Exam time is up",
@@ -565,5 +593,34 @@
       "returnToExams": "Return to my exams",
       "enterFullscreen": "Enter fullscreen"
     }
+  },
+  "leaderboard": {
+    "exam": {
+      "title": "Exam leaderboard",
+      "back": "← Back to exam"
+    },
+    "weekly": {
+      "title": "Weekly leaderboard",
+      "description": "Top results across the weekly exams currently active."
+    },
+    "columns": {
+      "rank": "Rank",
+      "student": "Student",
+      "score": "Score",
+      "percentage": "Percentage"
+    },
+    "you": "You",
+    "myPosition": {
+      "title": "Your position",
+      "notRanked": {
+        "title": "You're not ranked yet",
+        "description": "Complete and submit this exam to appear on the leaderboard."
+      }
+    },
+    "empty": {
+      "title": "No leaderboard results yet."
+    },
+    "loadError": "The leaderboard could not be loaded.",
+    "viewLeaderboard": "View leaderboard"
   }
 }
