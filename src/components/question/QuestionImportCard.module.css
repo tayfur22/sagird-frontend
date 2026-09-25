@@ -1,0 +1,171 @@
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  width: 100%;
+  max-width: 720px;
+}
+
+.pickerSection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.formatHint {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+}
+
+.pickerRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.hiddenInput {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.chooseButtonDisabled {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* The real input is visually hidden but stays focusable (see .hiddenInput);
+   mirror the browser's own focus ring onto the visible label that sits
+   right after it in the DOM, so keyboard users still see where focus is. */
+.hiddenInput:focus-visible + .chooseButton {
+  box-shadow: var(--focus-ring);
+  outline: none;
+}
+
+.noFile {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+}
+
+.fileInfo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  background: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  max-width: 100%;
+}
+
+.fileInfoMain {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  min-width: 0;
+}
+
+.fileName {
+  font-weight: var(--font-weight-medium);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.fileMeta {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+.clientError {
+  color: var(--color-error);
+  font-size: var(--font-size-sm);
+}
+
+.actionsRow {
+  display: flex;
+  gap: var(--space-3);
+}
+
+.helpCard {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4) var(--space-6);
+}
+
+.helpSummary {
+  cursor: pointer;
+  font-weight: var(--font-weight-medium);
+}
+
+.helpBody {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-top: var(--space-3);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+.helpColumns {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+}
+
+.helpColumnsTitle {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
+  margin-bottom: var(--space-1);
+}
+
+.typeNote {
+  font-style: italic;
+}
+
+.resultActions {
+  display: flex;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  margin-top: var(--space-3);
+}
+
+.errorsHeading {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  margin-top: var(--space-4);
+  margin-bottom: var(--space-2);
+}
+
+.errorCodeLabel {
+  display: block;
+  font-weight: var(--font-weight-medium);
+}
+
+.errorDetail {
+  display: block;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+.truncatedNote {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  margin-top: var(--space-2);
+}
+
+@media (min-width: 640px) {
+  .helpColumns {
+    grid-template-columns: 1fr 1fr;
+  }
+}

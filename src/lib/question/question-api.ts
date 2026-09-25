@@ -3,6 +3,7 @@ import type { PageResponse } from "@/types/api";
 import type {
   CreateQuestionRequest,
   ExamQuestionResponse,
+  QuestionImportSummary,
   QuestionListFilters,
   QuestionResponse,
   ReorderExamQuestionsRequest,
@@ -40,6 +41,27 @@ export const adminQuestionApi = {
     apiClient.post<QuestionResponse>(`/admin/questions/${id}/activate`, undefined, { signal }),
   deactivate: (id: string, signal?: AbortSignal) =>
     apiClient.post<QuestionResponse>(`/admin/questions/${id}/deactivate`, undefined, { signal }),
+};
+
+/**
+ * Typed wrapper over the Phase 18A admin bulk import endpoint
+ * (POST /admin/questions/import, multipart). The backend answers 201 when
+ * every row imported and 422 when validation failed for one or more rows
+ * (nothing persisted either way in that case) - both carry a normal
+ * QuestionImportSummary body, so 422 is listed in acceptStatuses instead
+ * of being thrown as an ApiError. Genuine file-level problems (missing
+ * file, wrong format, too large, empty, too many rows) still come back as
+ * a normal ApiError via apiErrorMessage.
+ */
+export const adminQuestionImportApi = {
+  importQuestions: (file: File, signal?: AbortSignal) => {
+    const formData = new FormData();
+    formData.append("file", file);
+    return apiClient.post<QuestionImportSummary>("/admin/questions/import", formData, {
+      signal,
+      acceptStatuses: [422],
+    });
+  },
 };
 
 /**

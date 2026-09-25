@@ -16,6 +16,15 @@ interface RequestOptions {
    * attach the access token and never try to refresh on 401.
    */
   skipAuth?: boolean;
+  /**
+   * Non-2xx statuses whose response body is still the normal success
+   * envelope ({ data: ... }) rather than an ApiErrorResponse - e.g. the
+   * question import endpoint (Phase 18A), which answers 422 with a
+   * QuestionImportSummary body when some rows failed validation, not with
+   * an error envelope. Statuses listed here are parsed like a 2xx response
+   * instead of being thrown as an ApiError.
+   */
+  acceptStatuses?: number[];
 }
 
 /**
@@ -41,13 +50,17 @@ export function setAuthHandler(handler: AuthHandler | null): void {
  * handling and error normalization stay in one place.
  */
 async function request<T>(path: string, options: RequestOptions = {}, isRetry = false): Promise<T> {
-  const { method = "GET", body, signal, authToken: explicitToken, skipAuth } = options;
+  const { method = "GET", body, signal, authToken: explicitToken, skipAuth, acceptStatuses } = options;
   const authToken = skipAuth ? undefined : (explicitToken ?? authHandler?.getAccessToken() ?? undefined);
+  // A FormData body (file upload) must reach fetch untouched: the browser
+  // sets "Content-Type: multipart/form-data; boundary=..." itself, and
+  // setting it manually here would omit/break that boundary.
+  const isFormData = typeof FormData !== "undefined" && body instanceof FormData;
 
   const headers: Record<string, string> = {
     Accept: "application/json",
   };
-  if (body !== undefined) {
+  if (body !== undefined && !isFormData) {
     headers["Content-Type"] = "application/json";
   }
   if (authToken) {
@@ -59,7 +72,7 @@ async function request<T>(path: string, options: RequestOptions = {}, isRetry = 
     response = await fetch(`${API_BASE_URL}${path}`, {
       method,
       headers,
-      body: body !== undefined ? JSON.stringify(body) : undefined,
+      body: body !== undefined ? (isFormData ? (body as FormData) : JSON.stringify(body)) : undefined,
       signal,
       // Needed so the HttpOnly refresh cookie is sent to / accepted from the API origin.
       credentials: "include",
@@ -75,7 +88,9 @@ async function request<T>(path: string, options: RequestOptions = {}, isRetry = 
     }
   }
 
-  if (!response.ok) {
+  const ok = response.ok || (acceptStatuses?.includes(response.status) ?? false);
+
+  if (!ok) {
     let errorBody: ApiErrorBody | null = null;
     try {
       errorBody = (await response.json()) as ApiErrorBody;

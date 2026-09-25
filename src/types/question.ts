@@ -68,3 +68,32 @@ export interface ExamQuestionResponse {
 export interface ReorderExamQuestionsRequest {
   questionIds: string[];
 }
+
+/**
+ * Mirrors az.sagird.modules.question.dto.QuestionImportRowError (Phase
+ * 18A). `code` is one of the IMPORT_* ErrorCode values; `message` is the
+ * backend's own (English) detail for that specific row/field, kept as-is
+ * since it carries the exact invalid value and cannot be reconstructed
+ * from a fixed translation.
+ */
+export interface QuestionImportRowError {
+  row: number;
+  field: string;
+  code: string;
+  message: string;
+}
+
+/**
+ * Mirrors az.sagird.modules.question.dto.QuestionImportSummary. The import
+ * is all-or-nothing: either `importedRows === totalRows` with no errors,
+ * or `importedRows === 0` and `errors` describes what failed. `errors` may
+ * be a truncated view of `totalErrorCount` (capped server-side).
+ */
+export interface QuestionImportSummary {
+  totalRows: number;
+  importedRows: number;
+  failedRows: number;
+  totalErrorCount: number;
+  returnedErrorCount: number;
+  errors: QuestionImportRowError[];
+}

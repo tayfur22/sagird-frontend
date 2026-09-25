@@ -29,7 +29,9 @@
     "questions": "Вопросы",
     "settings": "Настройки",
     "logout": "Выйти",
-    "mainNavigation": "Основная навигация"
+    "mainNavigation": "Основная навигация",
+    "attempts": "Попытки",
+    "import": "Импорт"
   },
   "language": {
     "az": "Azərbaycan",
@@ -406,6 +408,53 @@
       "updated": "Вопрос обновлён.",
       "activated": "Вопрос активирован.",
       "deactivated": "Вопрос деактивирован."
+    },
+    "import": {
+      "title": "Импорт вопросов",
+      "subtitle": "Массовое добавление вопросов в банк вопросов из файла Excel (.xlsx) или CSV.",
+      "backLink": "← Назад в банк вопросов",
+      "chooseFile": "Выбрать файл",
+      "changeFile": "Изменить файл",
+      "removeFile": "Удалить",
+      "noFileSelected": "Файл не выбран",
+      "selectedFile": "Выбранный файл",
+      "fileType": "Тип",
+      "fileSize": "Размер",
+      "supportedFormats": "Поддерживаемые форматы: CSV, XLSX",
+      "maxFileSize": "Максимальный размер файла: {size}",
+      "maxRows": "Максимальное количество строк: {count}",
+      "importButton": "Импортировать вопросы",
+      "importing": "Импорт...",
+      "helpToggle": "О формате столбцов",
+      "helpIntro": "Файл должен содержать следующие столбцы (первая строка — заголовок):",
+      "requiredColumnsTitle": "Обязательные столбцы",
+      "optionalColumnsTitle": "Необязательные столбцы",
+      "columns": {
+        "questionText": "questionText — текст вопроса",
+        "type": "type — SINGLE_CHOICE, MULTIPLE_CHOICE, TRUE_FALSE, SHORT_ANSWER",
+        "points": "points — положительное целое число",
+        "explanation": "explanation — пояснение (необязательно)",
+        "optionAD": "optionA, optionB, optionC, optionD — варианты ответа",
+        "correctAnswer": "correctAnswer — правильный ответ(ы)"
+      },
+      "typeNote": "На этом этапе можно импортировать только текстовые вопросы.",
+      "successTitle": "Импорт завершён",
+      "successSummary": "Импортировано {imported} из {total} строк, ошибок: 0.",
+      "failureTitle": "Импорт не удался",
+      "failureMessage": "Файл не был импортирован, так как найдены ошибки валидации. Ни один вопрос не был добавлен.",
+      "errorsTitle": "Ошибки валидации",
+      "errorsTruncated": "Показаны первые {shown} ошибок (всего {total}).",
+      "tableRow": "Строка",
+      "tableField": "Поле",
+      "tableError": "Ошибка",
+      "goToBank": "Назад в банк вопросов",
+      "importAnother": "Импортировать другой файл",
+      "changeFileAction": "Изменить файл",
+      "clientErrors": {
+        "EMPTY": "Выбранный файл пуст.",
+        "INVALID_EXTENSION": "Принимаются только файлы .csv и .xlsx.",
+        "TOO_LARGE": "Файл больше {max}."
+      }
     }
   },
   "validation": {
@@ -462,7 +511,18 @@
     "RESULT_NOT_AVAILABLE": "Подробный результат для этой попытки пока недоступен.",
     "EXPLANATION_NOT_AVAILABLE": "Это объяснение сейчас недоступно.",
     "EXPLANATION_NOT_FOUND": "Для этого вопроса объяснение не добавлено.",
-    "UNSUPPORTED_LOCALE": "Выбранный язык не поддерживается."
+    "UNSUPPORTED_LOCALE": "Выбранный язык не поддерживается.",
+    "RESOURCE_NOT_FOUND": "Запрошенный ресурс не найден.",
+    "IMPORT_FILE_REQUIRED": "Файл не выбран.",
+    "IMPORT_UNSUPPORTED_FORMAT": "Формат файла не поддерживается. Принимаются только CSV и XLSX.",
+    "IMPORT_FILE_TOO_LARGE": "Файл превышает максимально допустимый размер.",
+    "IMPORT_EMPTY_FILE": "В файле нет строк с данными.",
+    "IMPORT_ROW_LIMIT_EXCEEDED": "В файле превышено максимально допустимое количество строк.",
+    "IMPORT_VALIDATION_FAILED": "В этой строке есть ошибка валидации.",
+    "IMPORT_INVALID_COLUMN": "В файле отсутствуют обязательные столбцы.",
+    "IMPORT_INVALID_QUESTION_TYPE": "Тип вопроса указан неверно.",
+    "IMPORT_INVALID_ANSWER": "Правильный ответ указан неверно.",
+    "IMPORT_DUPLICATE_QUESTION": "Вопрос с таким текстом уже существует."
   },
   "attempt": {
     "start": {
@@ -714,6 +774,162 @@
       "label": "Страницы городов",
       "previous": "Предыдущая страница",
       "next": "Следующая страница"
+    }
+  },
+  "admin": {
+    "dashboard": {
+      "title": "Админ-панель",
+      "subtitle": "Общая статистика и показатели платформы.",
+      "noRevenue": "Пока нет успешных платежей.",
+      "cards": {
+        "totalStudents": "Всего учеников",
+        "totalExams": "Всего экзаменов",
+        "publishedExams": "Опубликованные экзамены",
+        "activeSubscriptions": "Активные подписки",
+        "submittedAttempts": "Завершённые попытки",
+        "totalPayments": "Всего платежей",
+        "successfulPayments": "Успешные платежи",
+        "revenue": "Доход"
+      }
+    },
+    "students": {
+      "title": "Ученики",
+      "subtitle": "Список всех зарегистрированных учеников.",
+      "empty": "Пока нет учеников.",
+      "searchLabel": "Поиск",
+      "searchPlaceholder": "Поиск по имени или email",
+      "columns": {
+        "fullName": "Имя Фамилия",
+        "email": "Email",
+        "city": "Город",
+        "status": "Статус",
+        "subscriptionStatus": "Подписка",
+        "createdAt": "Дата регистрации",
+        "actions": "Действия"
+      },
+      "actions": {
+        "view": "Подробнее"
+      },
+      "statusEnabled": "Активен",
+      "statusDisabled": "Отключён",
+      "noSubscription": "Нет"
+    },
+    "studentDetail": {
+      "backToList": "← Назад к ученикам",
+      "notFound": {
+        "title": "Ученик не найден",
+        "description": "Возможно, этот ученик был удалён или не существует."
+      },
+      "profile": {
+        "title": "Профиль",
+        "email": "Email",
+        "phone": "Телефон",
+        "city": "Город",
+        "school": "Школа",
+        "grade": "Класс",
+        "role": "Роль",
+        "status": "Статус",
+        "createdAt": "Дата регистрации",
+        "statusEnabled": "Активен",
+        "statusDisabled": "Отключён",
+        "notProvided": "Не указано"
+      },
+      "subscription": {
+        "title": "Подписка",
+        "totalLabel": "Всего подписок",
+        "plan": "План",
+        "status": "Статус",
+        "startDate": "Дата начала",
+        "endDate": "Дата окончания",
+        "none": "Подписок пока нет."
+      },
+      "attempts": {
+        "title": "Попытки экзаменов",
+        "totalAttempts": "Всего попыток",
+        "submittedAttempts": "Завершённые попытки",
+        "examsTaken": "Пройдено экзаменов",
+        "averagePercentage": "Средний результат",
+        "bestPercentage": "Лучший результат",
+        "lastSubmittedAt": "Последняя сдача",
+        "viewAll": "Все попытки",
+        "none": "Попыток пока нет."
+      },
+      "payments": {
+        "title": "Платежи",
+        "totalPayments": "Всего платежей",
+        "successfulPayments": "Успешные платежи",
+        "lastPaidAt": "Дата последнего платежа",
+        "paidByCurrency": "Оплаченная сумма",
+        "none": "Платежей пока нет."
+      }
+    },
+    "subscriptions": {
+      "title": "Подписки",
+      "subtitle": "Список всех подписок учеников.",
+      "empty": "Пока нет подписок.",
+      "searchLabel": "Поиск",
+      "searchPlaceholder": "Поиск по имени или email ученика",
+      "statusFilterLabel": "Статус",
+      "allStatuses": "Все статусы",
+      "columns": {
+        "student": "Ученик",
+        "plan": "План",
+        "status": "Статус",
+        "startDate": "Дата начала",
+        "endDate": "Дата окончания",
+        "createdAt": "Дата создания"
+      }
+    },
+    "payments": {
+      "title": "Платежи",
+      "subtitle": "Список всех платёжных операций.",
+      "empty": "Пока нет платежей.",
+      "searchLabel": "Поиск",
+      "searchPlaceholder": "Поиск по имени или email ученика",
+      "statusFilterLabel": "Статус",
+      "allStatuses": "Все статусы",
+      "columns": {
+        "student": "Ученик",
+        "amount": "Сумма",
+        "status": "Статус",
+        "provider": "Провайдер",
+        "createdAt": "Дата создания",
+        "completedAt": "Дата завершения"
+      }
+    },
+    "attempts": {
+      "title": "Попытки экзаменов",
+      "subtitle": "Список всех попыток экзаменов учеников.",
+      "empty": "Пока нет попыток.",
+      "statusFilterLabel": "Статус",
+      "allStatuses": "Все статусы",
+      "studentIdLabel": "ID ученика",
+      "studentIdPlaceholder": "Фильтр по ID ученика",
+      "examIdLabel": "ID экзамена",
+      "examIdPlaceholder": "Фильтр по ID экзамена",
+      "columns": {
+        "student": "Ученик",
+        "exam": "Экзамен",
+        "status": "Статус",
+        "score": "Балл",
+        "percentage": "Процент",
+        "passed": "Результат",
+        "startedAt": "Начало",
+        "submittedAt": "Сдано"
+      },
+      "passedPending": "Ожидается",
+      "passedYes": "Сдал",
+      "passedNo": "Не сдал"
+    },
+    "exams": {
+      "columns": {
+        "questionCount": "Вопросов",
+        "submittedAttempts": "Завершённые попытки",
+        "uniqueParticipants": "Участников"
+      },
+      "searchPlaceholder": "Поиск по названию",
+      "allStatuses": "Все статусы",
+      "searchLabel": "Поиск"
     }
   }
 }

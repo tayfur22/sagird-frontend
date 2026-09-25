@@ -29,7 +29,9 @@
     "questions": "Questions",
     "settings": "Settings",
     "logout": "Log out",
-    "mainNavigation": "Main navigation"
+    "mainNavigation": "Main navigation",
+    "attempts": "Attempts",
+    "import": "Import"
   },
   "language": {
     "az": "Azərbaycan",
@@ -406,6 +408,53 @@
       "updated": "Question updated.",
       "activated": "Question activated.",
       "deactivated": "Question deactivated."
+    },
+    "import": {
+      "title": "Import questions",
+      "subtitle": "Bulk-add questions to the question bank from an Excel (.xlsx) or CSV file.",
+      "backLink": "← Back to question bank",
+      "chooseFile": "Choose file",
+      "changeFile": "Change file",
+      "removeFile": "Remove",
+      "noFileSelected": "No file selected",
+      "selectedFile": "Selected file",
+      "fileType": "Type",
+      "fileSize": "Size",
+      "supportedFormats": "Supported formats: CSV, XLSX",
+      "maxFileSize": "Maximum file size: {size}",
+      "maxRows": "Maximum rows: {count}",
+      "importButton": "Import questions",
+      "importing": "Importing...",
+      "helpToggle": "About the column format",
+      "helpIntro": "The file must contain the following columns (the first row is the header row):",
+      "requiredColumnsTitle": "Required columns",
+      "optionalColumnsTitle": "Optional columns",
+      "columns": {
+        "questionText": "questionText — the question text",
+        "type": "type — SINGLE_CHOICE, MULTIPLE_CHOICE, TRUE_FALSE, SHORT_ANSWER",
+        "points": "points — a positive whole number",
+        "explanation": "explanation — optional explanation",
+        "optionAD": "optionA, optionB, optionC, optionD — answer options",
+        "correctAnswer": "correctAnswer — the correct answer(s)"
+      },
+      "typeNote": "Only text-based questions can be imported at this stage.",
+      "successTitle": "Import completed",
+      "successSummary": "{imported} of {total} rows imported, 0 errors.",
+      "failureTitle": "Import failed",
+      "failureMessage": "Your file was not imported because validation errors were found. No questions were added.",
+      "errorsTitle": "Validation errors",
+      "errorsTruncated": "Showing the first {shown} errors (of {total} total).",
+      "tableRow": "Row",
+      "tableField": "Field",
+      "tableError": "Error",
+      "goToBank": "Back to question bank",
+      "importAnother": "Import another file",
+      "changeFileAction": "Change file",
+      "clientErrors": {
+        "EMPTY": "The selected file is empty.",
+        "INVALID_EXTENSION": "Only .csv and .xlsx files are accepted.",
+        "TOO_LARGE": "The file is larger than {max}."
+      }
     }
   },
   "validation": {
@@ -462,7 +511,18 @@
     "RESULT_NOT_AVAILABLE": "Detailed result is not available for this attempt yet.",
     "EXPLANATION_NOT_AVAILABLE": "This explanation isn't available right now.",
     "EXPLANATION_NOT_FOUND": "No explanation has been added for this question.",
-    "UNSUPPORTED_LOCALE": "The selected language isn't supported."
+    "UNSUPPORTED_LOCALE": "The selected language isn't supported.",
+    "RESOURCE_NOT_FOUND": "The requested resource was not found.",
+    "IMPORT_FILE_REQUIRED": "No file was selected.",
+    "IMPORT_UNSUPPORTED_FORMAT": "This file format isn't supported. Only CSV and XLSX are accepted.",
+    "IMPORT_FILE_TOO_LARGE": "The file exceeds the maximum allowed size.",
+    "IMPORT_EMPTY_FILE": "The file has no data rows.",
+    "IMPORT_ROW_LIMIT_EXCEEDED": "The file exceeds the maximum number of rows allowed.",
+    "IMPORT_VALIDATION_FAILED": "This row has a validation error.",
+    "IMPORT_INVALID_COLUMN": "The file is missing required column(s).",
+    "IMPORT_INVALID_QUESTION_TYPE": "The question type is not valid.",
+    "IMPORT_INVALID_ANSWER": "The correct answer is not valid.",
+    "IMPORT_DUPLICATE_QUESTION": "A question with this text already exists."
   },
   "attempt": {
     "start": {
@@ -714,6 +774,162 @@
       "label": "City pages",
       "previous": "Previous page",
       "next": "Next page"
+    }
+  },
+  "admin": {
+    "dashboard": {
+      "title": "Admin panel",
+      "subtitle": "Overall platform statistics and metrics.",
+      "noRevenue": "No successful payments yet.",
+      "cards": {
+        "totalStudents": "Total students",
+        "totalExams": "Total exams",
+        "publishedExams": "Published exams",
+        "activeSubscriptions": "Active subscriptions",
+        "submittedAttempts": "Submitted attempts",
+        "totalPayments": "Total payments",
+        "successfulPayments": "Successful payments",
+        "revenue": "Revenue"
+      }
+    },
+    "students": {
+      "title": "Students",
+      "subtitle": "List of all registered students.",
+      "empty": "There are no students yet.",
+      "searchLabel": "Search",
+      "searchPlaceholder": "Search by name or email",
+      "columns": {
+        "fullName": "Full name",
+        "email": "Email",
+        "city": "City",
+        "status": "Status",
+        "subscriptionStatus": "Subscription",
+        "createdAt": "Registered on",
+        "actions": "Actions"
+      },
+      "actions": {
+        "view": "View"
+      },
+      "statusEnabled": "Active",
+      "statusDisabled": "Disabled",
+      "noSubscription": "None"
+    },
+    "studentDetail": {
+      "backToList": "← Back to students",
+      "notFound": {
+        "title": "Student not found",
+        "description": "This student may have been removed or does not exist."
+      },
+      "profile": {
+        "title": "Profile",
+        "email": "Email",
+        "phone": "Phone",
+        "city": "City",
+        "school": "School",
+        "grade": "Grade",
+        "role": "Role",
+        "status": "Status",
+        "createdAt": "Registered on",
+        "statusEnabled": "Active",
+        "statusDisabled": "Disabled",
+        "notProvided": "Not provided"
+      },
+      "subscription": {
+        "title": "Subscription",
+        "totalLabel": "Total subscriptions",
+        "plan": "Plan",
+        "status": "Status",
+        "startDate": "Start date",
+        "endDate": "End date",
+        "none": "No subscriptions yet."
+      },
+      "attempts": {
+        "title": "Exam attempts",
+        "totalAttempts": "Total attempts",
+        "submittedAttempts": "Submitted attempts",
+        "examsTaken": "Exams taken",
+        "averagePercentage": "Average result",
+        "bestPercentage": "Best result",
+        "lastSubmittedAt": "Last submitted",
+        "viewAll": "View all attempts",
+        "none": "No attempts yet."
+      },
+      "payments": {
+        "title": "Payments",
+        "totalPayments": "Total payments",
+        "successfulPayments": "Successful payments",
+        "lastPaidAt": "Last payment date",
+        "paidByCurrency": "Amount paid",
+        "none": "No payments yet."
+      }
+    },
+    "subscriptions": {
+      "title": "Subscriptions",
+      "subtitle": "List of all student subscriptions.",
+      "empty": "There are no subscriptions yet.",
+      "searchLabel": "Search",
+      "searchPlaceholder": "Search by student name or email",
+      "statusFilterLabel": "Status",
+      "allStatuses": "All statuses",
+      "columns": {
+        "student": "Student",
+        "plan": "Plan",
+        "status": "Status",
+        "startDate": "Start date",
+        "endDate": "End date",
+        "createdAt": "Created on"
+      }
+    },
+    "payments": {
+      "title": "Payments",
+      "subtitle": "List of all payment transactions.",
+      "empty": "There are no payments yet.",
+      "searchLabel": "Search",
+      "searchPlaceholder": "Search by student name or email",
+      "statusFilterLabel": "Status",
+      "allStatuses": "All statuses",
+      "columns": {
+        "student": "Student",
+        "amount": "Amount",
+        "status": "Status",
+        "provider": "Provider",
+        "createdAt": "Created on",
+        "completedAt": "Completed on"
+      }
+    },
+    "attempts": {
+      "title": "Exam attempts",
+      "subtitle": "List of all students' exam attempts.",
+      "empty": "There are no attempts yet.",
+      "statusFilterLabel": "Status",
+      "allStatuses": "All statuses",
+      "studentIdLabel": "Student ID",
+      "studentIdPlaceholder": "Filter by student ID",
+      "examIdLabel": "Exam ID",
+      "examIdPlaceholder": "Filter by exam ID",
+      "columns": {
+        "student": "Student",
+        "exam": "Exam",
+        "status": "Status",
+        "score": "Score",
+        "percentage": "Percentage",
+        "passed": "Result",
+        "startedAt": "Started",
+        "submittedAt": "Submitted"
+      },
+      "passedPending": "Pending",
+      "passedYes": "Passed",
+      "passedNo": "Not passed"
+    },
+    "exams": {
+      "columns": {
+        "questionCount": "Questions",
+        "submittedAttempts": "Submitted attempts",
+        "uniqueParticipants": "Participants"
+      },
+      "searchPlaceholder": "Search by title",
+      "allStatuses": "All statuses",
+      "searchLabel": "Search"
     }
   }
 }

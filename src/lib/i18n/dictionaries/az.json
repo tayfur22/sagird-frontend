@@ -29,7 +29,9 @@
     "questions": "Suallar",
     "settings": "Parametrlər",
     "logout": "Çıxış",
-    "mainNavigation": "Əsas naviqasiya"
+    "mainNavigation": "Əsas naviqasiya",
+    "attempts": "Cəhdlər",
+    "import": "İdxal et"
   },
   "emptyState": {
     "noExams": "Hələ heç bir imtahan yoxdur.",
@@ -400,6 +402,53 @@
       "updated": "Sual yeniləndi.",
       "activated": "Sual aktivləşdirildi.",
       "deactivated": "Sual deaktiv edildi."
+    },
+    "import": {
+      "title": "Sualları idxal et",
+      "subtitle": "Excel (.xlsx) və ya CSV faylından sual bankına toplu sual əlavə edin.",
+      "backLink": "← Sual bankına qayıt",
+      "chooseFile": "Fayl seçin",
+      "changeFile": "Faylı dəyiş",
+      "removeFile": "Sil",
+      "noFileSelected": "Fayl seçilməyib",
+      "selectedFile": "Seçilmiş fayl",
+      "fileType": "Tip",
+      "fileSize": "Ölçü",
+      "supportedFormats": "Dəstəklənən formatlar: CSV, XLSX",
+      "maxFileSize": "Maksimum fayl ölçüsü: {size}",
+      "maxRows": "Maksimum sətir sayı: {count}",
+      "importButton": "Sualları idxal et",
+      "importing": "İdxal olunur...",
+      "helpToggle": "Sütun formatı haqqında",
+      "helpIntro": "Fayl aşağıdakı sütunları ehtiva etməlidir (ilk sətir başlıq sətridir):",
+      "requiredColumnsTitle": "Məcburi sütunlar",
+      "optionalColumnsTitle": "İstəyə bağlı sütunlar",
+      "columns": {
+        "questionText": "questionText — sual mətni",
+        "type": "type — SINGLE_CHOICE, MULTIPLE_CHOICE, TRUE_FALSE, SHORT_ANSWER",
+        "points": "points — müsbət tam ədəd",
+        "explanation": "explanation — izah (istəyə bağlı)",
+        "optionAD": "optionA, optionB, optionC, optionD — variantlar",
+        "correctAnswer": "correctAnswer — düzgün cavab(lar)"
+      },
+      "typeNote": "Bu mərhələdə yalnız mətn tipli suallar idxal oluna bilər.",
+      "successTitle": "İdxal tamamlandı",
+      "successSummary": "{total} sətirdən {imported} sual idxal edildi, 0 xəta.",
+      "failureTitle": "İdxal uğursuz oldu",
+      "failureMessage": "Faylınız idxal edilmədi, çünki doğrulama xətaları tapıldı. Heç bir sual əlavə olunmadı.",
+      "errorsTitle": "Doğrulama xətaları",
+      "errorsTruncated": "İlk {shown} xəta göstərilir (ümumi {total}).",
+      "tableRow": "Sətir",
+      "tableField": "Sahə",
+      "tableError": "Xəta",
+      "goToBank": "Sual bankına qayıt",
+      "importAnother": "Başqa fayl idxal et",
+      "changeFileAction": "Faylı dəyiş",
+      "clientErrors": {
+        "EMPTY": "Seçilmiş fayl boşdur.",
+        "INVALID_EXTENSION": "Yalnız .csv və ya .xlsx faylları qəbul olunur.",
+        "TOO_LARGE": "Fayl {max} ölçüsündən böyükdür."
+      }
     }
   },
   "language": {
@@ -462,7 +511,18 @@
     "RESULT_NOT_AVAILABLE": "Bu cəhd üçün ətraflı nəticə hazırda əlçatan deyil.",
     "EXPLANATION_NOT_AVAILABLE": "Bu izah hazırda əlçatan deyil.",
     "EXPLANATION_NOT_FOUND": "Bu sual üçün izah əlavə edilməyib.",
-    "UNSUPPORTED_LOCALE": "Seçilmiş dil dəstəklənmir."
+    "UNSUPPORTED_LOCALE": "Seçilmiş dil dəstəklənmir.",
+    "RESOURCE_NOT_FOUND": "Axtarılan məlumat tapılmadı.",
+    "IMPORT_FILE_REQUIRED": "Fayl seçilməyib.",
+    "IMPORT_UNSUPPORTED_FORMAT": "Fayl formatı dəstəklənmir. Yalnız CSV və XLSX qəbul olunur.",
+    "IMPORT_FILE_TOO_LARGE": "Fayl icazə verilən maksimum ölçünü aşır.",
+    "IMPORT_EMPTY_FILE": "Faylda heç bir məlumat sətri yoxdur.",
+    "IMPORT_ROW_LIMIT_EXCEEDED": "Faylda icazə verilən maksimum sətir sayı aşılıb.",
+    "IMPORT_VALIDATION_FAILED": "Bu sətirdə doğrulama xətası var.",
+    "IMPORT_INVALID_COLUMN": "Faylda məcburi sütun(lar) çatışmır.",
+    "IMPORT_INVALID_QUESTION_TYPE": "Sual tipi düzgün deyil.",
+    "IMPORT_INVALID_ANSWER": "Düzgün cavab düzgün göstərilməyib.",
+    "IMPORT_DUPLICATE_QUESTION": "Bu sual mətni artıq mövcuddur."
   },
   "attempt": {
     "start": {
@@ -714,6 +774,162 @@
       "label": "Şəhər səhifələri",
       "previous": "Əvvəlki səhifə",
       "next": "Növbəti səhifə"
+    }
+  },
+  "admin": {
+    "dashboard": {
+      "title": "Admin panel",
+      "subtitle": "Platformanın ümumi statistikası və göstəriciləri.",
+      "noRevenue": "Uğurlu ödəniş yoxdur.",
+      "cards": {
+        "totalStudents": "Ümumi tələbə sayı",
+        "totalExams": "Ümumi imtahan sayı",
+        "publishedExams": "Dərc olunmuş imtahanlar",
+        "activeSubscriptions": "Aktiv abunəliklər",
+        "submittedAttempts": "Təqdim edilmiş cəhdlər",
+        "totalPayments": "Ümumi ödənişlər",
+        "successfulPayments": "Uğurlu ödənişlər",
+        "revenue": "Gəlir"
+      }
+    },
+    "students": {
+      "title": "Tələbələr",
+      "subtitle": "Bütün qeydiyyatdan keçmiş tələbələrin siyahısı.",
+      "empty": "Hələ heç bir tələbə yoxdur.",
+      "searchLabel": "Axtarış",
+      "searchPlaceholder": "Ad və ya e-poçt üzrə axtar",
+      "columns": {
+        "fullName": "Ad Soyad",
+        "email": "E-poçt",
+        "city": "Şəhər",
+        "status": "Status",
+        "subscriptionStatus": "Abunəlik",
+        "createdAt": "Qeydiyyat tarixi",
+        "actions": "Əməliyyatlar"
+      },
+      "actions": {
+        "view": "Ətraflı"
+      },
+      "statusEnabled": "Aktiv",
+      "statusDisabled": "Deaktiv",
+      "noSubscription": "Yoxdur"
+    },
+    "studentDetail": {
+      "backToList": "← Tələbələrə qayıt",
+      "notFound": {
+        "title": "Tələbə tapılmadı",
+        "description": "Bu tələbə silinmiş və ya mövcud olmaya bilər."
+      },
+      "profile": {
+        "title": "Profil",
+        "email": "E-poçt",
+        "phone": "Telefon",
+        "city": "Şəhər",
+        "school": "Məktəb",
+        "grade": "Sinif",
+        "role": "Rol",
+        "status": "Status",
+        "createdAt": "Qeydiyyat tarixi",
+        "statusEnabled": "Aktiv",
+        "statusDisabled": "Deaktiv",
+        "notProvided": "Qeyd edilməyib"
+      },
+      "subscription": {
+        "title": "Abunəlik",
+        "totalLabel": "Ümumi abunəlik sayı",
+        "plan": "Plan",
+        "status": "Status",
+        "startDate": "Başlama tarixi",
+        "endDate": "Bitmə tarixi",
+        "none": "Heç bir abunəlik yoxdur."
+      },
+      "attempts": {
+        "title": "İmtahan cəhdləri",
+        "totalAttempts": "Ümumi cəhd sayı",
+        "submittedAttempts": "Təqdim edilmiş cəhdlər",
+        "examsTaken": "Verilmiş imtahan sayı",
+        "averagePercentage": "Orta nəticə",
+        "bestPercentage": "Ən yaxşı nəticə",
+        "lastSubmittedAt": "Son təqdimetmə",
+        "viewAll": "Bütün cəhdlərə bax",
+        "none": "Hələ heç bir cəhd yoxdur."
+      },
+      "payments": {
+        "title": "Ödənişlər",
+        "totalPayments": "Ümumi ödəniş sayı",
+        "successfulPayments": "Uğurlu ödənişlər",
+        "lastPaidAt": "Son ödəniş tarixi",
+        "paidByCurrency": "Ödənilmiş məbləğ",
+        "none": "Hələ heç bir ödəniş yoxdur."
+      }
+    },
+    "subscriptions": {
+      "title": "Abunəliklər",
+      "subtitle": "Bütün tələbə abunəliklərinin siyahısı.",
+      "empty": "Hələ heç bir abunəlik yoxdur.",
+      "searchLabel": "Axtarış",
+      "searchPlaceholder": "Tələbə adı və ya e-poçt üzrə axtar",
+      "statusFilterLabel": "Status",
+      "allStatuses": "Bütün statuslar",
+      "columns": {
+        "student": "Tələbə",
+        "plan": "Plan",
+        "status": "Status",
+        "startDate": "Başlama tarixi",
+        "endDate": "Bitmə tarixi",
+        "createdAt": "Yaradılma tarixi"
+      }
+    },
+    "payments": {
+      "title": "Ödənişlər",
+      "subtitle": "Bütün ödəniş əməliyyatlarının siyahısı.",
+      "empty": "Hələ heç bir ödəniş yoxdur.",
+      "searchLabel": "Axtarış",
+      "searchPlaceholder": "Tələbə adı və ya e-poçt üzrə axtar",
+      "statusFilterLabel": "Status",
+      "allStatuses": "Bütün statuslar",
+      "columns": {
+        "student": "Tələbə",
+        "amount": "Məbləğ",
+        "status": "Status",
+        "provider": "Provayder",
+        "createdAt": "Yaradılma tarixi",
+        "completedAt": "Tamamlanma tarixi"
+      }
+    },
+    "attempts": {
+      "title": "İmtahan cəhdləri",
+      "subtitle": "Bütün tələbələrin imtahan cəhdlərinin siyahısı.",
+      "empty": "Hələ heç bir cəhd yoxdur.",
+      "statusFilterLabel": "Status",
+      "allStatuses": "Bütün statuslar",
+      "studentIdLabel": "Tələbə ID",
+      "studentIdPlaceholder": "Tələbə ID üzrə filtrləyin",
+      "examIdLabel": "İmtahan ID",
+      "examIdPlaceholder": "İmtahan ID üzrə filtrləyin",
+      "columns": {
+        "student": "Tələbə",
+        "exam": "İmtahan",
+        "status": "Status",
+        "score": "Bal",
+        "percentage": "Faiz",
+        "passed": "Nəticə",
+        "startedAt": "Başlama tarixi",
+        "submittedAt": "Təqdim tarixi"
+      },
+      "passedPending": "Gözləmədə",
+      "passedYes": "Keçdi",
+      "passedNo": "Keçmədi"
+    },
+    "exams": {
+      "columns": {
+        "questionCount": "Sual sayı",
+        "submittedAttempts": "Təqdim edilmiş cəhdlər",
+        "uniqueParticipants": "İştirakçılar"
+      },
+      "searchPlaceholder": "Başlıq üzrə axtar",
+      "allStatuses": "Bütün statuslar",
+      "searchLabel": "Axtarış"
     }
   }
 }
