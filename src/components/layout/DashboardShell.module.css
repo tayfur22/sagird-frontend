@@ -15,10 +15,14 @@
   transition: transform var(--transition-base);
   z-index: 60;
   overflow-y: auto;
+  /* Closed off-canvas menu must not be reachable by keyboard/screen readers. */
+  visibility: hidden;
+  transition: transform var(--transition-base), visibility var(--transition-base);
 }
 
 .sidebarOpen {
   transform: translateX(0);
+  visibility: visible;
 }
 
 .brand {
@@ -90,6 +94,10 @@
 
 .topbarTitle {
   font-weight: var(--font-weight-semibold);
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .userArea {
@@ -126,8 +134,25 @@
   padding: var(--space-6);
 }
 
+@media (max-width: 639px) {
+  .topbar {
+    padding: 0 var(--space-3);
+    gap: var(--space-2);
+  }
+  .userArea {
+    gap: var(--space-2);
+  }
+  .userName {
+    display: none;
+  }
+  .content {
+    padding: var(--space-4);
+  }
+}
+
 @media (min-width: 1024px) {
   .sidebar {
+    visibility: visible;
     transform: none;
     position: sticky;
     top: 0;

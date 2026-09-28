@@ -7,7 +7,19 @@
     "cancel": "Ləğv et",
     "close": "Bağla",
     "submitting": "Göndərilir...",
-    "required": "Məcburi"
+    "required": "Məcburi",
+    "errorDescription": "Səhifəni yükləmək mümkün olmadı. Zəhmət olmasa yenidən cəhd edin.",
+    "notFoundTitle": "Səhifə tapılmadı",
+    "notFoundDescription": "Axtardığınız səhifə mövcud deyil.",
+    "notifications": "Bildirişlər",
+    "pagination": {
+      "label": "Səhifələmə",
+      "previous": "Əvvəlki səhifə",
+      "next": "Növbəti səhifə"
+    }
+  },
+  "home": {
+    "subtitle": "Tələbələr üçün onlayn imtahan platforması."
   },
   "nav": {
     "home": "Ana səhifə",
@@ -30,6 +42,7 @@
     "settings": "Parametrlər",
     "logout": "Çıxış",
     "mainNavigation": "Əsas naviqasiya",
+    "openNavigation": "Naviqasiyanı aç",
     "attempts": "Cəhdlər",
     "import": "İdxal et"
   },

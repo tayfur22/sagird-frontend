@@ -3,6 +3,7 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
 import { createPortal } from "react-dom";
 import { cn } from "@/lib/utils/cn";
+import { useTranslation } from "@/lib/i18n/LocaleProvider";
 import styles from "./Toast.module.css";
 
 export type ToastVariant = "success" | "error" | "info";
@@ -22,6 +23,7 @@ const ToastContext = createContext<ToastContextValue | null>(null);
 let nextId = 1;
 
 export function ToastProvider({ children }: { children: ReactNode }) {
+  const t = useTranslation();
   const [toasts, setToasts] = useState<Toast[]>([]);
   // The portal must not render on the server (no document) or during the
   // client's first (hydration) pass - both must produce identical markup.
@@ -51,7 +53,7 @@ export function ToastProvider({ children }: { children: ReactNode }) {
       {children}
       {mounted &&
         createPortal(
-          <div className={styles.viewport} role="region" aria-label="Bildirişlər">
+          <div className={styles.viewport} role="region" aria-label={t.common.notifications}>
             {toasts.map((toast) => (
               <div key={toast.id} className={cn(styles.toast, styles[toast.variant])} role="status">
                 {toast.message}

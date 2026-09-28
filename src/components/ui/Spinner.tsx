@@ -1,3 +1,4 @@
+import { useTranslation } from "@/lib/i18n/LocaleProvider";
 import styles from "./Spinner.module.css";
 
 export interface SpinnerProps {
@@ -5,7 +6,8 @@ export interface SpinnerProps {
   label?: string;
 }
 
-export function Spinner({ size = 24, label = "Yüklənir..." }: SpinnerProps) {
+export function Spinner({ size = 24, label }: SpinnerProps) {
+  const t = useTranslation();
   return (
     <div role="status" className={styles.wrapper}>
       <span
@@ -13,7 +15,7 @@ export function Spinner({ size = 24, label = "Yüklənir..." }: SpinnerProps) {
         style={{ width: size, height: size }}
         aria-hidden="true"
       />
-      <span className={styles.srOnly}>{label}</span>
+      <span className={styles.srOnly}>{label ?? t.common.loading}</span>
     </div>
   );
 }

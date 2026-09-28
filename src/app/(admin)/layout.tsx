@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { AuthenticatedShell } from "@/components/layout/AuthenticatedShell";
 import type { NavItem } from "@/types/nav";
@@ -11,11 +12,13 @@ const ADMIN_NAV: NavItem[] = [
   { label: "Cəhdlər", href: "/admin/attempts", labelKey: "attempts" },
   { label: "Suallar", href: "/admin/questions", labelKey: "questions" },
   { label: "İdxal et", href: "/admin/questions/import", labelKey: "import" },
-  { label: "Nəticələr", href: "/admin/results", disabled: true },
-  { label: "Liderlər", href: "/admin/leaderboard", disabled: true },
-  { label: "Statistika", href: "/admin/statistics", disabled: true },
-  { label: "Parametrlər", href: "/admin/settings", disabled: true },
+  { label: "Nəticələr", href: "/admin/results", labelKey: "results", disabled: true },
+  { label: "Liderlər", href: "/admin/leaderboard", labelKey: "leaderboard", disabled: true },
+  { label: "Statistika", href: "/admin/statistics", labelKey: "statistics", disabled: true },
+  { label: "Parametrlər", href: "/admin/settings", labelKey: "settings", disabled: true },
 ];
+
+export const metadata: Metadata = { robots: { index: false, follow: false } };
 
 export default function AdminLayout({ children }: { children: ReactNode }) {
   return (

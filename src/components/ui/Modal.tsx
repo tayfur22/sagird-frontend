@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, type ReactNode } from "react";
 import { createPortal } from "react-dom";
+import { useTranslation } from "@/lib/i18n/LocaleProvider";
 import styles from "./Modal.module.css";
 
 export interface ModalProps {
@@ -16,6 +17,7 @@ export interface ModalProps {
  * trigger on close, and marks the dialog role/labelling correctly.
  */
 export function Modal({ open, onClose, title, children }: ModalProps) {
+  const t = useTranslation();
   const dialogRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<Element | null>(null);
 
@@ -52,7 +54,7 @@ export function Modal({ open, onClose, title, children }: ModalProps) {
         {title && (
           <div className={styles.header}>
             <h2 className={styles.title}>{title}</h2>
-            <button className={styles.closeButton} onClick={onClose} aria-label="Bağla">
+            <button className={styles.closeButton} onClick={onClose} aria-label={t.common.close}>
               ✕
             </button>
           </div>

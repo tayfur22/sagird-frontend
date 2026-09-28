@@ -39,7 +39,7 @@ export function DashboardShell({
     <div className={styles.shell}>
       <aside className={cn(styles.sidebar, mobileOpen && styles.sidebarOpen)}>
         <div className={styles.brand}>{brandLabel}</div>
-        <nav aria-label="Panel naviqasiyası" className={styles.nav}>
+        <nav aria-label={t.nav.mainNavigation} className={styles.nav}>
           {navItems.map((item) =>
             item.disabled ? (
               <span key={item.href} className={styles.navItemDisabled} aria-disabled="true">
@@ -65,7 +65,7 @@ export function DashboardShell({
         <header className={styles.topbar}>
           <button
             className={styles.menuToggle}
-            aria-label="Naviqasiyanı aç"
+            aria-label={t.nav.openNavigation}
             aria-expanded={mobileOpen}
             onClick={() => setMobileOpen((value) => !value)}
           >

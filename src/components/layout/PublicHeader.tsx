@@ -11,12 +11,12 @@ import type { NavItem } from "@/types/nav";
 import styles from "./PublicHeader.module.css";
 
 const NAV_ITEMS: NavItem[] = [
-  { label: "Ana səhifə", href: "/" },
-  { label: "İmtahanlar", href: "/exams", disabled: true },
-  { label: "Liderlər", href: "/leaderboard", disabled: true },
+  { label: "Ana səhifə", href: "/", labelKey: "home" },
+  { label: "İmtahanlar", href: "/exams", labelKey: "exams", disabled: true },
+  { label: "Liderlər", href: "/leaderboard", labelKey: "leaderboard", disabled: true },
   { label: "Statistika", href: "/statistics", labelKey: "statistics" },
-  { label: "İzahlar", href: "/explanations", disabled: true },
-  { label: "Haqqımızda", href: "/about", disabled: true },
+  { label: "İzahlar", href: "/explanations", labelKey: "explanations", disabled: true },
+  { label: "Haqqımızda", href: "/about", labelKey: "about", disabled: true },
 ];
 
 export function PublicHeader() {
@@ -33,7 +33,7 @@ export function PublicHeader() {
           Şagird<span className={styles.logoAccent}>.az</span>
         </Link>
 
-        <nav className={styles.desktopNav} aria-label="Əsas naviqasiya">
+        <nav className={styles.desktopNav} aria-label={t.nav.mainNavigation}>
           {NAV_ITEMS.map((item) =>
             item.disabled ? (
               <span key={item.href} className={styles.navItemDisabled} aria-disabled="true">
@@ -65,7 +65,7 @@ export function PublicHeader() {
           )}
           <button
             className={styles.menuToggle}
-            aria-label="Menyunu aç"
+            aria-label={t.nav.openNavigation}
             aria-expanded={menuOpen}
             onClick={() => setMenuOpen((value) => !value)}
           >
@@ -75,7 +75,7 @@ export function PublicHeader() {
       </div>
 
       {menuOpen && (
-        <nav className={styles.mobileNav} aria-label="Mobil naviqasiya">
+        <nav className={styles.mobileNav} aria-label={t.nav.mainNavigation}>
           {NAV_ITEMS.map((item) =>
             item.disabled ? (
               <span key={item.href} className={styles.navItemDisabled} aria-disabled="true">

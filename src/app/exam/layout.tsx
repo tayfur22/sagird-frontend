@@ -1,6 +1,9 @@
+import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { LanguageSwitcher } from "@/components/layout/LanguageSwitcher";
 import styles from "./layout.module.css";
+
+export const metadata: Metadata = { robots: { index: false, follow: false } };
 
 /**
  * Deliberately chrome-light: no sidebar, no nav links, nothing that would

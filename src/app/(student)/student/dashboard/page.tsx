@@ -3,10 +3,11 @@
 import { DashboardSubscriptionCard } from "@/components/subscription/DashboardSubscriptionCard";
 import { EmptyState } from "@/components/ui/EmptyState";
 import { useAuth } from "@/lib/auth/AuthProvider";
-import { t } from "@/lib/i18n/t";
+import { useTranslation } from "@/lib/i18n/LocaleProvider";
 
 export default function StudentDashboardPage() {
   const { user } = useAuth();
+  const t = useTranslation();
 
   return (
     <>
@@ -16,10 +17,7 @@ export default function StudentDashboardPage() {
         </h1>
       )}
       <DashboardSubscriptionCard />
-      <EmptyState
-        title="Hələ heç bir imtahan yoxdur."
-        description="İmtahan funksionallığı növbəti fazada əlavə olunacaq."
-      />
+      <EmptyState title={t.emptyState.noExams} />
     </>
   );
 }

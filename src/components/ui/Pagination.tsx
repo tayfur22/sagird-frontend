@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslation } from "@/lib/i18n/LocaleProvider";
 import styles from "./Pagination.module.css";
 
 export interface PaginationLabels {
@@ -14,17 +15,13 @@ export interface PaginationProps {
   onPageChange: (page: number) => void;
   /** Disables both buttons, e.g. while the requested page is loading. */
   disabled?: boolean;
-  /** Localized accessible names. Defaults to the original Azerbaijani labels so existing callers are unchanged. */
+  /** Localized accessible names. Defaults to the active locale's `common.pagination` labels. */
   labels?: PaginationLabels;
 }
 
-const DEFAULT_LABELS: PaginationLabels = {
-  label: "Səhifələmə",
-  previous: "Əvvəlki səhifə",
-  next: "Növbəti səhifə",
-};
-
-export function Pagination({ page, totalPages, onPageChange, disabled = false, labels = DEFAULT_LABELS }: PaginationProps) {
+export function Pagination({ page, totalPages, onPageChange, disabled = false, labels }: PaginationProps) {
+  const t = useTranslation();
+  labels = labels ?? t.common.pagination;
   if (totalPages <= 1) return null;
 
   return (

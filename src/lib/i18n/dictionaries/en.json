@@ -7,7 +7,19 @@
     "cancel": "Cancel",
     "close": "Close",
     "submitting": "Submitting...",
-    "required": "Required"
+    "required": "Required",
+    "errorDescription": "The page could not be loaded. Please try again.",
+    "notFoundTitle": "Page not found",
+    "notFoundDescription": "The page you are looking for does not exist.",
+    "notifications": "Notifications",
+    "pagination": {
+      "label": "Pagination",
+      "previous": "Previous page",
+      "next": "Next page"
+    }
+  },
+  "home": {
+    "subtitle": "An online exam platform for students."
   },
   "nav": {
     "home": "Home",
@@ -30,6 +42,7 @@
     "settings": "Settings",
     "logout": "Log out",
     "mainNavigation": "Main navigation",
+    "openNavigation": "Open navigation",
     "attempts": "Attempts",
     "import": "Import"
   },

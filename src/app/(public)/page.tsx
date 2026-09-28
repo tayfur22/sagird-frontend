@@ -1,32 +1,24 @@
-import { Button } from "@/components/ui/Button";
-import { Card } from "@/components/ui/Card";
+"use client";
+
+import { ButtonLink } from "@/components/ui/Button";
+import { useTranslation } from "@/lib/i18n/LocaleProvider";
 import styles from "./page.module.css";
 
 export default function HomePage() {
+  const t = useTranslation();
+
   return (
     <div className={`container ${styles.hero}`}>
       <h1 className={styles.title}>Şagird.az</h1>
-      <p className={styles.subtitle}>
-        Tələbələr üçün onlayn imtahan platforması. Bu, layihənin Phase 1
-        əsası: dizayn sistemi və tətbiq skeletidir.
-      </p>
+      <p className={styles.subtitle}>{t.home.subtitle}</p>
       <div className={styles.actions}>
-        <Button size="lg" disabled>
-          İmtahana başla
-        </Button>
-        <Button size="lg" variant="secondary" disabled>
-          Daha ətraflı
-        </Button>
+        <ButtonLink href="/register" size="lg">
+          {t.nav.register}
+        </ButtonLink>
+        <ButtonLink href="/login" size="lg" variant="secondary">
+          {t.nav.login}
+        </ButtonLink>
       </div>
-
-      <Card title="Bu fazada nə hazırdır" className={styles.card}>
-        <p>
-          Backend əsası, frontend əsası, dizayn sistemi, paylaşılan komponentlər
-          və üç tətbiq düzəni (ictimai, tələbə, admin) quruldu. İmtahan,
-          sual, giriş və abunəlik funksionallığı gələcək fazalarda əlavə
-          olunacaq.
-        </p>
-      </Card>
     </div>
   );
 }
