@@ -17,7 +17,6 @@ import { ExamSecurityNotice } from "@/components/exam/ExamSecurityNotice";
 import { SecurityTerminatedModal } from "@/components/exam/SecurityTerminatedModal";
 import { isAnswerFilled } from "@/components/exam/QuestionNavigator";
 import { useAnswerAutosave } from "@/hooks/useAnswerAutosave";
-import { useAttemptTimer } from "@/hooks/useAttemptTimer";
 import { useExamSecurity } from "@/hooks/useExamSecurity";
 import { attemptApi } from "@/lib/attempt/attempt-api";
 import { examApi } from "@/lib/exam/exam-api";
@@ -112,8 +111,6 @@ function AttemptView() {
   const onExpire = useCallback(() => {
     reloadAttempt();
   }, [reloadAttempt]);
-
-  const { seconds, urgency } = useAttemptTimer(attempt, onExpire);
 
   const attemptInProgress = attempt?.status === "IN_PROGRESS";
 
@@ -260,7 +257,7 @@ function AttemptView() {
           <h1 className={styles.title}>{exam?.title ?? "\u2014"}</h1>
           <AttemptStatusBadge status={attempt.status} />
         </div>
-        {attempt.status === "IN_PROGRESS" && <AttemptTimer seconds={seconds} urgency={urgency} />}
+        {attempt.status === "IN_PROGRESS" && <AttemptTimer attempt={attempt} onExpire={onExpire} />}
       </div>
 
       {attempt.status === "IN_PROGRESS" && securityTerminated && <SecurityTerminatedModal />}

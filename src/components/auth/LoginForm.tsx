@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useState, type FormEvent } from "react";
+import { useRef, useState, type FormEvent } from "react";
 import { Alert } from "@/components/ui/Alert";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
@@ -23,9 +23,12 @@ export function LoginForm() {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [formError, setFormError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
+  // State updates are async, so a ref is what actually blocks a second submit in the same tick.
+  const submittingRef = useRef(false);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (submittingRef.current) return;
     setFormError(null);
 
     const nextErrors: Record<string, string> = {};
@@ -35,6 +38,7 @@ export function LoginForm() {
     setErrors(nextErrors);
     if (Object.keys(nextErrors).length > 0) return;
 
+    submittingRef.current = true;
     setSubmitting(true);
     try {
       const user = await login({ email: email.trim(), password });
@@ -43,6 +47,7 @@ export function LoginForm() {
       const serverFieldErrors = fieldErrorsFrom(error);
       setErrors(serverFieldErrors);
       setFormError(Object.keys(serverFieldErrors).length > 0 ? null : apiErrorMessage(error));
+      submittingRef.current = false;
       setSubmitting(false);
     }
   }

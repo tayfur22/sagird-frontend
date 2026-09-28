@@ -479,6 +479,7 @@
   },
   "errors": {
     "INVALID_CREDENTIALS": "Email or password is incorrect.",
+    "TOO_MANY_LOGIN_ATTEMPTS": "Too many failed login attempts. Please try again in a little while.",
     "EMAIL_ALREADY_EXISTS": "An account with this email already exists.",
     "ACCOUNT_DISABLED": "This account has been disabled.",
     "INVALID_CURRENT_PASSWORD": "Current password is incorrect.",

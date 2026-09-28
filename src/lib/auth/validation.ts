@@ -41,6 +41,12 @@ export function safeNextPath(next: string | null | undefined): string | null {
   if (!next || !next.startsWith("/") || next.startsWith("//") || next.includes("\\")) {
     return null;
   }
+  // Browsers strip tab/CR/LF from URLs, so "/\t/evil.example" would become
+  // "//evil.example"; reject any control character outright.
+  for (let i = 0; i < next.length; i++) {
+    const code = next.charCodeAt(i);
+    if (code < 0x20 || code === 0x7f) return null;
+  }
   return next;
 }
 

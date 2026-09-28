@@ -479,6 +479,7 @@
   },
   "errors": {
     "INVALID_CREDENTIALS": "E-poçt və ya şifrə yanlışdır.",
+    "TOO_MANY_LOGIN_ATTEMPTS": "Çox sayda uğursuz giriş cəhdi. Bir az sonra yenidən cəhd edin.",
     "EMAIL_ALREADY_EXISTS": "Bu e-poçt ilə artıq hesab mövcuddur.",
     "ACCOUNT_DISABLED": "Bu hesab deaktiv edilib.",
     "INVALID_CURRENT_PASSWORD": "Cari şifrə yanlışdır.",

@@ -38,6 +38,7 @@ describe("safeNextPath", () => {
     expect(safeNextPath("https://evil.example")).toBeNull();
     expect(safeNextPath("//evil.example")).toBeNull();
     expect(safeNextPath("/\\evil.example")).toBeNull();
+    expect(safeNextPath("/\t/evil.example")).toBeNull();
     expect(safeNextPath(null)).toBeNull();
   });
 });

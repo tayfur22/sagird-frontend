@@ -15,6 +15,14 @@ export interface AnswerValue {
 
 const SHORT_ANSWER_DEBOUNCE_MS = 800;
 
+/** Order-insensitive equality, so re-selecting the already-saved choice is recognised as "no change". */
+function sameAnswer(a: AnswerValue, b: AnswerValue): boolean {
+  if (a.textAnswer !== b.textAnswer) return false;
+  if (a.selectedOptionIds.length !== b.selectedOptionIds.length) return false;
+  const ids = new Set(a.selectedOptionIds);
+  return b.selectedOptionIds.every((id) => ids.has(id));
+}
+
 /**
  * Owns client-side answer state for one attempt and autosaves it through
  * PUT /answers/{questionId} (Phase 8A). Choice-based answers save right
@@ -35,6 +43,11 @@ export function useAnswerAutosave(attemptId: string, questions: StudentQuestion[
   const typeRef = useRef<Record<string, QuestionType>>({});
   const canSaveRef = useRef(canSave);
   canSaveRef.current = canSave;
+  // Latest value per question (updated synchronously, unlike `answers` state) and which
+  // questions' last save failed - lets setAnswer skip a save that would send nothing new.
+  const latestRef = useRef<Record<string, AnswerValue>>({});
+  const failedRef = useRef<Record<string, boolean>>({});
+  const seededKeyRef = useRef<string | null>(null);
 
   useEffect(() => {
     const seededAnswers: Record<string, AnswerValue> = {};
@@ -46,6 +59,17 @@ export function useAnswerAutosave(attemptId: string, questions: StudentQuestion[
       types[q.questionId] = q.type;
     }
     typeRef.current = types;
+
+    // Only (re)seed when the attempt or its set of questions really changes. The parent also
+    // replaces `questions` to update listening play counts; re-seeding then would reset every
+    // answer to its value from the initial load (hiding answers already saved) and drop pending
+    // or in-flight saves.
+    const seedKey = `${attemptId}|${questions.map((q) => q.questionId).join(",")}`;
+    if (seededKeyRef.current === seedKey) return;
+    seededKeyRef.current = seedKey;
+
+    latestRef.current = seededAnswers;
+    failedRef.current = {};
     Object.values(debounceRef.current).forEach(clearTimeout);
     debounceRef.current = {};
     pendingRef.current = {};
@@ -74,6 +98,7 @@ export function useAnswerAutosave(attemptId: string, questions: StudentQuestion[
       attemptApi
         .saveAnswer(attemptId, questionId, request)
         .then(() => {
+          delete failedRef.current[questionId];
           setStatuses((prev) => ({ ...prev, [questionId]: "saved" }));
           setErrors((prev) => {
             if (!(questionId in prev)) return prev;
@@ -83,6 +108,7 @@ export function useAnswerAutosave(attemptId: string, questions: StudentQuestion[
           });
         })
         .catch((err: unknown) => {
+          failedRef.current[questionId] = true;
           setStatuses((prev) => ({ ...prev, [questionId]: "error" }));
           setErrors((prev) => ({ ...prev, [questionId]: apiErrorMessage(err) }));
         })
@@ -98,6 +124,12 @@ export function useAnswerAutosave(attemptId: string, questions: StudentQuestion[
 
   const setAnswer = useCallback(
     (questionId: string, value: AnswerValue) => {
+      // Same value as the one already saved/being saved (e.g. clicking the selected radio again):
+      // nothing to send. A previously failed save is still re-attempted.
+      const previous = latestRef.current[questionId];
+      if (previous && !failedRef.current[questionId] && sameAnswer(previous, value)) return;
+      latestRef.current[questionId] = value;
+
       setAnswers((prev) => ({ ...prev, [questionId]: value }));
       pendingRef.current[questionId] = value;
       setStatuses((prev) => ({ ...prev, [questionId]: "saving" }));

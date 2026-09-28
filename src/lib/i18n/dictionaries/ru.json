@@ -479,6 +479,7 @@
   },
   "errors": {
     "INVALID_CREDENTIALS": "Неверный адрес электронной почты или пароль.",
+    "TOO_MANY_LOGIN_ATTEMPTS": "Слишком много неудачных попыток входа. Попробуйте немного позже.",
     "EMAIL_ALREADY_EXISTS": "Аккаунт с этим email уже существует.",
     "ACCOUNT_DISABLED": "Этот аккаунт отключён.",
     "INVALID_CURRENT_PASSWORD": "Текущий пароль неверен.",
