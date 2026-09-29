@@ -618,6 +618,26 @@
     },
     "backToExam": "Back to exam",
     "backToExams": "Back to my exams",
+    "backToResults": "Back to results",
+    "myResults": {
+      "title": "My results",
+      "subtitle": "Results of the exams you have submitted.",
+      "columns": {
+        "exam": "Exam",
+        "type": "Type",
+        "submittedAt": "Submitted",
+        "score": "Score",
+        "percentage": "Percentage",
+        "actions": "Actions"
+      },
+      "viewResult": "View result",
+      "scoreFormat": "{score} / {max}",
+      "empty": {
+        "title": "No results yet",
+        "description": "You have not submitted any exam yet. Results of exams you complete will appear here.",
+        "action": "Go to exams"
+      }
+    },
     "notFound": {
       "title": "Attempt not found",
       "description": "The exam attempt you're looking for doesn't exist or isn't yours."

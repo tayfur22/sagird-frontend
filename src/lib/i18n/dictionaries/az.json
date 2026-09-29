@@ -618,6 +618,26 @@
     },
     "backToExam": "İmtahana qayıt",
     "backToExams": "İmtahanlara qayıt",
+    "backToResults": "Nəticələrə qayıt",
+    "myResults": {
+      "title": "Nəticələrim",
+      "subtitle": "Təqdim etdiyiniz imtahanların nəticələri.",
+      "columns": {
+        "exam": "İmtahan",
+        "type": "Növ",
+        "submittedAt": "Təqdim tarixi",
+        "score": "Bal",
+        "percentage": "Faiz",
+        "actions": "Əməliyyat"
+      },
+      "viewResult": "Nəticəyə bax",
+      "scoreFormat": "{score} / {max}",
+      "empty": {
+        "title": "Nəticələr yoxdur",
+        "description": "Hələ heç bir imtahanı tamamlamamısınız. Tamamladığınız imtahanların nəticələri burada görünəcək.",
+        "action": "İmtahanlara keç"
+      }
+    },
     "notFound": {
       "title": "Cəhd tapılmadı",
       "description": "Axtardığınız imtahan cəhdi mövcud deyil və ya sizə aid deyil."

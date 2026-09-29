@@ -1,5 +1,6 @@
 import { apiClient } from "@/lib/api/client";
-import type { ExamAttemptResponse } from "@/types/attempt";
+import type { PageResponse } from "@/types/api";
+import type { ExamAttemptResponse, MyAttemptSummary } from "@/types/attempt";
 import type {
   AttemptAnswerResponse,
   ListeningPlaybackResponse,
@@ -22,6 +23,13 @@ export const attemptApi = {
   /** GET /exams/{examId}/attempts/current - never creates an attempt. Resolves to null if none is active. */
   getCurrent: (examId: string, signal?: AbortSignal) =>
     apiClient.get<ExamAttemptResponse | null>(`/exams/${examId}/attempts/current`, { signal }),
+
+  /**
+   * GET /exams/attempts/my - the student's own SUBMITTED attempts, newest
+   * first. `page` is 0-based (backend paging); never sends a student id.
+   */
+  listMine: (page = 0, size = 10, signal?: AbortSignal) =>
+    apiClient.get<PageResponse<MyAttemptSummary>>(`/exams/attempts/my?page=${page}&size=${size}`, { signal }),
 
   /** GET /exams/attempts/{attemptId} - the student's own attempt only (404 for any other student's). */
   getById: (attemptId: string, signal?: AbortSignal) =>

@@ -6,7 +6,7 @@ import type { NavItem } from "@/types/nav";
 const STUDENT_NAV: NavItem[] = [
   { label: "İdarə paneli", href: "/student/dashboard", labelKey: "dashboard" },
   { label: "İmtahanlarım", href: "/student/exams", labelKey: "myExams" },
-  { label: "Nəticələr", href: "/student/results", labelKey: "results", disabled: true },
+  { label: "Nəticələr", href: "/student/results", labelKey: "results" },
   { label: "Liderlər", href: "/student/leaderboard", labelKey: "leaderboard" },
   { label: "Statistika", href: "/student/statistics", labelKey: "statistics" },
   { label: "Abunəlik", href: "/student/subscription", labelKey: "subscription" },

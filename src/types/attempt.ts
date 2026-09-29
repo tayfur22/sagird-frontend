@@ -1,3 +1,5 @@
+import type { ExamType } from "@/types/exam";
+
 /** Mirrors az.sagird.modules.attempt.entity.AttemptStatus. */
 export type AttemptStatus = "IN_PROGRESS" | "SUBMITTED" | "EXPIRED" | "CANCELLED";
 
@@ -26,4 +28,20 @@ export interface ExamAttemptResponse {
   maxScore: number | null;
   percentage: number | null;
   passed: boolean | null;
+}
+
+/**
+ * Mirrors az.sagird.modules.attempt.dto.MyAttemptSummaryResponse: one row of
+ * GET /exams/attempts/my. The backend only ever lists the signed-in
+ * student's own SUBMITTED attempts, so the score fields are always set.
+ */
+export interface MyAttemptSummary {
+  attemptId: string;
+  examId: string;
+  examTitle: string;
+  examType: ExamType;
+  submittedAt: string;
+  score: number;
+  maxScore: number;
+  percentage: number;
 }
