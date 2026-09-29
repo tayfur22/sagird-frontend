@@ -1,3 +1,5 @@
+"use client";
+
 import { useTranslation } from "@/lib/i18n/LocaleProvider";
 import styles from "./Spinner.module.css";
 

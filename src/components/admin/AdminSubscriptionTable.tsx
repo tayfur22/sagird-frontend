@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Alert } from "@/components/ui/Alert";
 import { Button, ButtonLink } from "@/components/ui/Button";
+import { ConfirmDialog } from "@/components/ui/ConfirmDialog";
 import { EmptyState } from "@/components/ui/EmptyState";
 import { Input } from "@/components/ui/Input";
 import { Pagination } from "@/components/ui/Pagination";
@@ -10,7 +11,9 @@ import { Select } from "@/components/ui/Select";
 import { Skeleton } from "@/components/ui/Skeleton";
 import { Table, type TableColumn } from "@/components/ui/Table";
 import { AdminSubscriptionStatusBadge } from "./AdminSubscriptionStatusBadge";
-import { adminMonitoringApi } from "@/lib/admin/admin-api";
+import { useToast } from "@/hooks/useToast";
+import { adminMonitoringApi, adminSubscriptionApi } from "@/lib/admin/admin-api";
+import { ApiError } from "@/lib/api/errors";
 import { formatExamDateTime } from "@/lib/exam/format";
 import { apiErrorMessage } from "@/lib/i18n/translate-error";
 import { useTranslation } from "@/lib/i18n/LocaleProvider";
@@ -23,9 +26,25 @@ const PAGE_SIZE = 10;
 const SEARCH_DEBOUNCE_MS = 400;
 const STATUSES: SubscriptionStatus[] = ["ACTIVE", "EXPIRED", "CANCELLED"];
 
-/** Admin subscriptions list (GET /api/v1/admin/subscriptions), server-side paginated/searched/filtered. */
-export function AdminSubscriptionTable() {
+export interface AdminSubscriptionTableProps {
+  /**
+   * Bumped by the parent after a subscription was created. Resets the search,
+   * status filter and page (the list is newest-first) and reloads, so the
+   * new row is guaranteed to be visible.
+   */
+  refreshToken?: number;
+}
+
+/**
+ * Admin subscriptions list (GET /api/v1/admin/subscriptions), server-side
+ * paginated/searched/filtered. ACTIVE rows (which includes not-yet-started
+ * ones - the backend's effective status) can be cancelled after a
+ * confirmation (POST /admin/subscriptions/{id}/cancel); EXPIRED/CANCELLED
+ * rows have no action.
+ */
+export function AdminSubscriptionTable({ refreshToken = 0 }: AdminSubscriptionTableProps) {
   const t = useTranslation();
+  const { showToast } = useToast();
 
   const [pageIndex, setPageIndex] = useState(0);
   const [searchInput, setSearchInput] = useState("");
@@ -36,6 +55,19 @@ export function AdminSubscriptionTable() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [retryToken, setRetryToken] = useState(0);
+  const [cancelTarget, setCancelTarget] = useState<AdminSubscriptionItemResponse | null>(null);
+  const [cancellingId, setCancellingId] = useState<string | null>(null);
+  // State updates are async; the ref makes a second cancel request in the same tick impossible.
+  const cancelLockRef = useRef(false);
+
+  useEffect(() => {
+    if (refreshToken === 0) return;
+    setSearchInput("");
+    setSearch("");
+    setStatus("");
+    setPageIndex(0);
+    setRetryToken((v) => v + 1);
+  }, [refreshToken]);
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -67,6 +99,28 @@ export function AdminSubscriptionTable() {
     };
   }, [pageIndex, search, status, retryToken]);
 
+  async function handleConfirmCancel() {
+    if (!cancelTarget || cancelLockRef.current) return;
+    cancelLockRef.current = true;
+    setCancellingId(cancelTarget.id);
+    try {
+      await adminSubscriptionApi.cancel(cancelTarget.id);
+      showToast(t.admin.subscriptions.cancel.success, "success");
+      setCancelTarget(null);
+      setRetryToken((v) => v + 1);
+    } catch (err) {
+      showToast(apiErrorMessage(err), "error");
+      // 404/409: the row changed under us (already cancelled/expired/removed) - the list is stale, so resync it.
+      if (ApiError.isApiError(err) && (err.status === 404 || err.status === 409)) {
+        setCancelTarget(null);
+        setRetryToken((v) => v + 1);
+      }
+    } finally {
+      cancelLockRef.current = false;
+      setCancellingId(null);
+    }
+  }
+
   const statusOptions = [
     { value: "", label: t.admin.subscriptions.allStatuses },
     ...STATUSES.map((value) => ({ value, label: t.subscription.statuses[value] })),
@@ -97,6 +151,26 @@ export function AdminSubscriptionTable() {
       key: "createdAt",
       header: t.admin.subscriptions.columns.createdAt,
       render: (row) => formatExamDateTime(row.createdAt),
+    },
+    {
+      key: "actions",
+      header: t.admin.subscriptions.columns.actions,
+      render: (row) =>
+        row.status === "ACTIVE" ? (
+          <div className={styles.actions}>
+            <Button
+              variant="danger"
+              size="sm"
+              onClick={() => setCancelTarget(row)}
+              loading={cancellingId === row.id}
+              disabled={cancellingId !== null}
+            >
+              {t.admin.subscriptions.cancel.action}
+            </Button>
+          </div>
+        ) : (
+          "—"
+        ),
     },
   ];
 
@@ -149,6 +223,21 @@ export function AdminSubscriptionTable() {
           )}
         </>
       )}
+
+      <ConfirmDialog
+        open={cancelTarget !== null}
+        title={t.admin.subscriptions.cancel.confirmTitle}
+        message={
+          cancelTarget
+            ? t.admin.subscriptions.cancel.confirmMessage.replace("{student}", cancelTarget.student.fullName ?? "—")
+            : ""
+        }
+        confirmLabel={t.admin.subscriptions.cancel.confirmAction}
+        cancelLabel={t.admin.subscriptions.cancel.keep}
+        loading={cancellingId !== null}
+        onConfirm={() => void handleConfirmCancel()}
+        onCancel={() => setCancelTarget(null)}
+      />
     </div>
   );
 }

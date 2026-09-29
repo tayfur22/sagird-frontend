@@ -8,6 +8,7 @@ export * from "./Card";
 export * from "./Badge";
 export * from "./Alert";
 export * from "./Modal";
+export * from "./ConfirmDialog";
 export * from "./Dropdown";
 export * from "./Tabs";
 export * from "./Tooltip";
