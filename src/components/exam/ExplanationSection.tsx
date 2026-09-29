@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Alert } from "@/components/ui/Alert";
 import { Button } from "@/components/ui/Button";
 import { Skeleton } from "@/components/ui/Skeleton";
+import { ApiError } from "@/lib/api/errors";
 import { attemptApi } from "@/lib/attempt/attempt-api";
 import { apiErrorMessage } from "@/lib/i18n/translate-error";
 import { useLocale, useTranslation } from "@/lib/i18n/LocaleProvider";
@@ -15,7 +16,7 @@ interface ExplanationSectionProps {
   questionId: string;
 }
 
-type Status = "idle" | "loading" | "success" | "error";
+type Status = "idle" | "loading" | "success" | "empty" | "error";
 
 /**
  * Phase 14B: the collapsed-by-default "show explanation" control on one
@@ -67,7 +68,9 @@ export function ExplanationSection({ attemptId, questionId }: ExplanationSection
       .catch((err: unknown) => {
         if (cancelled) return;
         setErrorMessage(apiErrorMessage(err));
-        setStatus("error");
+        // "No explanation was written for this question" is a normal outcome, not a failure:
+        // show it as a neutral note without a pointless Retry button.
+        setStatus(ApiError.isApiError(err) && err.code === "EXPLANATION_NOT_FOUND" ? "empty" : "error");
       });
 
     return () => {
@@ -121,6 +124,8 @@ export function ExplanationSection({ attemptId, questionId }: ExplanationSection
               </div>
             </Alert>
           )}
+
+          {status === "empty" && errorMessage && <p className={styles.text}>{errorMessage}</p>}
 
           {status === "success" && content !== null && (
             <div className={styles.body}>
