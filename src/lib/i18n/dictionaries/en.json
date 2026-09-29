@@ -488,7 +488,8 @@
     "INVALID_CURRENCY": "Currency code must be 3 letters (e.g. AZN).",
     "INVALID_EXAM_REGISTRATION_PERIOD": "Registration end must be after the start.",
     "INVALID_QUESTION_OPTIONS": "The options aren't valid for this question type.",
-    "INVALID_POINTS": "Points must be a positive whole number."
+    "INVALID_POINTS": "Points must be a positive whole number.",
+    "INVALID_SUBSCRIPTION_PERIOD": "End date must be after the start date."
   },
   "errors": {
     "INVALID_CREDENTIALS": "Email or password is incorrect.",
@@ -536,7 +537,12 @@
     "IMPORT_INVALID_COLUMN": "The file is missing required column(s).",
     "IMPORT_INVALID_QUESTION_TYPE": "The question type is not valid.",
     "IMPORT_INVALID_ANSWER": "The correct answer is not valid.",
-    "IMPORT_DUPLICATE_QUESTION": "A question with this text already exists."
+    "IMPORT_DUPLICATE_QUESTION": "A question with this text already exists.",
+    "INVALID_SUBSCRIPTION_PERIOD": "The end date must be after the start date and in the future.",
+    "SUBSCRIPTION_USER_NOT_STUDENT": "Subscriptions can only be created for students.",
+    "SUBSCRIPTION_ALREADY_ACTIVE": "This student already has an active subscription.",
+    "SUBSCRIPTION_ALREADY_CANCELLED": "This subscription is already cancelled.",
+    "SUBSCRIPTION_ALREADY_EXPIRED": "This subscription has already expired."
   },
   "attempt": {
     "start": {
@@ -891,7 +897,29 @@
         "status": "Status",
         "startDate": "Start date",
         "endDate": "End date",
-        "createdAt": "Created on"
+        "createdAt": "Created on",
+        "actions": "Actions"
+      },
+      "create": {
+        "open": "Grant subscription",
+        "title": "Grant subscription",
+        "student": "Student",
+        "studentSearchPlaceholder": "Search by name or email",
+        "noStudentsFound": "No matching students found.",
+        "changeStudent": "Change",
+        "plan": "Plan",
+        "startAt": "Start date",
+        "endAt": "End date",
+        "submit": "Grant subscription",
+        "success": "Subscription created successfully."
+      },
+      "cancel": {
+        "action": "Cancel",
+        "confirmTitle": "Cancel subscription",
+        "confirmMessage": "Are you sure you want to cancel this subscription? Student: {student}. Access will end immediately.",
+        "confirmAction": "Cancel subscription",
+        "keep": "No, keep it",
+        "success": "Subscription cancelled."
       }
     },
     "payments": {

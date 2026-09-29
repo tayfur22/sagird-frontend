@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useState, type ChangeEvent, type FormEvent } from "react";
 import { Alert } from "@/components/ui/Alert";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
@@ -53,6 +53,17 @@ export function ExamForm({ initialValue, submitLabel, onSubmit }: ExamFormProps)
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [formError, setFormError] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
+  // A <input type="datetime-local"> reports value "" (not the half-typed value) until date AND
+  // time are both complete; `validity.badInput` is the only way to tell that apart from "left empty".
+  const [incompleteDates, setIncompleteDates] = useState<Record<string, boolean>>({});
+
+  function dateChangeHandler(field: string, setValue: (value: string) => void) {
+    return (event: ChangeEvent<HTMLInputElement>) => {
+      setValue(event.target.value);
+      const incomplete = event.target.validity.badInput;
+      setIncompleteDates((current) => (current[field] === incomplete ? current : { ...current, [field]: incomplete }));
+    };
+  }
 
   const typeOptions = EXAM_TYPES.map((value) => ({ value, label: t.exam.types[value] }));
   const currencyOptions = CURRENCIES.map((value) => ({ value, label: value }));
@@ -84,9 +95,13 @@ export function ExamForm({ initialValue, submitLabel, onSubmit }: ExamFormProps)
       clientErrors.price = validationMessage("INVALID_PRICE");
     }
 
+    for (const field of ["registrationStartAt", "registrationEndAt", "publishAt"]) {
+      if (incompleteDates[field]) clientErrors[field] = validationMessage("INCOMPLETE_DATETIME");
+    }
+
     const startIso = fromDateTimeLocalValue(registrationStartAt);
     const endIso = fromDateTimeLocalValue(registrationEndAt);
-    if (startIso && endIso && new Date(endIso).getTime() <= new Date(startIso).getTime()) {
+    if (startIso && endIso && !clientErrors.registrationEndAt && new Date(endIso).getTime() <= new Date(startIso).getTime()) {
       clientErrors.registrationEndAt = validationMessage("INVALID_EXAM_REGISTRATION_PERIOD");
     }
 
@@ -189,14 +204,14 @@ export function ExamForm({ initialValue, submitLabel, onSubmit }: ExamFormProps)
             label={t.exam.form.registrationStartAt}
             type="datetime-local"
             value={registrationStartAt}
-            onChange={(event) => setRegistrationStartAt(event.target.value)}
+            onChange={dateChangeHandler("registrationStartAt", setRegistrationStartAt)}
             errorText={errors.registrationStartAt}
           />
           <Input
             label={t.exam.form.registrationEndAt}
             type="datetime-local"
             value={registrationEndAt}
-            onChange={(event) => setRegistrationEndAt(event.target.value)}
+            onChange={dateChangeHandler("registrationEndAt", setRegistrationEndAt)}
             errorText={errors.registrationEndAt}
           />
         </div>
@@ -206,7 +221,7 @@ export function ExamForm({ initialValue, submitLabel, onSubmit }: ExamFormProps)
           helpText={t.exam.form.publishAtHelp}
           type="datetime-local"
           value={publishAt}
-          onChange={(event) => setPublishAt(event.target.value)}
+          onChange={dateChangeHandler("publishAt", setPublishAt)}
           errorText={errors.publishAt}
         />
 

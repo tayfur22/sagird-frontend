@@ -1,5 +1,6 @@
 /** Mirrors az.sagird.modules.subscription.entity.SubscriptionPlan. */
-export type SubscriptionPlan = "MONTHLY";
+export const SUBSCRIPTION_PLANS = ["MONTHLY"] as const;
+export type SubscriptionPlan = (typeof SUBSCRIPTION_PLANS)[number];
 
 /** Mirrors az.sagird.modules.subscription.entity.SubscriptionStatus. */
 export type SubscriptionStatus = "ACTIVE" | "EXPIRED" | "CANCELLED";
@@ -31,4 +32,11 @@ export interface SubscriptionResponse {
 export interface CurrentSubscriptionResponse {
   hasActiveSubscription: boolean;
   current: SubscriptionResponse | null;
+}
+
+export interface CreateSubscriptionRequest {
+  userId: string;
+  plan: SubscriptionPlan;
+  startAt: string;
+  endAt: string;
 }

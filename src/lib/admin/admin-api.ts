@@ -12,8 +12,7 @@ import type {
 import type { AttemptStatus } from "@/types/attempt";
 import type { ExamStatus } from "@/types/exam";
 import type { PaymentStatus } from "@/types/payment";
-import type { SubscriptionStatus } from "@/types/subscription";
-
+import type { CreateSubscriptionRequest, SubscriptionResponse, SubscriptionStatus } from "@/types/subscription";
 function query(params: Record<string, string | number | undefined>): string {
   const search = new URLSearchParams();
   for (const [key, value] of Object.entries(params)) {
@@ -90,4 +89,10 @@ export const adminMonitoringApi = {
       `/admin/attempts${query({ page, size, ...params })}`,
       { signal }
     ),
+};
+
+export const adminSubscriptionApi = {
+  create: (request: CreateSubscriptionRequest) =>
+    apiClient.post<SubscriptionResponse>("/admin/subscriptions", request),
+  cancel: (id: string) => apiClient.post<SubscriptionResponse>(`/admin/subscriptions/${id}/cancel`),
 };

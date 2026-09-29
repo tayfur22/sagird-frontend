@@ -488,7 +488,8 @@
     "INVALID_CURRENCY": "Valyuta kodu 3 hərfdən ibarət olmalıdır (məs. AZN).",
     "INVALID_EXAM_REGISTRATION_PERIOD": "Qeydiyyat sonu başlanğıcdan sonra olmalıdır.",
     "INVALID_QUESTION_OPTIONS": "Variantlar bu sual tipi üçün düzgün deyil.",
-    "INVALID_POINTS": "Bal müsbət tam ədəd olmalıdır."
+    "INVALID_POINTS": "Bal müsbət tam ədəd olmalıdır.",
+    "INVALID_SUBSCRIPTION_PERIOD": "Bitmə tarixi başlanğıc tarixindən sonra olmalıdır."
   },
   "errors": {
     "INVALID_CREDENTIALS": "E-poçt və ya şifrə yanlışdır.",
@@ -536,7 +537,12 @@
     "IMPORT_INVALID_COLUMN": "Faylda məcburi sütun(lar) çatışmır.",
     "IMPORT_INVALID_QUESTION_TYPE": "Sual tipi düzgün deyil.",
     "IMPORT_INVALID_ANSWER": "Düzgün cavab düzgün göstərilməyib.",
-    "IMPORT_DUPLICATE_QUESTION": "Bu sual mətni artıq mövcuddur."
+    "IMPORT_DUPLICATE_QUESTION": "Bu sual mətni artıq mövcuddur.",
+    "INVALID_SUBSCRIPTION_PERIOD": "Bitmə tarixi başlanğıc tarixindən sonra və gələcəkdə olmalıdır.",
+    "SUBSCRIPTION_USER_NOT_STUDENT": "Abunəlik yalnız tələbələr üçün yaradıla bilər.",
+    "SUBSCRIPTION_ALREADY_ACTIVE": "Bu tələbənin artıq aktiv abunəliyi var.",
+    "SUBSCRIPTION_ALREADY_CANCELLED": "Bu abunəlik artıq ləğv edilib.",
+    "SUBSCRIPTION_ALREADY_EXPIRED": "Bu abunəliyin müddəti artıq bitib."
   },
   "attempt": {
     "start": {
@@ -891,7 +897,29 @@
         "status": "Status",
         "startDate": "Başlama tarixi",
         "endDate": "Bitmə tarixi",
-        "createdAt": "Yaradılma tarixi"
+        "createdAt": "Yaradılma tarixi",
+        "actions": "Əməliyyatlar"
+      },
+      "create": {
+        "open": "Yeni abunəlik ver",
+        "title": "Yeni abunəlik ver",
+        "student": "Tələbə",
+        "studentSearchPlaceholder": "Ad və ya e-poçt üzrə axtar",
+        "noStudentsFound": "Uyğun tələbə tapılmadı.",
+        "changeStudent": "Dəyiş",
+        "plan": "Plan",
+        "startAt": "Başlanğıc tarixi",
+        "endAt": "Bitmə tarixi",
+        "submit": "Abunəlik ver",
+        "success": "Abunəlik uğurla yaradıldı."
+      },
+      "cancel": {
+        "action": "Ləğv et",
+        "confirmTitle": "Abunəliyi ləğv et",
+        "confirmMessage": "Bu abunəliyi ləğv etmək istədiyinizə əminsiniz? Tələbə: {student}. Giriş dərhal dayandırılacaq.",
+        "confirmAction": "Abunəliyi ləğv et",
+        "keep": "Xeyr, saxla",
+        "success": "Abunəlik ləğv edildi."
       }
     },
     "payments": {

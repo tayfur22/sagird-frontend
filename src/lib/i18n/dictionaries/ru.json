@@ -488,7 +488,8 @@
     "INVALID_CURRENCY": "Код валюты должен состоять из 3 букв (например, AZN).",
     "INVALID_EXAM_REGISTRATION_PERIOD": "Окончание регистрации должно быть позже начала.",
     "INVALID_QUESTION_OPTIONS": "Варианты ответов не подходят для этого типа вопроса.",
-    "INVALID_POINTS": "Баллы должны быть положительным целым числом."
+    "INVALID_POINTS": "Баллы должны быть положительным целым числом.",
+    "INVALID_SUBSCRIPTION_PERIOD": "Дата окончания должна быть позже даты начала."
   },
   "errors": {
     "INVALID_CREDENTIALS": "Неверный адрес электронной почты или пароль.",
@@ -536,7 +537,12 @@
     "IMPORT_INVALID_COLUMN": "В файле отсутствуют обязательные столбцы.",
     "IMPORT_INVALID_QUESTION_TYPE": "Тип вопроса указан неверно.",
     "IMPORT_INVALID_ANSWER": "Правильный ответ указан неверно.",
-    "IMPORT_DUPLICATE_QUESTION": "Вопрос с таким текстом уже существует."
+    "IMPORT_DUPLICATE_QUESTION": "Вопрос с таким текстом уже существует.",
+    "INVALID_SUBSCRIPTION_PERIOD": "Дата окончания должна быть позже даты начала и находиться в будущем.",
+    "SUBSCRIPTION_USER_NOT_STUDENT": "Подписку можно создать только для учеников.",
+    "SUBSCRIPTION_ALREADY_ACTIVE": "У этого ученика уже есть активная подписка.",
+    "SUBSCRIPTION_ALREADY_CANCELLED": "Эта подписка уже отменена.",
+    "SUBSCRIPTION_ALREADY_EXPIRED": "Срок этой подписки уже истёк."
   },
   "attempt": {
     "start": {
@@ -891,7 +897,29 @@
         "status": "Статус",
         "startDate": "Дата начала",
         "endDate": "Дата окончания",
-        "createdAt": "Дата создания"
+        "createdAt": "Дата создания",
+        "actions": "Действия"
+      },
+      "create": {
+        "open": "Выдать подписку",
+        "title": "Выдать подписку",
+        "student": "Ученик",
+        "studentSearchPlaceholder": "Поиск по имени или email",
+        "noStudentsFound": "Подходящие ученики не найдены.",
+        "changeStudent": "Изменить",
+        "plan": "План",
+        "startAt": "Дата начала",
+        "endAt": "Дата окончания",
+        "submit": "Выдать подписку",
+        "success": "Подписка успешно создана."
+      },
+      "cancel": {
+        "action": "Отменить",
+        "confirmTitle": "Отмена подписки",
+        "confirmMessage": "Вы уверены, что хотите отменить эту подписку? Ученик: {student}. Доступ будет прекращён немедленно.",
+        "confirmAction": "Отменить подписку",
+        "keep": "Нет, оставить",
+        "success": "Подписка отменена."
       }
     },
     "payments": {
