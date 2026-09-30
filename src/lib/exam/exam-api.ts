@@ -31,3 +31,15 @@ export const examApi = {
   getById: (id: string, signal?: AbortSignal) =>
     apiClient.get<ExamResponse>(`/exams/${id}`, { signal }),
 };
+
+/**
+ * Typed wrappers over the public (no-auth) exam endpoints (Phase 2 of the
+ * frontend) - same PUBLISHED-only ExamResponse shape as examApi, reachable
+ * without a session for the signed-out /exams pages.
+ */
+export const publicExamApi = {
+  getPublished: (page: number, size: number, signal?: AbortSignal) =>
+    apiClient.get<PageResponse<ExamResponse>>(`/public/exams?page=${page}&size=${size}`, { signal }),
+  getById: (id: string, signal?: AbortSignal) =>
+    apiClient.get<ExamResponse>(`/public/exams/${id}`, { signal }),
+};

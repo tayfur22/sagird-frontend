@@ -1,5 +1,8 @@
 import type { SubscriptionPlan } from "./subscription";
 
+/** Mirrors az.sagird.modules.payment.entity.PaymentPurpose. */
+export type PaymentPurpose = "SUBSCRIPTION" | "EXAM";
+
 /** Mirrors az.sagird.modules.payment.entity.PaymentStatus. */
 export type PaymentStatus = "PENDING" | "PROCESSING" | "SUCCEEDED" | "FAILED" | "CANCELLED" | "REFUNDED";
 
@@ -11,8 +14,12 @@ export type PaymentStatus = "PENDING" | "PROCESSING" | "SUCCEEDED" | "FAILED" | 
  */
 export interface PaymentResponse {
   id: string;
+  purpose: PaymentPurpose;
+  /** Set only for EXAM payments. */
+  examId: string | null;
   subscriptionId: string | null;
-  plan: SubscriptionPlan;
+  /** Null for EXAM payments. */
+  plan: SubscriptionPlan | null;
   amount: number;
   currency: string;
   status: PaymentStatus;
@@ -26,4 +33,15 @@ export interface PaymentResponse {
 export interface CreatePaymentRequest {
   plan: SubscriptionPlan;
   idempotencyKey?: string;
+}
+
+/** Mirrors az.sagird.modules.payment.dto.CreateExamPaymentRequest. No amount/user: the backend decides both. */
+export interface CreateExamPaymentRequest {
+  idempotencyKey?: string;
+}
+
+/** Mirrors az.sagird.modules.payment.dto.ExamPaymentStatusResponse. */
+export interface ExamPaymentStatusResponse {
+  paid: boolean;
+  latestPayment: PaymentResponse | null;
 }

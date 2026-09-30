@@ -113,7 +113,8 @@ export interface AdminSubscriptionItemResponse {
 export interface AdminPaymentItemResponse {
   id: string;
   student: AdminUserRef;
-  plan: SubscriptionPlan;
+  /** Null for one-time exam payments. */
+  plan: SubscriptionPlan | null;
   amount: number;
   currency: string;
   status: PaymentStatus;

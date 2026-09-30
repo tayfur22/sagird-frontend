@@ -38,6 +38,15 @@
   border-bottom-color: transparent;
 }
 
+/* Public page: ranks 1-3 get a quiet accent bar, nothing more. */
+.rowTop {
+  box-shadow: inset 3px 0 0 var(--color-primary);
+}
+
+.rowTop .name {
+  font-weight: var(--font-weight-bold);
+}
+
 .colRank {
   display: flex;
   align-items: center;

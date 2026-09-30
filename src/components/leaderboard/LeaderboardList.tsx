@@ -15,6 +15,11 @@ export interface LeaderboardListProps {
    * (the weekly leaderboard).
    */
   highlightRank?: number | null;
+  /** Optional column labels (public page uses "Participant" / "Result"). */
+  nameLabel?: string;
+  scoreLabel?: string;
+  /** Subtly distinguishes ranks 1-3 (public page only). */
+  emphasizeTop?: boolean;
 }
 
 /**
@@ -23,7 +28,7 @@ export interface LeaderboardListProps {
  * table (spec sections 18/19). Rank is rendered exactly as the backend
  * returns it (competition ranking, ties share a rank) - never recomputed.
  */
-export function LeaderboardList({ entries, emptyTitle, highlightRank }: LeaderboardListProps) {
+export function LeaderboardList({ entries, emptyTitle, highlightRank, nameLabel, scoreLabel, emphasizeTop }: LeaderboardListProps) {
   const t = useTranslation();
   const l = t.leaderboard;
 
@@ -35,8 +40,8 @@ export function LeaderboardList({ entries, emptyTitle, highlightRank }: Leaderbo
     <ol className={styles.list}>
       <li className={styles.headerRow} aria-hidden="true">
         <span className={styles.colRank}>{l.columns.rank}</span>
-        <span className={styles.colName}>{l.columns.student}</span>
-        <span className={styles.colScore}>{l.columns.score}</span>
+        <span className={styles.colName}>{nameLabel ?? l.columns.student}</span>
+        <span className={styles.colScore}>{scoreLabel ?? l.columns.score}</span>
         <span className={styles.colPercentage}>{l.columns.percentage}</span>
       </li>
 
@@ -47,7 +52,7 @@ export function LeaderboardList({ entries, emptyTitle, highlightRank }: Leaderbo
         return (
           <li
             key={`${entry.rank}-${index}`}
-            className={cn(styles.row, isYou && styles.rowHighlight)}
+            className={cn(styles.row, isYou && styles.rowHighlight, emphasizeTop && entry.rank <= 3 && styles.rowTop)}
             aria-current={isYou ? "true" : undefined}
           >
             <span className={styles.colRank}>

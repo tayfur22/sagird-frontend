@@ -19,7 +19,73 @@
     }
   },
   "home": {
-    "subtitle": "An online exam platform for students."
+    "subtitle": "An online exam platform for students.",
+    "hero": {
+      "title": "Test your knowledge. See your result. Keep improving.",
+      "description": "Take weekly and special exams on Şagird.az, see your results and compare them with other students.",
+      "primary": "Browse exams",
+      "secondary": "Subscriptions"
+    },
+    "stats": {
+      "title": "The platform in numbers",
+      "students": "Students",
+      "exams": "Exams",
+      "completed": "Completed exams",
+      "cities": "Cities"
+    },
+    "exams": {
+      "title": "Upcoming exams",
+      "description": "Exams you can take right now.",
+      "loadError": "The exams could not be loaded.",
+      "empty": {
+        "title": "There are no active exams right now.",
+        "description": "New exams will appear here once they are published."
+      },
+      "duration": "{minutes} min",
+      "included": "Included in subscription",
+      "free": "Free",
+      "details": "View details",
+      "viewAll": "All exams"
+    },
+    "regions": {
+      "title": "Students from all over Azerbaijan",
+      "description": "Students from many cities and districts join Şagird.az.",
+      "viewAll": "View all statistics"
+    },
+    "leaderboard": {
+      "title": "Leaderboard leaders",
+      "description": "Top results from the weekly exams.",
+      "viewAll": "View full leaderboard"
+    },
+    "gate": {
+      "signedOut": "Sign in to see exams and the leaderboard.",
+      "studentOnly": "This section is intended for students only."
+    },
+    "why": {
+      "title": "Why Şagird.az?",
+      "regular": {
+        "title": "Regular exams",
+        "text": "Test your knowledge with new exams every week."
+      },
+      "competition": {
+        "title": "Competition",
+        "text": "Compare your result with other students."
+      },
+      "progress": {
+        "title": "Track your progress",
+        "text": "Follow your results and performance over time."
+      }
+    },
+    "cta": {
+      "title": "Ready for more exams?",
+      "description": "Take part in the exams published every week with a monthly subscription.",
+      "action": "View subscriptions"
+    }
+  },
+  "footer": {
+    "tagline": "An online exam platform for students.",
+    "platform": "Platform",
+    "company": "Company"
   },
   "nav": {
     "home": "Home",
@@ -44,7 +110,10 @@
     "mainNavigation": "Main navigation",
     "openNavigation": "Open navigation",
     "attempts": "Attempts",
-    "import": "Import"
+    "import": "Import",
+    "ranking": "Leaderboard",
+    "contact": "Contact",
+    "closeNavigation": "Close navigation"
   },
   "language": {
     "az": "Azərbaycan",
@@ -157,6 +226,24 @@
       "viewDetails": "View details",
       "upcomingHint": "Will become active on {date}.",
       "cancelledHint": "Your subscription has been cancelled."
+    },
+    "public": {
+      "title": "Monthly subscription",
+      "subtitle": "While your subscription is active, take part in the weekly exams it includes.",
+      "perMonth": "month",
+      "getSubscription": "Get a subscription",
+      "renew": "Renew",
+      "browseExams": "Browse exams",
+      "stateActive": "Your subscription is active",
+      "stateExpired": "Your subscription has expired",
+      "stateNone": "No subscription",
+      "features": {
+        "weekly": "All weekly exams included in the subscription",
+        "results": "Detailed results and explanations",
+        "statistics": "Ranking and statistics"
+      },
+      "noteTitle": "Please note",
+      "note": "Some special and one-time exams may require a separate payment."
     }
   },
   "payment": {
@@ -308,6 +395,37 @@
       "listSubtitle": "Published exams you can take part in.",
       "startExam": "Start exam",
       "startExamHelp": "Once started, the timer begins and cannot be paused."
+    },
+    "access": {
+      "label": "Access",
+      "subscriptionIncluded": "Included in subscription",
+      "oneAttempt": "1 attempt",
+      "free": "Free",
+      "loginAndStart": "Sign in and start",
+      "loginAndContinue": "Sign in and continue",
+      "getSubscription": "Get a subscription"
+    },
+    "publicList": {
+      "title": "Exams",
+      "subtitle": "Browse the weekly and special exams held on Şagird.az and join the one that suits you.",
+      "filterLabel": "Filter by exam type",
+      "filterAll": "All",
+      "empty": "There are no active exams right now.",
+      "viewDetails": "View details"
+    },
+    "payment": {
+      "purposeLabel": "Exam payment",
+      "amountLabel": "Amount",
+      "payAndStart": "Pay and start",
+      "preparing": "Preparing payment...",
+      "successTitle": "Payment completed",
+      "successBody": "You can start the exam now.",
+      "alreadyPaid": "Already paid",
+      "alreadyPaidBody": "This exam has been paid for. You can start it.",
+      "failedTitle": "Payment did not go through",
+      "failedBody": "The payment could not be completed. You can try again.",
+      "retry": "Try again",
+      "createFailedTitle": "Could not start the payment"
     }
   },
   "question": {
@@ -542,7 +660,10 @@
     "SUBSCRIPTION_USER_NOT_STUDENT": "Subscriptions can only be created for students.",
     "SUBSCRIPTION_ALREADY_ACTIVE": "This student already has an active subscription.",
     "SUBSCRIPTION_ALREADY_CANCELLED": "This subscription is already cancelled.",
-    "SUBSCRIPTION_ALREADY_EXPIRED": "This subscription has already expired."
+    "SUBSCRIPTION_ALREADY_EXPIRED": "This subscription has already expired.",
+    "EXAM_PAYMENT_REQUIRED": "You need to pay for this exam before you can start it.",
+    "EXAM_PAYMENT_NOT_REQUIRED": "This exam does not require a separate payment.",
+    "EXAM_ALREADY_PAID": "This exam has already been paid for."
   },
   "attempt": {
     "start": {
@@ -707,7 +828,9 @@
       "rank": "Rank",
       "student": "Student",
       "score": "Score",
-      "percentage": "Percentage"
+      "percentage": "Percentage",
+      "participant": "Participant",
+      "result": "Result"
     },
     "you": "You",
     "myPosition": {
@@ -726,6 +849,10 @@
       "title": "Leaderboard",
       "description": "Top results for the weekly ranking or a chosen exam.",
       "scopeLabel": "View"
+    },
+    "public": {
+      "title": "Leaderboard",
+      "subtitle": "See how participants rank based on their exam results."
     }
   },
   "statistics": {

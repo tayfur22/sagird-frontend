@@ -29,3 +29,12 @@ export const leaderboardApi = {
   getWeekly: (page: number, size: number, signal?: AbortSignal) =>
     apiClient.get<PageResponse<LeaderboardEntry>>(`/leaderboard/weekly?page=${page}&size=${size}`, { signal }),
 };
+
+/**
+ * Public (no-auth) leaderboard, Phase 3: same LeaderboardEntry shape and the
+ * same backend ranking as leaderboardApi.getWeekly, reachable without a session.
+ */
+export const publicLeaderboardApi = {
+  getWeekly: (page: number, size: number, signal?: AbortSignal) =>
+    apiClient.get<PageResponse<LeaderboardEntry>>(`/public/leaderboard/weekly?page=${page}&size=${size}`, { signal }),
+};

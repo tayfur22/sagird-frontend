@@ -29,7 +29,7 @@ export function PaymentDetailModal({ payment, onClose }: { payment: PaymentRespo
           </div>
           <div className={styles.field}>
             <span className={styles.fieldLabel}>{t.payment.detail.plan}</span>
-            <span className={styles.fieldValue}>{t.subscription.plans[payment.plan]}</span>
+            <span className={styles.fieldValue}>{payment.plan ? t.subscription.plans[payment.plan] : t.exam.payment.purposeLabel}</span>
           </div>
           <div className={styles.field}>
             <span className={styles.fieldLabel}>{t.payment.detail.amount}</span>

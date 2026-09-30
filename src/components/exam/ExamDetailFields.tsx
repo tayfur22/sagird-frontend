@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import { formatDurationMinutes, formatExamDateTime, formatExamPrice } from "@/lib/exam/format";
 import { useTranslation } from "@/lib/i18n/LocaleProvider";
 import type { ExamResponse } from "@/types/exam";
+import { ExamAccessInfo } from "./ExamAccessInfo";
 import { ExamStatusBadge } from "./ExamStatusBadge";
 import { ExamTypeBadge } from "./ExamTypeBadge";
 import styles from "./ExamDetailFields.module.css";
@@ -11,7 +12,16 @@ import styles from "./ExamDetailFields.module.css";
  * audit timestamps, which only make sense on the admin detail view - the
  * student view only ever sees PUBLISHED exams and doesn't need them.
  */
-export function ExamDetailFields({ exam, showAdminFields = false }: { exam: ExamResponse; showAdminFields?: boolean }) {
+export function ExamDetailFields({
+  exam,
+  showAdminFields = false,
+  publicView = false,
+}: {
+  exam: ExamResponse;
+  showAdminFields?: boolean;
+  /** Public site: one combined "access" field instead of raw price + subscription flag (a 0 price on a subscription exam would read as "free"). */
+  publicView?: boolean;
+}) {
   const t = useTranslation();
 
   return (
@@ -28,11 +38,19 @@ export function ExamDetailFields({ exam, showAdminFields = false }: { exam: Exam
 
       <Field label={t.exam.detail.duration}>{formatDurationMinutes(exam.durationMinutes)}</Field>
 
-      <Field label={t.exam.detail.price}>{formatExamPrice(exam.price, exam.currency)}</Field>
+      {publicView ? (
+        <Field label={t.exam.access.label}>
+          <ExamAccessInfo exam={exam} />
+        </Field>
+      ) : (
+        <>
+          <Field label={t.exam.detail.price}>{formatExamPrice(exam.price, exam.currency)}</Field>
 
-      <Field label={t.exam.detail.subscriptionRequired}>
-        {exam.subscriptionRequired ? t.exam.subscriptionRequired.yes : t.exam.subscriptionRequired.no}
-      </Field>
+          <Field label={t.exam.detail.subscriptionRequired}>
+            {exam.subscriptionRequired ? t.exam.subscriptionRequired.yes : t.exam.subscriptionRequired.no}
+          </Field>
+        </>
+      )}
 
       <Field label={t.exam.detail.registrationPeriod}>
         {exam.registrationStartAt || exam.registrationEndAt

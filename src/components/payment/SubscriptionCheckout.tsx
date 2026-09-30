@@ -131,7 +131,7 @@ export function SubscriptionCheckout({ onActivated }: { onActivated: () => void 
   return (
     <Card className={styles.card}>
       <div className={styles.header}>
-        <span className={styles.planLabel}>{t.subscription.plans[payment.plan]}</span>
+        <span className={styles.planLabel}>{payment.plan ? t.subscription.plans[payment.plan] : null}</span>
         <PaymentStatusBadge status={payment.status} />
       </div>
 

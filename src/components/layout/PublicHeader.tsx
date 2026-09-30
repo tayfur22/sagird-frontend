@@ -1,30 +1,37 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 import { ButtonLink } from "@/components/ui/Button";
 import { useAuth } from "@/lib/auth/AuthProvider";
 import { homePathForRole } from "@/lib/auth/validation";
 import { useTranslation } from "@/lib/i18n/LocaleProvider";
 import { LanguageSwitcher } from "./LanguageSwitcher";
-import type { NavItem } from "@/types/nav";
+import { usePublicNav } from "./usePublicNav";
 import styles from "./PublicHeader.module.css";
-
-const NAV_ITEMS: NavItem[] = [
-  { label: "Ana səhifə", href: "/", labelKey: "home" },
-  { label: "İmtahanlar", href: "/exams", labelKey: "exams", disabled: true },
-  { label: "Liderlər", href: "/leaderboard", labelKey: "leaderboard", disabled: true },
-  { label: "Statistika", href: "/statistics", labelKey: "statistics" },
-  { label: "İzahlar", href: "/explanations", labelKey: "explanations", disabled: true },
-  { label: "Haqqımızda", href: "/about", labelKey: "about", disabled: true },
-];
 
 export function PublicHeader() {
   // useTranslation (not the module-level `t`) so the header re-renders when the locale changes.
   const t = useTranslation();
-  const navLabel = (item: NavItem) => (item.labelKey ? (t.nav as Record<string, string>)[item.labelKey] : undefined) ?? item.label;
-  const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const { links } = usePublicNav();
   const { status, user } = useAuth();
+  const [menuOpen, setMenuOpen] = useState(false);
+  const signedIn = status === "authenticated" && user;
+
+  // Close the mobile menu on navigation and on Escape.
+  useEffect(() => setMenuOpen(false), [pathname]);
+  useEffect(() => {
+    if (!menuOpen) return;
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setMenuOpen(false);
+    };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [menuOpen]);
+
+  const isActive = (href: string) => pathname === href;
 
   return (
     <header className={styles.header}>
@@ -34,58 +41,68 @@ export function PublicHeader() {
         </Link>
 
         <nav className={styles.desktopNav} aria-label={t.nav.mainNavigation}>
-          {NAV_ITEMS.map((item) =>
-            item.disabled ? (
-              <span key={item.href} className={styles.navItemDisabled} aria-disabled="true">
-                {navLabel(item)}
-              </span>
-            ) : (
-              <Link key={item.href} href={item.href} className={styles.navItem}>
-                {navLabel(item)}
-              </Link>
-            )
-          )}
+          {links.map((item) => (
+            <Link
+              key={item.key}
+              href={item.href}
+              className={styles.navItem}
+              aria-current={isActive(item.href) ? "page" : undefined}
+            >
+              {item.label}
+            </Link>
+          ))}
         </nav>
 
         <div className={styles.actions}>
           <LanguageSwitcher />
-          {status === "authenticated" && user ? (
+          {signedIn ? (
             <ButtonLink href={homePathForRole(user.role)} size="sm">
               {t.nav.dashboard}
             </ButtonLink>
           ) : (
-            <>
+            <div className={styles.desktopOnly}>
               <ButtonLink href="/login" variant="ghost" size="sm">
                 {t.nav.login}
               </ButtonLink>
               <ButtonLink href="/register" size="sm">
                 {t.nav.register}
               </ButtonLink>
-            </>
+            </div>
           )}
           <button
+            type="button"
             className={styles.menuToggle}
-            aria-label={t.nav.openNavigation}
+            aria-label={menuOpen ? t.nav.closeNavigation : t.nav.openNavigation}
             aria-expanded={menuOpen}
+            aria-controls="public-mobile-nav"
             onClick={() => setMenuOpen((value) => !value)}
           >
-            ☰
+            <span aria-hidden="true">{menuOpen ? "✕" : "☰"}</span>
           </button>
         </div>
       </div>
 
       {menuOpen && (
-        <nav className={styles.mobileNav} aria-label={t.nav.mainNavigation}>
-          {NAV_ITEMS.map((item) =>
-            item.disabled ? (
-              <span key={item.href} className={styles.navItemDisabled} aria-disabled="true">
-                {navLabel(item)}
-              </span>
-            ) : (
-              <Link key={item.href} href={item.href} className={styles.navItem} onClick={() => setMenuOpen(false)}>
-                {navLabel(item)}
-              </Link>
-            )
+        <nav id="public-mobile-nav" className={styles.mobileNav} aria-label={t.nav.mainNavigation}>
+          {links.map((item) => (
+            <Link
+              key={item.key}
+              href={item.href}
+              className={styles.mobileItem}
+              aria-current={isActive(item.href) ? "page" : undefined}
+            >
+              {item.label}
+            </Link>
+          ))}
+          {!signedIn && (
+            <div className={styles.mobileActions}>
+              <ButtonLink href="/login" variant="secondary" fullWidth>
+                {t.nav.login}
+              </ButtonLink>
+              <ButtonLink href="/register" fullWidth>
+                {t.nav.register}
+              </ButtonLink>
+            </div>
           )}
         </nav>
       )}

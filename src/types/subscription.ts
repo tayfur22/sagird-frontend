@@ -40,3 +40,14 @@ export interface CreateSubscriptionRequest {
   startAt: string;
   endAt: string;
 }
+
+/**
+ * Mirrors az.sagird.modules.payment.dto.PublicSubscriptionPlanResponse
+ * (GET /api/v1/public/subscription-plans) - the price comes from the
+ * backend's sagird.payment.pricing config, never from the frontend.
+ */
+export interface PublicSubscriptionPlanResponse {
+  plan: SubscriptionPlan;
+  amount: number;
+  currency: string;
+}

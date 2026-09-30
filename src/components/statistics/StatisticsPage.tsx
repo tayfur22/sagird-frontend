@@ -52,7 +52,7 @@ export function StatisticsPage() {
         {overview.error !== null ? (
           <SectionError title={s.overview.loadError} error={overview.error} onRetry={overview.retry} />
         ) : overviewData === null ? (
-          <StatCardGridSkeleton count={4} />
+          <StatCardGridSkeleton count={5} />
         ) : (
           <StatCardGrid label={s.overview.title}>
             <StatCard label={s.overview.cards.totalStudents} value={formatCount(overviewData.totalStudents, locale)} />
@@ -62,6 +62,7 @@ export function StatisticsPage() {
               value={formatCount(overviewData.totalSubmittedAttempts, locale)}
               hint={s.overview.hints.submittedAttempts}
             />
+            <StatCard label={s.overview.cards.cities} value={formatCount(overviewData.citiesCount, locale)} />
             <StatCard
               label={s.overview.cards.participants}
               value={formatCount(overviewData.totalParticipants, locale)}

@@ -19,7 +19,73 @@
     }
   },
   "home": {
-    "subtitle": "Tələbələr üçün onlayn imtahan platforması."
+    "subtitle": "Tələbələr üçün onlayn imtahan platforması.",
+    "hero": {
+      "title": "Biliklərini yoxla. Nəticəni gör. Özünü inkişaf etdir.",
+      "description": "Şagird.az-da həftəlik və xüsusi imtahanlarda iştirak et, nəticələrini gör və digər şagirdlərlə müqayisə et.",
+      "primary": "İmtahanlara bax",
+      "secondary": "Abunəliklər"
+    },
+    "stats": {
+      "title": "Platforma rəqəmlərlə",
+      "students": "Şagird sayı",
+      "exams": "İmtahan sayı",
+      "completed": "Tamamlanmış imtahanlar",
+      "cities": "Şəhərlər"
+    },
+    "exams": {
+      "title": "Yaxınlaşan imtahanlar",
+      "description": "Hazırda iştirak edə biləcəyin imtahanlar.",
+      "loadError": "İmtahanlar yüklənə bilmədi.",
+      "empty": {
+        "title": "Hazırda aktiv imtahan yoxdur.",
+        "description": "Yeni imtahanlar dərc olunduqda burada görünəcək."
+      },
+      "duration": "{minutes} dəq",
+      "included": "Abunəliyə daxildir",
+      "free": "Pulsuz",
+      "details": "Ətraflı bax",
+      "viewAll": "Bütün imtahanlar"
+    },
+    "regions": {
+      "title": "Azərbaycanın hər yerindən şagirdlər",
+      "description": "Şagird.az-a müxtəlif şəhər və rayonlardan şagirdlər qoşulur.",
+      "viewAll": "Bütün statistikaya bax"
+    },
+    "leaderboard": {
+      "title": "Reytinqin liderləri",
+      "description": "Həftəlik imtahanların ən yaxşı nəticələri.",
+      "viewAll": "Bütün reytinqə bax"
+    },
+    "gate": {
+      "signedOut": "İmtahanları və reytinqi görmək üçün hesabınıza daxil olun.",
+      "studentOnly": "Bu bölmə yalnız şagirdlər üçün nəzərdə tutulub."
+    },
+    "why": {
+      "title": "Niyə Şagird.az?",
+      "regular": {
+        "title": "Müntəzəm imtahanlar",
+        "text": "Hər həftə yeni imtahanlarla biliklərini yoxla."
+      },
+      "competition": {
+        "title": "Rəqabət",
+        "text": "Nəticəni digər şagirdlərlə müqayisə et."
+      },
+      "progress": {
+        "title": "İnkişafını izlə",
+        "text": "Nəticələrini və performansını zamanla izlə."
+      }
+    },
+    "cta": {
+      "title": "Daha çox imtahan üçün hazırsan?",
+      "description": "Aylıq abunəliklə hər həftə yayımlanan imtahanlarda iştirak et.",
+      "action": "Abunəliklərə bax"
+    }
+  },
+  "footer": {
+    "tagline": "Şagirdlər üçün onlayn imtahan platforması.",
+    "platform": "Platforma",
+    "company": "Şirkət"
   },
   "nav": {
     "home": "Ana səhifə",
@@ -44,7 +110,10 @@
     "mainNavigation": "Əsas naviqasiya",
     "openNavigation": "Naviqasiyanı aç",
     "attempts": "Cəhdlər",
-    "import": "İdxal et"
+    "import": "İdxal et",
+    "ranking": "Reytinq",
+    "contact": "Əlaqə",
+    "closeNavigation": "Naviqasiyanı bağla"
   },
   "emptyState": {
     "noExams": "Hələ heç bir imtahan yoxdur.",
@@ -151,6 +220,24 @@
       "viewDetails": "Ətraflı bax",
       "upcomingHint": "{date} tarixindən aktiv olacaq.",
       "cancelledHint": "Abunəliyiniz ləğv edilib."
+    },
+    "public": {
+      "title": "Aylıq abunəlik",
+      "subtitle": "Aktiv abunəlik müddətində abunəliyə daxil olan həftəlik imtahanlarda iştirak edin.",
+      "perMonth": "ay",
+      "getSubscription": "Abunəlik əldə et",
+      "renew": "Yenilə",
+      "browseExams": "İmtahanlara bax",
+      "stateActive": "Abunəliyiniz aktivdir",
+      "stateExpired": "Abunəliyin müddəti bitib",
+      "stateNone": "Abunəlik yoxdur",
+      "features": {
+        "weekly": "Abunəliyə daxil olan bütün həftəlik imtahanlar",
+        "results": "Ətraflı nəticələr və izahlar",
+        "statistics": "Reytinq və statistika"
+      },
+      "noteTitle": "Vacib qeyd",
+      "note": "Bəzi xüsusi və birdəfəlik imtahanlar ayrıca ödəniş tələb edə bilər."
     }
   },
   "payment": {
@@ -302,6 +389,37 @@
       "listSubtitle": "Qoşula biləcəyiniz dərc olunmuş imtahanlar.",
       "startExam": "İmtahana başla",
       "startExamHelp": "Başladıqdan sonra vaxt sayılmağa başlayacaq və dayandırıla bilməz."
+    },
+    "access": {
+      "label": "Giriş şərti",
+      "subscriptionIncluded": "Abunəliyə daxildir",
+      "oneAttempt": "1 cəhd",
+      "free": "Pulsuz",
+      "loginAndStart": "Daxil olun və başlayın",
+      "loginAndContinue": "Daxil olun və davam edin",
+      "getSubscription": "Abunəlik əldə et"
+    },
+    "publicList": {
+      "title": "İmtahanlar",
+      "subtitle": "Şagird.az-da keçirilən həftəlik və xüsusi imtahanlara baxın və sizə uyğun imtahana qoşulun.",
+      "filterLabel": "İmtahan tipinə görə filtr",
+      "filterAll": "Hamısı",
+      "empty": "Hazırda aktiv imtahan yoxdur.",
+      "viewDetails": "Ətraflı bax"
+    },
+    "payment": {
+      "purposeLabel": "İmtahan ödənişi",
+      "amountLabel": "Məbləğ",
+      "payAndStart": "Ödə və başla",
+      "preparing": "Ödəniş hazırlanır...",
+      "successTitle": "Ödəniş tamamlandı",
+      "successBody": "İndi imtahana başlaya bilərsiniz.",
+      "alreadyPaid": "Artıq ödənilib",
+      "alreadyPaidBody": "Bu imtahan üçün ödəniş edilib. İmtahana başlaya bilərsiniz.",
+      "failedTitle": "Ödəniş baş tutmadı",
+      "failedBody": "Ödənişi tamamlamaq mümkün olmadı. Yenidən cəhd edə bilərsiniz.",
+      "retry": "Yenidən cəhd et",
+      "createFailedTitle": "Ödənişi başlatmaq mümkün olmadı"
     }
   },
   "question": {
@@ -542,7 +660,10 @@
     "SUBSCRIPTION_USER_NOT_STUDENT": "Abunəlik yalnız tələbələr üçün yaradıla bilər.",
     "SUBSCRIPTION_ALREADY_ACTIVE": "Bu tələbənin artıq aktiv abunəliyi var.",
     "SUBSCRIPTION_ALREADY_CANCELLED": "Bu abunəlik artıq ləğv edilib.",
-    "SUBSCRIPTION_ALREADY_EXPIRED": "Bu abunəliyin müddəti artıq bitib."
+    "SUBSCRIPTION_ALREADY_EXPIRED": "Bu abunəliyin müddəti artıq bitib.",
+    "EXAM_PAYMENT_REQUIRED": "Bu imtahana başlamaq üçün əvvəlcə ödəniş etməlisiniz.",
+    "EXAM_PAYMENT_NOT_REQUIRED": "Bu imtahan üçün ayrıca ödəniş tələb olunmur.",
+    "EXAM_ALREADY_PAID": "Bu imtahan üçün ödəniş artıq edilib."
   },
   "attempt": {
     "start": {
@@ -707,7 +828,9 @@
       "rank": "Yer",
       "student": "Şagird",
       "score": "Bal",
-      "percentage": "Faiz"
+      "percentage": "Faiz",
+      "participant": "İştirakçı",
+      "result": "Nəticə"
     },
     "you": "Siz",
     "myPosition": {
@@ -726,6 +849,10 @@
       "title": "Reytinq",
       "description": "Həftəlik və ya seçilmiş imtahan üzrə ən yaxşı nəticələr.",
       "scopeLabel": "Baxış"
+    },
+    "public": {
+      "title": "Reytinq",
+      "subtitle": "İmtahan nəticələrinə əsasən iştirakçıların sıralamasına baxın."
     }
   },
   "statistics": {
