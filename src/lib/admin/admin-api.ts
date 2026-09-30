@@ -1,3 +1,4 @@
+import type { LeaderboardEntry } from "@/types/leaderboard";
 import { apiClient } from "@/lib/api/client";
 import type { PageResponse } from "@/types/api";
 import type {
@@ -95,4 +96,19 @@ export const adminSubscriptionApi = {
   create: (request: CreateSubscriptionRequest) =>
     apiClient.post<SubscriptionResponse>("/admin/subscriptions", request),
   cancel: (id: string) => apiClient.post<SubscriptionResponse>(`/admin/subscriptions/${id}/cancel`),
+};
+
+/**
+ * GET /admin/leaderboard/... - the admin's read-only view of the same
+ * rankings students see (the student endpoints are STUDENT-only). `page` is
+ * 0-based; ranks are shown exactly as the backend returns them.
+ */
+export const adminLeaderboardApi = {
+  getWeekly: (page: number, size: number, signal?: AbortSignal) =>
+    apiClient.get<PageResponse<LeaderboardEntry>>(`/admin/leaderboard/weekly?page=${page}&size=${size}`, { signal }),
+  getExam: (examId: string, page: number, size: number, signal?: AbortSignal) =>
+    apiClient.get<PageResponse<LeaderboardEntry>>(
+      `/admin/leaderboard/exams/${encodeURIComponent(examId)}?page=${page}&size=${size}`,
+      { signal }
+    ),
 };

@@ -721,7 +721,12 @@
       "title": "No leaderboard results yet."
     },
     "loadError": "The leaderboard could not be loaded.",
-    "viewLeaderboard": "View leaderboard"
+    "viewLeaderboard": "View leaderboard",
+    "admin": {
+      "title": "Leaderboard",
+      "description": "Top results for the weekly ranking or a chosen exam.",
+      "scopeLabel": "View"
+    }
   },
   "statistics": {
     "title": "Statistics",

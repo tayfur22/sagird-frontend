@@ -12,10 +12,8 @@ const ADMIN_NAV: NavItem[] = [
   { label: "Cəhdlər", href: "/admin/attempts", labelKey: "attempts" },
   { label: "Suallar", href: "/admin/questions", labelKey: "questions" },
   { label: "İdxal et", href: "/admin/questions/import", labelKey: "import" },
-  { label: "Nəticələr", href: "/admin/results", labelKey: "results", disabled: true },
-  { label: "Liderlər", href: "/admin/leaderboard", labelKey: "leaderboard", disabled: true },
-  { label: "Statistika", href: "/admin/statistics", labelKey: "statistics", disabled: true },
-  { label: "Parametrlər", href: "/admin/settings", labelKey: "settings", disabled: true },
+  { label: "Liderlər", href: "/admin/leaderboard", labelKey: "leaderboard" },
+  { label: "Statistika", href: "/admin/statistics", labelKey: "statistics" },
 ];
 
 export const metadata: Metadata = { robots: { index: false, follow: false } };

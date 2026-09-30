@@ -721,7 +721,12 @@
       "title": "Hələ reytinq nəticəsi yoxdur."
     },
     "loadError": "Reytinq yüklənə bilmədi.",
-    "viewLeaderboard": "Reytinqə bax"
+    "viewLeaderboard": "Reytinqə bax",
+    "admin": {
+      "title": "Reytinq",
+      "description": "Həftəlik və ya seçilmiş imtahan üzrə ən yaxşı nəticələr.",
+      "scopeLabel": "Baxış"
+    }
   },
   "statistics": {
     "title": "Statistika",
