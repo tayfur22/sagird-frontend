@@ -39,6 +39,9 @@
 
 .navItem,
 .navItemDisabled {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
   padding: var(--space-3);
   border-radius: var(--radius-md);
   font-size: var(--font-size-sm);
@@ -53,6 +56,13 @@
 .navItem:hover {
   background: var(--color-primary-light);
   color: var(--color-primary);
+}
+
+.navItemActive,
+.navItemActive:hover {
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+  font-weight: var(--font-weight-semibold);
 }
 
 .navItemDisabled {

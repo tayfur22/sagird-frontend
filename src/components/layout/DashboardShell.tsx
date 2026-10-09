@@ -1,9 +1,11 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState, type ReactNode } from "react";
 import { cn } from "@/lib/utils/cn";
 import { useTranslation } from "@/lib/i18n/LocaleProvider";
+import { Icon } from "@/components/ui/Icon";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import type { NavItem } from "@/types/nav";
 import styles from "./DashboardShell.module.css";
@@ -33,6 +35,11 @@ export function DashboardShell({
 }: DashboardShellProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const t = useTranslation();
+  const pathname = usePathname() ?? "";
+  // Longest matching href wins, so /admin/questions/import does not also light up /admin/questions.
+  const activeHref = navItems
+    .filter((item) => !item.disabled && (pathname === item.href || pathname.startsWith(`${item.href}/`)))
+    .sort((a, b) => b.href.length - a.href.length)[0]?.href;
   const navLabel = (item: NavItem) => (item.labelKey ? (t.nav as Record<string, string>)[item.labelKey] : undefined) ?? item.label;
 
   return (
@@ -49,9 +56,11 @@ export function DashboardShell({
               <Link
                 key={item.href}
                 href={item.href}
-                className={styles.navItem}
+                className={cn(styles.navItem, item.href === activeHref && styles.navItemActive)}
+                aria-current={item.href === activeHref ? "page" : undefined}
                 onClick={() => setMobileOpen(false)}
               >
+                {item.icon && <Icon name={item.icon} />}
                 {navLabel(item)}
               </Link>
             )

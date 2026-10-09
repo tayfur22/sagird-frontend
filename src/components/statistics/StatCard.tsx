@@ -8,13 +8,20 @@ export interface StatCardProps {
   /** Screen-reader text used instead of the visual value when it is a placeholder such as "—". */
   valueSrText?: string;
   hint?: string;
+  /** Optional decorative icon (e.g. <Icon name="users" />). */
+  icon?: ReactNode;
+  /** "highlight" gives the card the primary-colour treatment (used for revenue). */
+  variant?: "default" | "highlight";
 }
 
 /** One aggregate value. Must be rendered inside a <dl> (see StatCardGrid). */
-export function StatCard({ label, value, valueSrText, hint }: StatCardProps) {
+export function StatCard({ label, value, valueSrText, hint, icon, variant = "default" }: StatCardProps) {
   return (
-    <div className={styles.stat}>
-      <dt className={styles.statLabel}>{label}</dt>
+    <div className={`${styles.stat} ${variant === "highlight" ? styles.statHighlight : ""}`}>
+      <dt className={styles.statLabel}>
+        {icon && <span className={styles.statIcon}>{icon}</span>}
+        {label}
+      </dt>
       <dd className={styles.statValue}>
         {valueSrText ? (
           <>

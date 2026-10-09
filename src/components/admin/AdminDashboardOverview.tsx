@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { Alert } from "@/components/ui/Alert";
 import { Button } from "@/components/ui/Button";
+import { Icon } from "@/components/ui/Icon";
 import { Skeleton } from "@/components/ui/Skeleton";
 import { StatCard, StatCardGrid } from "@/components/statistics/StatCard";
 import { adminDashboardApi } from "@/lib/admin/admin-api";
@@ -76,14 +77,16 @@ export function AdminDashboardOverview() {
 
   return (
     <StatCardGrid label={t.admin.dashboard.title}>
-      <StatCard label={c.totalStudents} value={formatCount(data.totalStudents, locale)} />
-      <StatCard label={c.totalExams} value={formatCount(data.totalExams, locale)} />
-      <StatCard label={c.publishedExams} value={formatCount(data.publishedExams, locale)} />
-      <StatCard label={c.activeSubscriptions} value={formatCount(data.activeSubscriptions, locale)} />
-      <StatCard label={c.submittedAttempts} value={formatCount(data.submittedAttempts, locale)} />
-      <StatCard label={c.totalPayments} value={formatCount(data.totalPayments, locale)} />
-      <StatCard label={c.successfulPayments} value={formatCount(data.successfulPayments, locale)} />
+      <StatCard icon={<Icon name="users" />} label={c.totalStudents} value={formatCount(data.totalStudents, locale)} />
+      <StatCard icon={<Icon name="book" />} label={c.totalExams} value={formatCount(data.totalExams, locale)} />
+      <StatCard icon={<Icon name="check" />} label={c.publishedExams} value={formatCount(data.publishedExams, locale)} />
+      <StatCard icon={<Icon name="card" />} label={c.activeSubscriptions} value={formatCount(data.activeSubscriptions, locale)} />
+      <StatCard icon={<Icon name="fileCheck" />} label={c.submittedAttempts} value={formatCount(data.submittedAttempts, locale)} />
+      <StatCard icon={<Icon name="receipt" />} label={c.totalPayments} value={formatCount(data.totalPayments, locale)} />
+      <StatCard icon={<Icon name="check" />} label={c.successfulPayments} value={formatCount(data.successfulPayments, locale)} />
       <StatCard
+        variant="highlight"
+        icon={<Icon name="trending" />}
         label={c.revenue}
         value={revenueLines.length > 0 ? revenueLines.join(" · ") : t.admin.dashboard.noRevenue}
       />

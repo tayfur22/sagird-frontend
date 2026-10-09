@@ -209,3 +209,33 @@
     gap: var(--space-6);
   }
 }
+
+.statIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  margin-right: var(--space-2);
+  vertical-align: middle;
+  border-radius: var(--radius-md);
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+}
+
+.statHighlight {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-text-inverse);
+}
+
+.statHighlight .statLabel,
+.statHighlight .statHint {
+  color: var(--color-text-inverse);
+  opacity: 0.85;
+}
+
+.statHighlight .statIcon {
+  background: rgba(255, 255, 255, 0.16);
+  color: var(--color-text-inverse);
+}
