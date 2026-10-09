@@ -28,6 +28,8 @@ export interface ExamResponse {
   antiCheatEnabled: boolean;
   /** Phase 12A: whether the frontend is expected to enforce fullscreen while this exam is attempted. */
   fullscreenRequired: boolean;
+  /** Phase 22A: max attempts per student for this exam; null means unlimited. */
+  maxAttempts: number | null;
 }
 
 /**
@@ -45,6 +47,8 @@ export interface ExamFormRequest {
   registrationStartAt: string | null;
   registrationEndAt: string | null;
   publishAt: string | null;
+  /** Positive integer, or null for unlimited. Always sent (an omitted field would reset the limit on update). */
+  maxAttempts: number | null;
 }
 
 export type CreateExamRequest = ExamFormRequest;

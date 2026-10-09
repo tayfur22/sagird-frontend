@@ -16,6 +16,8 @@ import styles from "./ExamForm.module.css";
 
 const EXAM_TYPES: ExamType[] = ["WEEKLY", "SPECIAL", "MONTHLY"];
 const CURRENCIES = ["AZN", "USD", "EUR"];
+/** The backend column is a 32-bit INTEGER. */
+const MAX_ATTEMPTS_UPPER_BOUND = 2147483647;
 
 export interface ExamFormProps {
   /** When set, the form is pre-filled for editing; otherwise it starts blank (create). */
@@ -49,6 +51,10 @@ export function ExamForm({ initialValue, submitLabel, onSubmit }: ExamFormProps)
     toDateTimeLocalValue(initialValue?.registrationEndAt ?? null)
   );
   const [publishAt, setPublishAt] = useState(toDateTimeLocalValue(initialValue?.publishAt ?? null));
+  // "" means unlimited (null). Pre-filled from the existing exam so editing never silently drops the limit.
+  const [maxAttempts, setMaxAttempts] = useState(
+    initialValue?.maxAttempts != null ? String(initialValue.maxAttempts) : ""
+  );
 
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [formError, setFormError] = useState<string | null>(null);
@@ -95,6 +101,15 @@ export function ExamForm({ initialValue, submitLabel, onSubmit }: ExamFormProps)
       clientErrors.price = validationMessage("INVALID_PRICE");
     }
 
+    const maxAttemptsText = maxAttempts.trim();
+    const maxAttemptsValue = maxAttemptsText === "" ? null : Number(maxAttemptsText);
+    if (
+      maxAttemptsValue !== null &&
+      (!Number.isInteger(maxAttemptsValue) || maxAttemptsValue <= 0 || maxAttemptsValue > MAX_ATTEMPTS_UPPER_BOUND)
+    ) {
+      clientErrors.maxAttempts = validationMessage("INVALID_MAX_ATTEMPTS");
+    }
+
     for (const field of ["registrationStartAt", "registrationEndAt", "publishAt"]) {
       if (incompleteDates[field]) clientErrors[field] = validationMessage("INCOMPLETE_DATETIME");
     }
@@ -121,6 +136,7 @@ export function ExamForm({ initialValue, submitLabel, onSubmit }: ExamFormProps)
         registrationStartAt: startIso,
         registrationEndAt: endIso,
         publishAt: fromDateTimeLocalValue(publishAt),
+        maxAttempts: maxAttemptsValue,
       });
     } catch (error) {
       const serverFieldErrors = fieldErrorsFrom(error);
@@ -192,6 +208,17 @@ export function ExamForm({ initialValue, submitLabel, onSubmit }: ExamFormProps)
             required
           />
         </div>
+
+        <Input
+          label={t.exam.form.maxAttempts}
+          helpText={t.exam.form.maxAttemptsHelp}
+          type="number"
+          min={1}
+          step={1}
+          value={maxAttempts}
+          onChange={(event) => setMaxAttempts(event.target.value)}
+          errorText={errors.maxAttempts}
+        />
 
         <Checkbox
           label={t.exam.form.subscriptionRequired}

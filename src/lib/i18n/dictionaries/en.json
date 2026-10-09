@@ -366,7 +366,9 @@
       "registrationStartAt": "Registration start",
       "registrationEndAt": "Registration end",
       "publishAt": "Publish date",
-      "publishAtHelp": "Leave empty and you'll publish the exam manually with the \"Publish\" button."
+      "publishAtHelp": "Leave empty and you'll publish the exam manually with the \"Publish\" button.",
+      "maxAttempts": "Maximum attempts",
+      "maxAttemptsHelp": "How many times each student can start this exam. Leave empty for no limit."
     },
     "statuses": {
       "DRAFT": "Draft",
@@ -603,6 +605,7 @@
     "INVALID": "This value is not valid.",
     "INVALID_DURATION": "Duration must be greater than 0.",
     "INVALID_PRICE": "Price cannot be negative.",
+    "INVALID_MAX_ATTEMPTS": "Attempts must be a whole number of 1 or more.",
     "INVALID_CURRENCY": "Currency code must be 3 letters (e.g. AZN).",
     "INVALID_EXAM_REGISTRATION_PERIOD": "Registration end must be after the start.",
     "INVALID_QUESTION_OPTIONS": "The options aren't valid for this question type.",
@@ -663,7 +666,11 @@
     "SUBSCRIPTION_ALREADY_EXPIRED": "This subscription has already expired.",
     "EXAM_PAYMENT_REQUIRED": "You need to pay for this exam before you can start it.",
     "EXAM_PAYMENT_NOT_REQUIRED": "This exam does not require a separate payment.",
-    "EXAM_ALREADY_PAID": "This exam has already been paid for."
+    "EXAM_ALREADY_PAID": "This exam has already been paid for.",
+    "EXAM_NOT_PUBLISHED_YET": "This exam hasn't been published yet.",
+    "EXAM_NOT_OPEN_YET": "Registration for this exam hasn't opened yet.",
+    "EXAM_REGISTRATION_CLOSED": "Registration for this exam is closed.",
+    "ATTEMPT_LIMIT_REACHED": "You've reached the attempt limit for this exam."
   },
   "attempt": {
     "start": {
