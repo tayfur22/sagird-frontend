@@ -16,7 +16,9 @@ export default function ExamAttemptLayout({ children }: { children: ReactNode })
   return (
     <div className={styles.shell}>
       <header className={styles.header}>
-        <span className={styles.brand}>Şagird.az</span>
+        <span className={styles.brand}>
+          Şagird<span className={styles.brandAccent}>.az</span>
+        </span>
         <LanguageSwitcher />
       </header>
       <main className={styles.main}>{children}</main>

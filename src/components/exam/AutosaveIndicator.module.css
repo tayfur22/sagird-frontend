@@ -13,6 +13,10 @@
 
 .saved {
   color: var(--color-success);
+  background: var(--mint-50);
+  padding: 2px var(--space-3);
+  border-radius: var(--radius-md);
+  width: fit-content;
 }
 
 .error {

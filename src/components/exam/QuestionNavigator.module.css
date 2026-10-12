@@ -14,9 +14,9 @@
 .item {
   position: relative;
   flex: 0 0 auto;
-  width: 36px;
-  height: 36px;
-  border-radius: var(--radius-md);
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-lg);
   border: 1px solid var(--color-border);
   background: var(--color-surface);
   color: var(--color-text);
@@ -30,7 +30,7 @@
 }
 
 .item:hover {
-  border-color: var(--color-border-strong);
+  border-color: var(--teal-500);
 }
 
 .item:focus-visible {
@@ -39,8 +39,9 @@
 }
 
 .answered {
-  border-color: var(--color-success);
-  background: var(--color-success-bg);
+  border-color: var(--mint-500);
+  background: var(--mint-100);
+  color: #065F46;
 }
 
 .check {
@@ -57,13 +58,15 @@
 
 .current {
   border-color: var(--color-primary);
-  border-width: 2px;
+  background: var(--color-primary);
+  color: var(--color-text-inverse);
+  box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.25);
   font-weight: var(--font-weight-bold);
 }
 
 @media (max-width: 480px) {
   .item {
-    width: 32px;
-    height: 32px;
+    width: 34px;
+    height: 34px;
   }
 }

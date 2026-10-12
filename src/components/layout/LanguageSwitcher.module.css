@@ -1,5 +1,12 @@
 .trigger {
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-medium);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
   color: var(--color-text);
+}
+
+.trigger svg {
+  color: var(--color-text-muted);
 }

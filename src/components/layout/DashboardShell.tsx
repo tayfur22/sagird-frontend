@@ -20,6 +20,28 @@ export interface DashboardShellProps {
   onLogout?: () => void;
 }
 
+/** Presentational only: highlights the ".az" part of the brand ("Şagird.az", "Şagird.az Admin"). */
+function renderBrand(label: string) {
+  const match = /^(.*?)(\.az)(.*)$/.exec(label);
+  if (!match) return label;
+  return (
+    <>
+      {match[1]}
+      <span className={styles.brandAccent}>{match[2]}</span>
+      {match[3]}
+    </>
+  );
+}
+
+function getInitials(name: string) {
+  return name
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((part) => part.charAt(0).toUpperCase())
+    .join("");
+}
+
 /**
  * Shared sidebar + topbar shell used by both the Student and Admin
  * layouts. Only the brand label and navigation items differ between
@@ -45,7 +67,7 @@ export function DashboardShell({
   return (
     <div className={styles.shell}>
       <aside className={cn(styles.sidebar, mobileOpen && styles.sidebarOpen)}>
-        <div className={styles.brand}>{brandLabel}</div>
+        <div className={styles.brand}>{renderBrand(brandLabel)}</div>
         <nav aria-label={t.nav.mainNavigation} className={styles.nav}>
           {navItems.map((item) =>
             item.disabled ? (
@@ -80,11 +102,18 @@ export function DashboardShell({
           >
             ☰
           </button>
-          <span className={styles.topbarTitle}>{brandLabel}</span>
+          <span className={styles.topbarTitle}>
+            {(activeHref && navLabel(navItems.find((item) => item.href === activeHref) as NavItem)) || brandLabel}
+          </span>
           {onLogout && (
             <div className={styles.userArea}>
               <LanguageSwitcher />
               {userName && <span className={styles.userName}>{userName}</span>}
+              {userName && (
+                <span className={styles.avatar} aria-hidden="true">
+                  {getInitials(userName)}
+                </span>
+              )}
               <button type="button" className={styles.logoutButton} onClick={onLogout}>
                 {logoutLabel}
               </button>

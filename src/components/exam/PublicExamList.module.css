@@ -8,15 +8,17 @@
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-2);
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .filterButton {
   font-family: inherit;
   font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-medium);
+  font-weight: var(--font-weight-semibold);
   padding: var(--space-2) var(--space-4);
-  border: 1px solid var(--color-border-strong);
-  border-radius: var(--radius-full, 999px);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
   background: var(--color-surface);
   color: var(--color-text);
   cursor: pointer;
@@ -31,6 +33,7 @@
   background: var(--color-primary);
   border-color: var(--color-primary);
   color: var(--color-primary-contrast, #fff);
+  box-shadow: var(--shadow-sm);
 }
 
 .filterButton:focus-visible {
@@ -41,13 +44,23 @@
 .grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--space-4);
+  gap: var(--space-6);
 }
 
 .card {
   display: flex;
   flex-direction: column;
-  gap: var(--space-2);
+  gap: var(--space-3);
+  transition: border-color var(--transition-base), box-shadow var(--transition-base);
+}
+
+.card:hover {
+  border-color: var(--teal-500);
+  box-shadow: var(--shadow-lg);
+}
+
+.card:hover .cardTitle {
+  color: var(--color-primary);
 }
 
 .cardHeader {
@@ -59,6 +72,9 @@
 }
 
 .cardTitle {
+  font-family: var(--font-family-heading);
+  letter-spacing: -0.02em;
+  transition: color var(--transition-fast);
   font-size: var(--font-size-lg);
   font-weight: var(--font-weight-bold);
   line-height: var(--line-height-tight);
@@ -72,9 +88,10 @@
 .cardMeta {
   display: flex;
   align-items: center;
-  gap: var(--space-3);
+  gap: var(--space-2);
   flex-wrap: wrap;
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
   color: var(--color-text-muted);
 }
 
@@ -84,14 +101,22 @@
 }
 
 .cardLink {
-  align-self: flex-start;
-  margin-top: var(--space-2);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-primary);
+  align-self: stretch;
+  margin-top: auto;
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-lg);
+  background: var(--color-primary);
+  color: var(--color-text-inverse);
+  box-shadow: var(--shadow-sm);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  text-align: center;
+  text-decoration: none;
+  transition: background-color var(--transition-fast);
 }
 
 .cardLink:hover {
-  text-decoration: underline;
+  background: var(--color-primary-hover);
 }
 
 .footer {

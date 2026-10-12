@@ -20,6 +20,7 @@
 
 .subtitle {
   color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
 }
 
 @media (min-width: 640px) {

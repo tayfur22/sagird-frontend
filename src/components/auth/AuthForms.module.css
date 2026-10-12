@@ -1,12 +1,15 @@
 .page {
   display: flex;
   justify-content: center;
-  padding: var(--space-10) var(--space-4);
+  align-items: flex-start;
+  padding: var(--space-12) var(--space-4);
 }
 
 .card {
   width: 100%;
   max-width: 440px;
+  padding: var(--space-8);
+  box-shadow: var(--shadow-md);
 }
 
 .heading {
@@ -14,11 +17,14 @@
   font-weight: var(--font-weight-bold);
   line-height: var(--line-height-tight);
   margin-bottom: var(--space-2);
+  text-align: center;
 }
 
 .subtitle {
   color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
   margin-bottom: var(--space-6);
+  text-align: center;
 }
 
 .form {
@@ -35,6 +41,8 @@
 
 .footer {
   margin-top: var(--space-6);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-border);
   color: var(--color-text-muted);
   font-size: var(--font-size-sm);
   text-align: center;
@@ -42,7 +50,7 @@
 
 .footer a {
   color: var(--color-primary);
-  font-weight: var(--font-weight-medium);
+  font-weight: var(--font-weight-bold);
 }
 
 .rules {

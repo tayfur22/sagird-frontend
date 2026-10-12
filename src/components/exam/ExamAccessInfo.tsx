@@ -14,7 +14,7 @@ export function ExamAccessInfo({ exam }: { exam: ExamResponse }) {
   const t = useTranslation();
 
   if (exam.subscriptionRequired) {
-    return <Badge variant="info">{t.exam.access.subscriptionIncluded}</Badge>;
+    return <Badge variant="primary">{t.exam.access.subscriptionIncluded}</Badge>;
   }
   if (exam.price > 0) {
     return (

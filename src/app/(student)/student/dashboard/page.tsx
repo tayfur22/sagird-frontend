@@ -4,6 +4,7 @@ import { DashboardSubscriptionCard } from "@/components/subscription/DashboardSu
 import { EmptyState } from "@/components/ui/EmptyState";
 import { useAuth } from "@/lib/auth/AuthProvider";
 import { useTranslation } from "@/lib/i18n/LocaleProvider";
+import styles from "./page.module.css";
 
 export default function StudentDashboardPage() {
   const { user } = useAuth();
@@ -12,9 +13,9 @@ export default function StudentDashboardPage() {
   return (
     <>
       {user && (
-        <h1 style={{ fontSize: "var(--font-size-2xl)", fontWeight: 700, marginBottom: "var(--space-6)" }}>
-          {t.dashboard.welcome.replace("{name}", user.firstName)}
-        </h1>
+        <div className={styles.welcome}>
+          <h1 className={styles.welcomeTitle}>{t.dashboard.welcome.replace("{name}", user.firstName)}</h1>
+        </div>
       )}
       <DashboardSubscriptionCard />
       <EmptyState title={t.emptyState.noExams} />

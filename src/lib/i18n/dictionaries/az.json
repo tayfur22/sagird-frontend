@@ -35,11 +35,9 @@
     },
     "exams": {
       "title": "Yaxınlaşan imtahanlar",
-      "description": "Hazırda iştirak edə biləcəyin imtahanlar.",
       "loadError": "İmtahanlar yüklənə bilmədi.",
       "empty": {
-        "title": "Hazırda aktiv imtahan yoxdur.",
-        "description": "Yeni imtahanlar dərc olunduqda burada görünəcək."
+        "title": "Hazırda aktiv imtahan yoxdur."
       },
       "duration": "{minutes} dəq",
       "included": "Abunəliyə daxildir",
@@ -49,12 +47,10 @@
     },
     "regions": {
       "title": "Azərbaycanın hər yerindən şagirdlər",
-      "description": "Şagird.az-a müxtəlif şəhər və rayonlardan şagirdlər qoşulur.",
       "viewAll": "Bütün statistikaya bax"
     },
     "leaderboard": {
       "title": "Reytinqin liderləri",
-      "description": "Həftəlik imtahanların ən yaxşı nəticələri.",
       "viewAll": "Bütün reytinqə bax"
     },
     "gate": {
@@ -127,7 +123,6 @@
   "auth": {
     "login": {
       "title": "Daxil ol",
-      "subtitle": "Hesabınıza daxil olaraq davam edin.",
       "email": "E-poçt",
       "password": "Şifrə",
       "submit": "Daxil ol",
@@ -182,7 +177,6 @@
   },
   "subscription": {
     "title": "Abunəlik",
-    "subtitle": "Cari abunəlik vəziyyətiniz və keçmiş abunəliklərinizin tarixçəsi.",
     "startDate": "Başlama tarixi",
     "endDate": "Bitmə tarixi",
     "cancelledAt": "Ləğv tarixi",
@@ -223,7 +217,6 @@
     },
     "public": {
       "title": "Aylıq abunəlik",
-      "subtitle": "Aktiv abunəlik müddətində abunəliyə daxil olan həftəlik imtahanlarda iştirak edin.",
       "perMonth": "ay",
       "getSubscription": "Abunəlik əldə et",
       "renew": "Yenilə",
@@ -305,7 +298,6 @@
   "exam": {
     "adminList": {
       "title": "İmtahanlar",
-      "subtitle": "Bütün imtahanları idarə edin: yaradın, dərc edin və arxivləşdirin.",
       "createButton": "Yeni imtahan",
       "empty": "Hələ heç bir imtahan yaradılmayıb.",
       "columns": {
@@ -388,7 +380,6 @@
       "empty": "Hazırda dərc olunmuş imtahan yoxdur.",
       "viewDetails": "Ətraflı bax",
       "listTitle": "İmtahanlarım",
-      "listSubtitle": "Qoşula biləcəyiniz dərc olunmuş imtahanlar.",
       "startExam": "İmtahana başla",
       "startExamHelp": "Başladıqdan sonra vaxt sayılmağa başlayacaq və dayandırıla bilməz."
     },
@@ -403,7 +394,6 @@
     },
     "publicList": {
       "title": "İmtahanlar",
-      "subtitle": "Şagird.az-da keçirilən həftəlik və xüsusi imtahanlara baxın və sizə uyğun imtahana qoşulun.",
       "filterLabel": "İmtahan tipinə görə filtr",
       "filterAll": "Hamısı",
       "empty": "Hazırda aktiv imtahan yoxdur.",
@@ -427,7 +417,6 @@
   "question": {
     "adminList": {
       "title": "Suallar",
-      "subtitle": "Bütün sualları idarə edin: yaradın, redaktə edin, aktivləşdirin və ya deaktiv edin.",
       "createButton": "Yeni sual",
       "empty": "Hələ heç bir sual yaradılmayıb."
     },
@@ -538,7 +527,6 @@
     },
     "import": {
       "title": "Sualları idxal et",
-      "subtitle": "Excel (.xlsx) və ya CSV faylından sual bankına toplu sual əlavə edin.",
       "backLink": "← Sual bankına qayıt",
       "chooseFile": "Fayl seçin",
       "changeFile": "Faylı dəyiş",
@@ -749,7 +737,6 @@
     "backToResults": "Nəticələrə qayıt",
     "myResults": {
       "title": "Nəticələrim",
-      "subtitle": "Təqdim etdiyiniz imtahanların nəticələri.",
       "columns": {
         "exam": "İmtahan",
         "type": "Növ",
@@ -828,8 +815,7 @@
       "back": "← İmtahana qayıt"
     },
     "weekly": {
-      "title": "Həftəlik reytinq",
-      "description": "Hazırda aktiv olan həftəlik imtahanlar üzrə ən yaxşı nəticələr."
+      "title": "Həftəlik reytinq"
     },
     "columns": {
       "rank": "Yer",
@@ -854,17 +840,14 @@
     "viewLeaderboard": "Reytinqə bax",
     "admin": {
       "title": "Reytinq",
-      "description": "Həftəlik və ya seçilmiş imtahan üzrə ən yaxşı nəticələr.",
       "scopeLabel": "Baxış"
     },
     "public": {
-      "title": "Reytinq",
-      "subtitle": "İmtahan nəticələrinə əsasən iştirakçıların sıralamasına baxın."
+      "title": "Reytinq"
     }
   },
   "statistics": {
     "title": "Statistika",
-    "description": "Platformanın necə istifadə olunduğuna ümumi baxış. Göstərilən rəqəmlər bütün şagirdlər üzrə yekun göstəricilərdir - fərdi nəticələr və şəxsi məlumatlar göstərilmir.",
     "viewStatistics": "Statistikaya bax",
     "notAvailable": "Hələ məlumat yoxdur",
     "students": {
@@ -875,7 +858,6 @@
     },
     "overview": {
       "title": "Platformaya ümumi baxış",
-      "description": "Bütün platforma üzrə əsas göstəricilər.",
       "loadError": "Ümumi məlumat yüklənə bilmədi.",
       "cards": {
         "totalStudents": "Ümumi şagird sayı",
@@ -892,12 +874,10 @@
     },
     "topCities": {
       "title": "Ən çox şagirdi olan şəhərlər",
-      "description": "Qeydiyyatdan keçmiş şagirdlərin ən çox olduğu şəhərlər.",
       "empty": "Şəhər məlumatı hələ mövcud deyil."
     },
     "cities": {
       "title": "Şəhərlər üzrə şagirdlər",
-      "description": "Qeydiyyatlı şagirdlər profilində göstərilən şəhərə görə qruplaşdırılıb.",
       "loadError": "Şəhər statistikası yüklənə bilmədi.",
       "empty": {
         "title": "Şəhər statistikası hələ mövcud deyil.",
@@ -911,11 +891,9 @@
     },
     "weekly": {
       "title": "Bu həftənin imtahanları",
-      "description": "Hazırda aktiv olan həftəlik imtahanların xülasəsi.",
       "loadError": "Həftəlik statistika yüklənə bilmədi.",
       "noActive": {
-        "title": "Hazırda aktiv həftəlik imtahan yoxdur.",
-        "description": "Həftəlik imtahan açıldıqdan və şagirdlər onu təqdim etdikdən sonra nəticələr burada görünəcək."
+        "title": "Hazırda aktiv həftəlik imtahan yoxdur."
       },
       "cards": {
         "activeExams": "Aktiv həftəlik imtahanlar",
@@ -958,7 +936,6 @@
   "admin": {
     "dashboard": {
       "title": "Admin panel",
-      "subtitle": "Platformanın ümumi statistikası və göstəriciləri.",
       "noRevenue": "Uğurlu ödəniş yoxdur.",
       "cards": {
         "totalStudents": "Ümumi tələbə sayı",
@@ -973,7 +950,6 @@
     },
     "students": {
       "title": "Tələbələr",
-      "subtitle": "Bütün qeydiyyatdan keçmiş tələbələrin siyahısı.",
       "empty": "Hələ heç bir tələbə yoxdur.",
       "searchLabel": "Axtarış",
       "searchPlaceholder": "Ad və ya e-poçt üzrə axtar",
@@ -1044,7 +1020,6 @@
     },
     "subscriptions": {
       "title": "Abunəliklər",
-      "subtitle": "Bütün tələbə abunəliklərinin siyahısı.",
       "empty": "Hələ heç bir abunəlik yoxdur.",
       "searchLabel": "Axtarış",
       "searchPlaceholder": "Tələbə adı və ya e-poçt üzrə axtar",
@@ -1083,7 +1058,6 @@
     },
     "payments": {
       "title": "Ödənişlər",
-      "subtitle": "Bütün ödəniş əməliyyatlarının siyahısı.",
       "empty": "Hələ heç bir ödəniş yoxdur.",
       "searchLabel": "Axtarış",
       "searchPlaceholder": "Tələbə adı və ya e-poçt üzrə axtar",
@@ -1100,7 +1074,6 @@
     },
     "attempts": {
       "title": "İmtahan cəhdləri",
-      "subtitle": "Bütün tələbələrin imtahan cəhdlərinin siyahısı.",
       "empty": "Hələ heç bir cəhd yoxdur.",
       "statusFilterLabel": "Status",
       "allStatuses": "Bütün statuslar",

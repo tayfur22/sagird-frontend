@@ -17,10 +17,13 @@ body {
   font-size: var(--font-size-base);
   line-height: var(--line-height-normal);
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
+  font-family: var(--font-family-heading);
+  letter-spacing: -0.02em;
   line-height: var(--line-height-tight);
   font-weight: var(--font-weight-semibold);
 }

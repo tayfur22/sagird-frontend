@@ -35,11 +35,9 @@
     },
     "exams": {
       "title": "Upcoming exams",
-      "description": "Exams you can take right now.",
       "loadError": "The exams could not be loaded.",
       "empty": {
-        "title": "There are no active exams right now.",
-        "description": "New exams will appear here once they are published."
+        "title": "There are no active exams right now."
       },
       "duration": "{minutes} min",
       "included": "Included in subscription",
@@ -49,12 +47,10 @@
     },
     "regions": {
       "title": "Students from all over Azerbaijan",
-      "description": "Students from many cities and districts join Şagird.az.",
       "viewAll": "View all statistics"
     },
     "leaderboard": {
       "title": "Leaderboard leaders",
-      "description": "Top results from the weekly exams.",
       "viewAll": "View full leaderboard"
     },
     "gate": {
@@ -133,7 +129,6 @@
   "auth": {
     "login": {
       "title": "Log in",
-      "subtitle": "Sign in to your account to continue.",
       "email": "Email",
       "password": "Password",
       "submit": "Log in",
@@ -188,7 +183,6 @@
   },
   "subscription": {
     "title": "Subscription",
-    "subtitle": "Your current subscription status and past subscription history.",
     "startDate": "Start date",
     "endDate": "End date",
     "cancelledAt": "Cancelled on",
@@ -229,7 +223,6 @@
     },
     "public": {
       "title": "Monthly subscription",
-      "subtitle": "While your subscription is active, take part in the weekly exams it includes.",
       "perMonth": "month",
       "getSubscription": "Get a subscription",
       "renew": "Renew",
@@ -311,7 +304,6 @@
   "exam": {
     "adminList": {
       "title": "Exams",
-      "subtitle": "Manage every exam: create, publish and archive them.",
       "createButton": "New exam",
       "empty": "No exams have been created yet.",
       "columns": {
@@ -394,7 +386,6 @@
       "empty": "There are no published exams right now.",
       "viewDetails": "View details",
       "listTitle": "My Exams",
-      "listSubtitle": "Published exams you can take part in.",
       "startExam": "Start exam",
       "startExamHelp": "Once started, the timer begins and cannot be paused."
     },
@@ -409,7 +400,6 @@
     },
     "publicList": {
       "title": "Exams",
-      "subtitle": "Browse the weekly and special exams held on Şagird.az and join the one that suits you.",
       "filterLabel": "Filter by exam type",
       "filterAll": "All",
       "empty": "There are no active exams right now.",
@@ -433,7 +423,6 @@
   "question": {
     "adminList": {
       "title": "Questions",
-      "subtitle": "Manage the question bank: create, edit, activate and deactivate questions.",
       "createButton": "New question",
       "empty": "No questions have been created yet."
     },
@@ -544,7 +533,6 @@
     },
     "import": {
       "title": "Import questions",
-      "subtitle": "Bulk-add questions to the question bank from an Excel (.xlsx) or CSV file.",
       "backLink": "← Back to question bank",
       "chooseFile": "Choose file",
       "changeFile": "Change file",
@@ -749,7 +737,6 @@
     "backToResults": "Back to results",
     "myResults": {
       "title": "My results",
-      "subtitle": "Results of the exams you have submitted.",
       "columns": {
         "exam": "Exam",
         "type": "Type",
@@ -828,8 +815,7 @@
       "back": "← Back to exam"
     },
     "weekly": {
-      "title": "Weekly leaderboard",
-      "description": "Top results across the weekly exams currently active."
+      "title": "Weekly leaderboard"
     },
     "columns": {
       "rank": "Rank",
@@ -854,17 +840,14 @@
     "viewLeaderboard": "View leaderboard",
     "admin": {
       "title": "Leaderboard",
-      "description": "Top results for the weekly ranking or a chosen exam.",
       "scopeLabel": "View"
     },
     "public": {
-      "title": "Leaderboard",
-      "subtitle": "See how participants rank based on their exam results."
+      "title": "Leaderboard"
     }
   },
   "statistics": {
     "title": "Statistics",
-    "description": "An aggregate look at how the platform is used. These figures are totals across all students - no individual results or personal details are shown.",
     "viewStatistics": "View statistics",
     "notAvailable": "No data yet",
     "students": {
@@ -875,7 +858,7 @@
     },
     "overview": {
       "title": "Platform overview",
-      "description": "Key totals across the whole platform.",
+      "description": "",
       "loadError": "The overview could not be loaded.",
       "cards": {
         "totalStudents": "Total students",
@@ -892,12 +875,10 @@
     },
     "topCities": {
       "title": "Top cities",
-      "description": "Cities with the most registered students.",
       "empty": "No city information is available yet."
     },
     "cities": {
       "title": "Students by city",
-      "description": "Registered students grouped by the city in their profile.",
       "loadError": "City statistics could not be loaded.",
       "empty": {
         "title": "No city statistics available yet.",
@@ -911,11 +892,10 @@
     },
     "weekly": {
       "title": "This week's exams",
-      "description": "A summary of the weekly exams that are currently active.",
       "loadError": "Weekly statistics could not be loaded.",
       "noActive": {
         "title": "No weekly exam is active right now.",
-        "description": "Results will appear here once a weekly exam is open and students submit it."
+        "description": ""
       },
       "cards": {
         "activeExams": "Active weekly exams",
@@ -958,7 +938,6 @@
   "admin": {
     "dashboard": {
       "title": "Admin panel",
-      "subtitle": "Overall platform statistics and metrics.",
       "noRevenue": "No successful payments yet.",
       "cards": {
         "totalStudents": "Total students",
@@ -973,7 +952,6 @@
     },
     "students": {
       "title": "Students",
-      "subtitle": "List of all registered students.",
       "empty": "There are no students yet.",
       "searchLabel": "Search",
       "searchPlaceholder": "Search by name or email",
@@ -1044,7 +1022,6 @@
     },
     "subscriptions": {
       "title": "Subscriptions",
-      "subtitle": "List of all student subscriptions.",
       "empty": "There are no subscriptions yet.",
       "searchLabel": "Search",
       "searchPlaceholder": "Search by student name or email",
@@ -1083,7 +1060,6 @@
     },
     "payments": {
       "title": "Payments",
-      "subtitle": "List of all payment transactions.",
       "empty": "There are no payments yet.",
       "searchLabel": "Search",
       "searchPlaceholder": "Search by student name or email",
@@ -1100,7 +1076,6 @@
     },
     "attempts": {
       "title": "Exam attempts",
-      "subtitle": "List of all students' exam attempts.",
       "empty": "There are no attempts yet.",
       "statusFilterLabel": "Status",
       "allStatuses": "All statuses",

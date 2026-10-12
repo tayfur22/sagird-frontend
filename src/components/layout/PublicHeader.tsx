@@ -61,7 +61,7 @@ export function PublicHeader() {
             </ButtonLink>
           ) : (
             <div className={styles.desktopOnly}>
-              <ButtonLink href="/login" variant="ghost" size="sm">
+              <ButtonLink href="/login" variant="outline" size="sm">
                 {t.nav.login}
               </ButtonLink>
               <ButtonLink href="/register" size="sm">
