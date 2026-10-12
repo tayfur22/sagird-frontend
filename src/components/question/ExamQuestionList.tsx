@@ -217,7 +217,7 @@ export function ExamQuestionList({ examId, examStatus }: ExamQuestionListProps) 
       )}
 
       {editable && (
-        <Modal open={pickerOpen} onClose={() => setPickerOpen(false)} title={t.question.examQuestions.pickerTitle}>
+        <Modal open={pickerOpen} onClose={() => setPickerOpen(false)} title={t.question.examQuestions.pickerTitle} size="lg">
           <QuestionPicker excludedIds={new Set((rows ?? []).map((row) => row.question.id))} onAdd={handleAdd} />
         </Modal>
       )}

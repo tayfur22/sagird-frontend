@@ -9,6 +9,8 @@ export interface ModalProps {
   open: boolean;
   onClose: () => void;
   title?: string;
+  /** Visual width only: "lg" suits table-based content such as the question picker. */
+  size?: "md" | "lg";
   children: ReactNode;
 }
 
@@ -16,7 +18,7 @@ export interface ModalProps {
  * Minimal accessible dialog: traps Escape-to-close, restores focus to the
  * trigger on close, and marks the dialog role/labelling correctly.
  */
-export function Modal({ open, onClose, title, children }: ModalProps) {
+export function Modal({ open, onClose, title, size = "md", children }: ModalProps) {
   const t = useTranslation();
   const dialogRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<Element | null>(null);
@@ -44,7 +46,7 @@ export function Modal({ open, onClose, title, children }: ModalProps) {
     <div className={styles.overlay} onMouseDown={onClose}>
       <div
         ref={dialogRef}
-        className={styles.dialog}
+        className={size === "lg" ? `${styles.dialog} ${styles.sizeLg}` : styles.dialog}
         role="dialog"
         aria-modal="true"
         aria-label={title}

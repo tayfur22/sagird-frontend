@@ -3,7 +3,7 @@ import { useTranslation } from "@/lib/i18n/LocaleProvider";
 import type { AttemptStatus } from "@/types/attempt";
 
 const VARIANT_BY_STATUS: Record<AttemptStatus, BadgeVariant> = {
-  IN_PROGRESS: "info",
+  IN_PROGRESS: "primary",
   SUBMITTED: "success",
   EXPIRED: "error",
   CANCELLED: "neutral",

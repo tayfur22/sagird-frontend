@@ -848,6 +848,9 @@
   },
   "statistics": {
     "title": "Statistics",
+    "description": "Overall platform figures, exam activity and student statistics by city.",
+    "liveBadge": "Live analytics",
+    "periodWeekly": "Active period: weekly",
     "viewStatistics": "View statistics",
     "notAvailable": "No data yet",
     "students": {
@@ -858,6 +861,7 @@
     },
     "overview": {
       "title": "Platform overview",
+      "description": "Overall figures for registered students, exams and attempts.",
       "description": "",
       "loadError": "The overview could not be loaded.",
       "cards": {
@@ -875,10 +879,12 @@
     },
     "topCities": {
       "title": "Top cities",
+      "description": "Cities with the most students.",
       "empty": "No city information is available yet."
     },
     "cities": {
       "title": "Students by city",
+      "description": "Full list of student counts by city.",
       "loadError": "City statistics could not be loaded.",
       "empty": {
         "title": "No city statistics available yet.",
@@ -892,10 +898,12 @@
     },
     "weekly": {
       "title": "This week's exams",
+      "description": "Results for the current weekly exam period.",
+      "activeBadge": "Active",
       "loadError": "Weekly statistics could not be loaded.",
       "noActive": {
         "title": "No weekly exam is active right now.",
-        "description": ""
+        "description": "Figures will appear here once an exam is active."
       },
       "cards": {
         "activeExams": "Active weekly exams",

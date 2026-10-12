@@ -12,19 +12,50 @@ export interface StatisticsSectionProps {
   id: string;
   title: string;
   description?: string;
+  /** Small uppercase heading style (used for the overview block); the element is still an <h2>. */
+  eyebrow?: boolean;
   children: ReactNode;
 }
 
 /** A titled page section; the <h2> labels the region for assistive tech. */
-export function StatisticsSection({ id, title, description, children }: StatisticsSectionProps) {
+export function StatisticsSection({ id, title, description, eyebrow = false, children }: StatisticsSectionProps) {
   const headingId = `${id}-heading`;
   return (
     <section className={styles.section} aria-labelledby={headingId}>
       <div>
-        <h2 id={headingId} className={styles.sectionTitle}>
+        <h2 id={headingId} className={`${styles.sectionTitle} ${eyebrow ? styles.eyebrow : ""}`}>
           {title}
         </h2>
         {description && <p className={styles.sectionDescription}>{description}</p>}
+      </div>
+      {children}
+    </section>
+  );
+}
+
+export interface StatisticsPanelProps {
+  id: string;
+  title: string;
+  /** Decorative icon shown in the tinted square next to the title. */
+  icon?: ReactNode;
+  /** Optional status badge on the right of the header. */
+  badge?: ReactNode;
+  children: ReactNode;
+}
+
+/** A titled card panel (icon + <h2> + optional badge) for the side-by-side blocks; labels its region like StatisticsSection. */
+export function StatisticsPanel({ id, title, icon, badge, children }: StatisticsPanelProps) {
+  const headingId = `${id}-heading`;
+  return (
+    <section className={styles.panel} aria-labelledby={headingId}>
+      <div className={styles.panelHeader}>
+        <div className={styles.panelTitleWrap}>
+          {icon && <span className={styles.panelIcon}>{icon}</span>}
+          <h2 id={headingId} className={styles.panelTitle}>
+            {title}
+          </h2>
+        </div>
+        {badge}
       </div>
       {children}
     </section>

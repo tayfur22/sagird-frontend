@@ -848,6 +848,9 @@
   },
   "statistics": {
     "title": "Statistika",
+    "description": "Platformanın ümumi göstəriciləri, imtahan aktivliyi və şəhərlər üzrə şagird statistikası.",
+    "liveBadge": "Canlı analitika",
+    "periodWeekly": "Aktiv dövr: həftəlik",
     "viewStatistics": "Statistikaya bax",
     "notAvailable": "Hələ məlumat yoxdur",
     "students": {
@@ -858,6 +861,7 @@
     },
     "overview": {
       "title": "Platformaya ümumi baxış",
+      "description": "Qeydiyyatdan keçmiş şagirdlər, imtahanlar və cəhdlər üzrə ümumi göstəricilər.",
       "loadError": "Ümumi məlumat yüklənə bilmədi.",
       "cards": {
         "totalStudents": "Ümumi şagird sayı",
@@ -874,10 +878,12 @@
     },
     "topCities": {
       "title": "Ən çox şagirdi olan şəhərlər",
+      "description": "Şagirdlərin ən çox yaşadığı şəhərlər.",
       "empty": "Şəhər məlumatı hələ mövcud deyil."
     },
     "cities": {
       "title": "Şəhərlər üzrə şagirdlər",
+      "description": "Şəhərlər üzrə şagird sayının tam siyahısı.",
       "loadError": "Şəhər statistikası yüklənə bilmədi.",
       "empty": {
         "title": "Şəhər statistikası hələ mövcud deyil.",
@@ -891,9 +897,12 @@
     },
     "weekly": {
       "title": "Bu həftənin imtahanları",
+      "description": "Cari həftəlik imtahan dövrü üzrə nəticələr.",
+      "activeBadge": "Aktiv",
       "loadError": "Həftəlik statistika yüklənə bilmədi.",
       "noActive": {
-        "title": "Hazırda aktiv həftəlik imtahan yoxdur."
+        "title": "Hazırda aktiv həftəlik imtahan yoxdur.",
+        "description": "Aktiv imtahan başlayanda göstəricilər burada görünəcək."
       },
       "cards": {
         "activeExams": "Aktiv həftəlik imtahanlar",
