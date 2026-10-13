@@ -4,13 +4,13 @@ import { AuthenticatedShell } from "@/components/layout/AuthenticatedShell";
 import type { NavItem } from "@/types/nav";
 
 const STUDENT_NAV: NavItem[] = [
-  { label: "İdarə paneli", href: "/student/dashboard", labelKey: "dashboard" },
-  { label: "İmtahanlarım", href: "/student/exams", labelKey: "myExams" },
-  { label: "Nəticələr", href: "/student/results", labelKey: "results" },
-  { label: "Liderlər", href: "/student/leaderboard", labelKey: "leaderboard" },
-  { label: "Statistika", href: "/student/statistics", labelKey: "statistics" },
-  { label: "Abunəlik", href: "/student/subscription", labelKey: "subscription" },
-  { label: "Profil", href: "/student/profile", labelKey: "profile" },
+  { label: "İdarə paneli", href: "/student/dashboard", labelKey: "dashboard", icon: "dashboard" },
+  { label: "İmtahanlarım", href: "/student/exams", labelKey: "myExams", icon: "book" },
+  { label: "Nəticələr", href: "/student/results", labelKey: "results", icon: "fileCheck" },
+  { label: "Liderlər", href: "/student/leaderboard", labelKey: "leaderboard", icon: "trophy" },
+  { label: "Statistika", href: "/student/statistics", labelKey: "statistics", icon: "chart" },
+  { label: "Abunəlik", href: "/student/subscription", labelKey: "subscription", icon: "card" },
+  { label: "Profil", href: "/student/profile", labelKey: "profile", icon: "userCheck" },
 ];
 
 export const metadata: Metadata = { robots: { index: false, follow: false } };

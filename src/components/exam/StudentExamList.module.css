@@ -14,12 +14,18 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-3);
-  transition: border-color var(--transition-base), box-shadow var(--transition-base);
+  min-width: 0;
+  transition: border-color var(--transition-base), box-shadow var(--transition-base), transform var(--transition-base);
 }
 
 .card:hover {
   border-color: var(--teal-500);
   box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+.card:focus-within {
+  border-color: var(--teal-500);
 }
 
 .card:hover .cardTitle {
@@ -33,9 +39,15 @@
   gap: var(--space-2);
 }
 
+.cardHeader > :last-child {
+  flex-shrink: 0;
+}
+
 .cardTitle {
   font-family: var(--font-family-heading);
   letter-spacing: -0.02em;
+  min-width: 0;
+  overflow-wrap: anywhere;
   transition: color var(--transition-fast);
   font-size: var(--font-size-lg);
   font-weight: var(--font-weight-bold);
@@ -45,6 +57,12 @@
 .cardDescription {
   color: var(--color-text-muted);
   font-size: var(--font-size-sm);
+  overflow-wrap: anywhere;
+  /* Long descriptions are shortened on the card; the full text is on the exam details page. */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .cardMeta {
@@ -55,19 +73,29 @@
   font-size: var(--font-size-xs);
   font-weight: var(--font-weight-medium);
   color: var(--color-text-muted);
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--color-border);
 }
 
 .cardRegistration {
-  font-size: var(--font-size-sm);
+  padding: var(--space-2) var(--space-3);
+  background: var(--color-background);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-xs);
   color: var(--color-text-muted);
+  overflow-wrap: anywhere;
 }
 
 .cardLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   align-self: stretch;
+  min-height: 44px;
   margin-top: auto;
   padding: var(--space-2) var(--space-4);
   border-radius: var(--radius-lg);
-  background: var(--color-primary);
+  background: var(--color-primary-solid);
   color: var(--color-text-inverse);
   box-shadow: var(--shadow-sm);
   font-size: var(--font-size-sm);
@@ -78,7 +106,7 @@
 }
 
 .cardLink:hover {
-  background: var(--color-primary-hover);
+  background: var(--color-primary-solid-hover);
 }
 
 .footer {
@@ -95,5 +123,11 @@
 @media (min-width: 1024px) {
   .grid {
     grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card:hover {
+    transform: none;
   }
 }

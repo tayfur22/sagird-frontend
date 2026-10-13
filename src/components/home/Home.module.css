@@ -1,9 +1,39 @@
 .hero {
+  position: relative;
+  overflow: hidden;
   background: linear-gradient(180deg, var(--teal-50) 0%, var(--color-background) 100%);
   border-bottom: 1px solid var(--teal-150);
 }
 
+/* Decorative depth: two soft glows behind the hero content. */
+.hero::before,
+.hero::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.hero::before {
+  top: -8rem;
+  left: 50%;
+  width: 40rem;
+  height: 20rem;
+  transform: translateX(-50%);
+  background: radial-gradient(closest-side, rgba(59, 130, 246, 0.22), transparent);
+}
+
+.hero::after {
+  bottom: -6rem;
+  right: -4rem;
+  width: 18rem;
+  height: 18rem;
+  background: radial-gradient(closest-side, rgba(16, 185, 129, 0.16), transparent);
+}
+
 .heroInner {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -26,7 +56,7 @@
 .heroText {
   margin: 0;
   max-width: 40rem;
-  color: #475569;
+  color: var(--color-text-muted);
   font-size: var(--font-size-lg);
 }
 

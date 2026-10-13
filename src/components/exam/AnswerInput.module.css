@@ -14,10 +14,17 @@
 .optionsRow > label {
   display: flex;
   width: 100%;
+  align-items: flex-start;
+  min-width: 0;
+  min-height: 52px;
   padding: var(--space-4);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-normal);
   font-weight: var(--font-weight-medium);
+  overflow-wrap: anywhere;
   transition: border-color var(--transition-fast), background-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
@@ -26,15 +33,32 @@
   width: auto;
 }
 
-.options > label:hover,
-.optionsRow > label:hover {
+/* Hover feedback only for options that are interactive and not already selected. */
+.options > label:hover:not(:has(input:disabled)):not(:has(input:checked)),
+.optionsRow > label:hover:not(:has(input:disabled)):not(:has(input:checked)) {
+  border-color: var(--teal-400);
   background: var(--color-background);
+}
+
+/* Larger, top-aligned control so long wrapped options stay easy to read and tap. */
+.options > label input,
+.optionsRow > label input {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  margin: 0.15em 0 0;
 }
 
 .options > label:has(input:checked),
 .optionsRow > label:has(input:checked) {
   border-color: var(--color-primary);
   background: var(--color-primary-light);
-  color: var(--teal-900);
-  box-shadow: 0 0 0 2px rgba(15, 118, 110, 0.2);
+  color: var(--color-text);
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3);
+}
+
+/* Keyboard focus on the whole option (declared last so it also wins over the selected-state ring). */
+.options > label:has(input:focus-visible),
+.optionsRow > label:has(input:focus-visible) {
+  box-shadow: var(--focus-ring);
 }

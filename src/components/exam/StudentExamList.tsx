@@ -18,10 +18,17 @@ import { ExamStatusBadge } from "./ExamStatusBadge";
 import { ExamTypeBadge } from "./ExamTypeBadge";
 import styles from "./StudentExamList.module.css";
 
-const PAGE_SIZE = 12;
+const DEFAULT_PAGE_SIZE = 12;
+
+interface StudentExamListProps {
+  /** Page size requested from the API. Defaults to the full-list size used by /student/exams. */
+  pageSize?: number;
+  /** The dashboard shows only the first page as a preview and links to the full list instead. */
+  showPagination?: boolean;
+}
 
 /** The student's own view of exams (GET /api/v1/exams) - always PUBLISHED, enforced server-side. */
-export function StudentExamList() {
+export function StudentExamList({ pageSize = DEFAULT_PAGE_SIZE, showPagination = true }: StudentExamListProps = {}) {
   const t = useTranslation();
 
   const [pageIndex, setPageIndex] = useState(0);
@@ -36,7 +43,7 @@ export function StudentExamList() {
     setError(null);
 
     examApi
-      .getPublished(pageIndex, PAGE_SIZE)
+      .getPublished(pageIndex, pageSize)
       .then((response) => {
         if (!cancelled) setData(response);
       })
@@ -50,7 +57,7 @@ export function StudentExamList() {
     return () => {
       cancelled = true;
     };
-  }, [pageIndex, retryToken]);
+  }, [pageIndex, pageSize, retryToken]);
 
   if (loading) {
     return (
@@ -117,7 +124,7 @@ export function StudentExamList() {
         ))}
       </div>
 
-      {data.totalPages > 1 && (
+      {showPagination && data.totalPages > 1 && (
         <div className={styles.footer}>
           <Pagination page={pageIndex + 1} totalPages={data.totalPages} onPageChange={(page) => setPageIndex(page - 1)} />
         </div>

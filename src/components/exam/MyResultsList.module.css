@@ -14,3 +14,27 @@
   display: flex;
   justify-content: center;
 }
+
+/* The results table sits in a bordered panel; it still scrolls horizontally on small screens. */
+.section > :first-child {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+}
+
+.section td {
+  white-space: nowrap;
+}
+
+/* Exam title column may wrap; every other column stays on one line. */
+.section td:first-child {
+  min-width: 12rem;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  font-weight: var(--font-weight-medium);
+}
+
+.section tbody tr:last-child td {
+  border-bottom: none;
+}

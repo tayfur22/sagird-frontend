@@ -12,7 +12,6 @@ export default function AdminAttemptsPage() {
     <div className={styles.page}>
       <div>
         <h1 className={styles.heading}>{t.admin.attempts.title}</h1>
-        <p className={styles.subtitle}>{t.admin.attempts.subtitle}</p>
       </div>
 
       {/* useSearchParams (for ?studentId=/?examId= deep links) requires a Suspense boundary. */}

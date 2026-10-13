@@ -21,25 +21,21 @@
   margin-top: var(--space-2);
 }
 
-/* Mirrors QuestionResultCard's .answerBlock - the explanation reads as the
-   same kind of "supporting content" panel as the student's own answer,
-   not a new visual language. */
+/* Explanation box of the dark result card (Gemini design): slate-950/60 panel, slate-400 xs text. */
 .body {
   display: flex;
   flex-direction: column;
-  gap: var(--space-2);
+  gap: var(--space-1);
   padding: var(--space-3);
-  background: var(--color-background);
-  border-radius: var(--radius-md);
-  border: 1px solid var(--color-border);
+  background: rgba(2, 6, 23, 0.6);
+  border-radius: var(--radius-xl);
+  border: 1px solid #1e293b;
 }
 
 .heading {
   font-size: var(--font-size-xs);
   font-weight: var(--font-weight-semibold);
-  color: var(--color-text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.02em;
+  color: #94a3b8;
 }
 
 .fallbackNotice {
@@ -51,9 +47,9 @@
 
 .text {
   margin: 0;
-  font-size: var(--font-size-base);
+  font-size: var(--font-size-xs);
   line-height: var(--line-height-normal);
-  color: var(--color-text);
+  color: #94a3b8;
   white-space: pre-wrap;
   overflow-wrap: break-word;
   word-break: break-word;

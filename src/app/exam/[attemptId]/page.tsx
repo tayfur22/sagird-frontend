@@ -165,6 +165,8 @@ function AttemptView() {
   } = useAnswerAutosave(attemptId, questions, canSaveAnswers);
 
   const unansweredCount = questions.length - questions.filter((q) => isAnswerFilled(answers[q.questionId])).length;
+  const answeredCount = questions.length - unansweredCount;
+  const answeredPercent = questions.length > 0 ? Math.round((answeredCount / questions.length) * 100) : 0;
 
   // Phase 11B: keeps the in-memory question list's listening counts consistent with what the
   // playback endpoint just authorized, so returning to a listening question (or opening the
@@ -259,6 +261,25 @@ function AttemptView() {
         </div>
         {attempt.status === "IN_PROGRESS" && <AttemptTimer attempt={attempt} onExpire={onExpire} />}
       </div>
+
+      {attempt.status === "IN_PROGRESS" && !securityTerminated && !questionsLoading && !questionsError && questions.length > 0 && (
+        /* Progress Bar for Answered Questions */
+        <div className="bg-slate-900 border border-solid border-slate-800 rounded-xl p-4 flex items-center justify-between">
+          <div className="text-xs font-semibold text-slate-300">
+            {t.attempt.exam.progressLabel}: <strong className="text-blue-400">{answeredCount}</strong> / {questions.length}
+          </div>
+          <div
+            className="w-48 bg-slate-800 h-2 rounded-full overflow-hidden"
+            role="progressbar"
+            aria-label={t.attempt.exam.progressLabel}
+            aria-valuemin={0}
+            aria-valuemax={questions.length}
+            aria-valuenow={answeredCount}
+          >
+            <div className="bg-blue-600 h-full transition-all duration-300" style={{ width: `${answeredPercent}%` }} />
+          </div>
+        </div>
+      )}
 
       {attempt.status === "IN_PROGRESS" && securityTerminated && <SecurityTerminatedModal />}
 

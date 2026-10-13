@@ -179,7 +179,8 @@
     "passwordChanged": "Password changed. Sessions on other devices have been signed out."
   },
   "dashboard": {
-    "welcome": "Welcome, {name}!"
+    "welcome": "Welcome, {name}!",
+    "viewAllExams": "View all exams"
   },
   "subscription": {
     "title": "Subscription",
@@ -774,7 +775,8 @@
         "description": "This exam doesn't have any questions added yet."
       },
       "confirmUnanswered": "{count} question(s) are still unanswered.",
-      "confirmAllAnswered": "All questions are answered."
+      "confirmAllAnswered": "All questions are answered.",
+      "progressLabel": "Answered"
     },
     "listening": {
       "label": "Listening",
@@ -945,7 +947,16 @@
   },
   "admin": {
     "dashboard": {
-      "title": "Admin panel",
+      "title": "System Control Center",
+      "subtitle": "Oversee users, exams, the question bank and financial operations.",
+      "badge": "Super Admin Panel",
+      "newExam": "Create New Exam",
+      "hints": { "students": "● Active users", "exams": "Registered in the system", "subscriptions": "Premium plans" },
+      "quickLinks": {
+        "students": { "title": "Student Management", "description": "The full list of registered students with grade and school details." },
+        "exams": { "title": "Exams and Questions", "description": "Build weekly and monthly mock exams, and manage the question bank and variants." },
+        "payments": { "title": "Payments and Subscriptions", "description": "Financial reports, payment statuses and ePoint transaction history." }
+      },
       "noRevenue": "No successful payments yet.",
       "cards": {
         "totalStudents": "Total students",

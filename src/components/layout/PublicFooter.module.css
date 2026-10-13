@@ -1,6 +1,7 @@
 .footer {
-  border-top: 1px solid var(--color-border);
-  background: var(--color-surface);
+  border-top: 1px solid var(--teal-800);
+  background: var(--teal-900);
+  color: var(--teal-200);
   margin-top: var(--space-16);
 }
 
@@ -24,18 +25,18 @@
   font-size: var(--font-size-xl);
   letter-spacing: -0.02em;
   font-weight: var(--font-weight-bold);
-  color: var(--color-text);
+  color: var(--color-text-inverse);
   text-decoration: none;
   align-self: flex-start;
 }
 
 .logoAccent {
-  color: var(--color-primary);
+  color: var(--teal-400);
 }
 
 .tagline {
   margin: 0;
-  color: var(--color-text-muted);
+  color: var(--teal-200);
   font-size: var(--font-size-sm);
 }
 
@@ -49,7 +50,9 @@
   margin: 0;
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-semibold);
-  color: var(--color-text);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-text-inverse);
 }
 
 .list {
@@ -64,13 +67,13 @@
 .link {
   display: inline-block;
   padding: var(--space-1) 0;
-  color: var(--color-text-muted);
+  color: var(--teal-200);
   font-size: var(--font-size-sm);
   text-decoration: none;
 }
 
 .link:hover {
-  color: var(--color-primary);
+  color: var(--color-text-inverse);
   text-decoration: underline;
 }
 
@@ -84,7 +87,7 @@
 .linkDisabled {
   display: inline-block;
   padding: var(--space-1) 0;
-  color: var(--color-text-disabled);
+  color: rgba(148, 163, 184, 0.6);
   font-size: var(--font-size-sm);
   cursor: not-allowed;
 }
@@ -92,9 +95,9 @@
 .bottom {
   padding-top: var(--space-4);
   padding-bottom: var(--space-6);
-  border-top: 1px solid var(--color-border);
+  border-top: 1px solid var(--sidebar-border);
   font-size: var(--font-size-sm);
-  color: var(--color-text-muted);
+  color: var(--teal-200);
 }
 
 @media (min-width: 768px) {

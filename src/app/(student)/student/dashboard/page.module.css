@@ -1,21 +1,81 @@
+/* Design-only: Gemini's gradient welcome banner, rebuilt on the project's teal tokens. No TSX change needed. */
 .welcome {
+  position: relative;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: var(--space-4);
   margin-bottom: var(--space-6);
   padding: var(--space-6);
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-left: 4px solid var(--teal-500);
+  background: linear-gradient(135deg, var(--teal-700) 0%, var(--teal-600) 55%, var(--mint-600) 100%);
   border-radius: var(--radius-xl);
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-lg);
+  color: var(--color-text-inverse);
+}
+
+.welcome::after {
+  content: "";
+  position: absolute;
+  top: -4rem;
+  right: -3rem;
+  width: 16rem;
+  height: 16rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  filter: blur(32px);
+  pointer-events: none;
 }
 
 .welcomeTitle {
+  position: relative;
+  z-index: 1;
   margin: 0;
   font-size: var(--font-size-2xl);
   font-weight: var(--font-weight-bold);
   line-height: var(--line-height-tight);
   overflow-wrap: break-word;
+}
+
+@media (min-width: 768px) {
+  .welcome {
+    padding: var(--space-8);
+  }
+  .welcomeTitle {
+    font-size: var(--font-size-3xl);
+  }
+}
+
+.exams {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.examsHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-4);
+}
+
+.examsTitle {
+  margin: 0;
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+}
+
+.examsLink {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--color-primary);
+  font-weight: var(--font-weight-medium);
+  text-decoration: none;
+}
+
+.examsLink:hover {
+  text-decoration: underline;
 }

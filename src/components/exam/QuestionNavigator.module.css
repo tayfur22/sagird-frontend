@@ -1,27 +1,35 @@
 .nav {
   width: 100%;
+  padding: var(--space-2) var(--space-3);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
 }
 
 .list {
   display: flex;
   gap: var(--space-2);
   overflow-x: auto;
-  padding: var(--space-1);
+  /* Room for the check badge, which sits 5px outside the button and would otherwise be clipped. */
+  padding: var(--space-2);
   margin: 0;
   list-style: none;
+  scrollbar-width: thin;
 }
 
 .item {
   position: relative;
   flex: 0 0 auto;
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   border-radius: var(--radius-lg);
   border: 1px solid var(--color-border);
   background: var(--color-surface);
   color: var(--color-text);
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-medium);
+  font-variant-numeric: tabular-nums;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -41,7 +49,7 @@
 .answered {
   border-color: var(--mint-500);
   background: var(--mint-100);
-  color: #065F46;
+  color: #6EE7B7;
 }
 
 .check {
@@ -58,15 +66,15 @@
 
 .current {
   border-color: var(--color-primary);
-  background: var(--color-primary);
+  background: var(--color-primary-solid);
   color: var(--color-text-inverse);
-  box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.25);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.35);
   font-weight: var(--font-weight-bold);
 }
 
 @media (max-width: 480px) {
   .item {
-    width: 34px;
-    height: 34px;
+    width: 40px;
+    height: 40px;
   }
 }

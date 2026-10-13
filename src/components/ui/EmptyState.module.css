@@ -15,3 +15,8 @@
   font-size: var(--font-size-sm);
   margin-bottom: var(--space-4);
 }
+
+.action {
+  display: flex;
+  justify-content: center;
+}

@@ -1,5 +1,8 @@
 .header {
   background: var(--color-surface);
+  background: color-mix(in srgb, var(--color-surface) 88%, transparent);
+  -webkit-backdrop-filter: saturate(160%) blur(10px);
+  backdrop-filter: saturate(160%) blur(10px);
   border-bottom: 1px solid var(--color-border);
   box-shadow: var(--shadow-sm);
   position: sticky;
@@ -27,6 +30,14 @@
 
 .logoAccent {
   color: var(--color-primary);
+}
+
+.logo {
+  transition: opacity var(--transition-fast);
+}
+
+.logo:hover {
+  opacity: 0.85;
 }
 
 .desktopNav {

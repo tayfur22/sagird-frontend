@@ -422,13 +422,13 @@
   flex-shrink: 0;
   border-radius: var(--radius-md);
   background: var(--mint-100);
-  color: var(--teal-800);
+  color: #6EE7B7;
 }
 
 .bestLabel {
   font-size: var(--font-size-xs);
   font-weight: var(--font-weight-bold);
-  color: var(--teal-900);
+  color: #A7F3D0;
   overflow-wrap: break-word;
 }
 
@@ -437,7 +437,7 @@
   font-family: var(--font-family-heading);
   font-size: var(--font-size-xl);
   font-weight: var(--font-weight-bold);
-  color: var(--teal-800);
+  color: #6EE7B7;
 }
 
 /* Top cities with proportional bars (the bar is decorative; the counts are the data). */

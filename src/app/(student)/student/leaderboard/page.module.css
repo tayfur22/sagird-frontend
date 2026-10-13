@@ -32,3 +32,11 @@
   display: flex;
   justify-content: center;
 }
+
+.heading {
+  overflow-wrap: break-word;
+}
+
+.subheading {
+  max-width: 40rem;
+}

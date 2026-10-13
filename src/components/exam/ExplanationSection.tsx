@@ -129,7 +129,7 @@ export function ExplanationSection({ attemptId, questionId }: ExplanationSection
 
           {status === "success" && content !== null && (
             <div className={styles.body}>
-              <span className={styles.heading}>{d.heading}</span>
+              <span className={styles.heading}>💡 {d.heading}:</span>
               {showFallbackNotice && loadedLocale && (
                 <p className={styles.fallbackNotice}>{d.fallbackNotice.replace("{locale}", t.language[loadedLocale])}</p>
               )}

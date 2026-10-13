@@ -1,5 +1,9 @@
 @import "./tokens.css";
 
+/* Tailwind utilities only (no base/preflight) - see tailwind.config.ts */
+@tailwind components;
+@tailwind utilities;
+
 * {
   box-sizing: border-box;
 }

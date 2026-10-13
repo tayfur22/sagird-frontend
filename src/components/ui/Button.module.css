@@ -8,7 +8,7 @@
   border-radius: var(--radius-lg);
   font-weight: var(--font-weight-semibold);
   cursor: pointer;
-  transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast);
+  transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast), transform var(--transition-fast);
   white-space: nowrap;
   text-decoration: none;
 }
@@ -23,11 +23,12 @@
 .lg { padding: var(--space-4) var(--space-6); font-size: var(--font-size-lg); }
 
 .primary {
-  background: var(--color-primary);
+  background: var(--color-primary-solid);
   color: var(--color-text-inverse);
   box-shadow: var(--shadow-sm);
 }
-.primary:not(:disabled):hover { background: var(--color-primary-hover); }
+.primary:not(:disabled):hover { background: var(--color-primary-solid-hover); box-shadow: 0 6px 16px rgba(37, 99, 235, 0.3); transform: translateY(-1px); }
+.primary:not(:disabled):active { transform: translateY(0); }
 
 .secondary {
   background: var(--color-surface);
@@ -41,7 +42,8 @@
   color: var(--color-text-inverse);
   box-shadow: var(--shadow-sm);
 }
-.accent:not(:disabled):hover { background: var(--color-accent-hover); }
+.accent:not(:disabled):hover { background: var(--color-accent-hover); box-shadow: 0 6px 16px rgba(5, 150, 105, 0.28); transform: translateY(-1px); }
+.accent:not(:disabled):active { transform: translateY(0); }
 
 .outline {
   background: transparent;
@@ -81,4 +83,13 @@
 
 @keyframes spin {
   to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button,
+  .primary:not(:disabled):hover,
+  .accent:not(:disabled):hover {
+    transform: none;
+    transition: none;
+  }
 }

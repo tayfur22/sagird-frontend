@@ -173,7 +173,8 @@
     "passwordChanged": "Şifrə dəyişdirildi. Digər cihazlardakı sessiyalar bağlandı."
   },
   "dashboard": {
-    "welcome": "Xoş gəlmisiniz, {name}!"
+    "welcome": "Xoş gəlmisiniz, {name}!",
+    "viewAllExams": "Bütün imtahanlara bax"
   },
   "subscription": {
     "title": "Abunəlik",
@@ -704,11 +705,11 @@
     },
     "detailedResult": {
       "title": "Ətraflı nəticə",
-      "questionLabel": "Sual {number}",
+      "questionLabel": "Sual #{number}",
       "pointsFormat": "{awarded} / {points} bal",
-      "yourAnswer": "Sizin cavabınız",
+      "yourAnswer": "Sənin cavabın",
       "notAnswered": "Cavab verilməyib.",
-      "correctLabel": "Düzgün",
+      "correctLabel": "Doğru",
       "incorrectLabel": "Səhv",
       "loadError": "Ətraflı nəticə yüklənə bilmədi.",
       "empty": {
@@ -774,7 +775,8 @@
         "description": "Bu imtahan üçün hələ sual əlavə edilməyib."
       },
       "confirmUnanswered": "{count} sual hələ cavablandırılmayıb.",
-      "confirmAllAnswered": "Bütün suallar cavablandırılıb."
+      "confirmAllAnswered": "Bütün suallar cavablandırılıb.",
+      "progressLabel": "Cavablandırıldı"
     },
     "listening": {
       "label": "Dinləmə",
@@ -944,17 +946,26 @@
   },
   "admin": {
     "dashboard": {
-      "title": "Admin panel",
+      "title": "Sistem İdarəetmə Mərkəzi",
+      "subtitle": "İstifadəçilər, imtahanlar, sual bankı və maliyyə əməliyyatlarına nəzarət edin.",
+      "badge": "Super Admin Panel",
+      "newExam": "Yeni İmtahan yarat",
+      "hints": { "students": "● Aktiv istifadəçilər", "exams": "Sistemdə qeydiyyatda", "subscriptions": "Premium paketlər" },
+      "quickLinks": {
+        "students": { "title": "Şagirdlərin İdarə Edilməsi", "description": "Bütün qeydiyyatdan keçmiş şagirdlərin siyahısı, sinif və məktəb məlumatları." },
+        "exams": { "title": "İmtahanlar və Suallar", "description": "Həftəlik və aylıq sınaqların tərtibi, sual bankı və variantların idarə olunması." },
+        "payments": { "title": "Ödənişlər və Abunəliklər", "description": "Maliyyə hesabatları, ödəniş statusları və ePoint tranzaksiya tarixçəsi." }
+      },
       "noRevenue": "Uğurlu ödəniş yoxdur.",
       "cards": {
-        "totalStudents": "Ümumi tələbə sayı",
-        "totalExams": "Ümumi imtahan sayı",
-        "publishedExams": "Dərc olunmuş imtahanlar",
-        "activeSubscriptions": "Aktiv abunəliklər",
+        "totalStudents": "Ümumi Şagirdlər",
+        "totalExams": "Ümumi İmtahanlar",
+        "publishedExams": "Aktiv İmtahanlar",
+        "activeSubscriptions": "Aktiv Abunəliklər",
         "submittedAttempts": "Təqdim edilmiş cəhdlər",
         "totalPayments": "Ümumi ödənişlər",
         "successfulPayments": "Uğurlu ödənişlər",
-        "revenue": "Gəlir"
+        "revenue": "Ümumi Dövriyyə"
       }
     },
     "students": {

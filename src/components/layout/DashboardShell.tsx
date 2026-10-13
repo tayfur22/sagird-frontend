@@ -2,10 +2,11 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import { cn } from "@/lib/utils/cn";
 import { useTranslation } from "@/lib/i18n/LocaleProvider";
 import { Icon } from "@/components/ui/Icon";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import type { NavItem } from "@/types/nav";
 import styles from "./DashboardShell.module.css";
@@ -58,6 +59,44 @@ export function DashboardShell({
   const [mobileOpen, setMobileOpen] = useState(false);
   const t = useTranslation();
   const pathname = usePathname() ?? "";
+  const sidebarRef = useRef<HTMLElement>(null);
+  const toggleRef = useRef<HTMLButtonElement>(null);
+  // Matches the CSS breakpoint where the sidebar becomes a permanent column (no off-canvas menu).
+  const isDesktop = useMediaQuery("(min-width: 1024px)");
+
+  // Off-canvas menu (below 1024px): focus moves into it on open, Tab stays inside it,
+  // and Escape closes it and returns focus to the menu button.
+  useEffect(() => {
+    if (!mobileOpen || isDesktop) return;
+    const focusable = () => Array.from(sidebarRef.current?.querySelectorAll<HTMLElement>("a[href]") ?? []);
+    focusable()[0]?.focus();
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setMobileOpen(false);
+        toggleRef.current?.focus();
+        return;
+      }
+      if (event.key !== "Tab") return;
+      const items = focusable();
+      if (items.length === 0) return;
+      const first = items[0];
+      const last = items[items.length - 1];
+      const active = document.activeElement;
+      if (!sidebarRef.current?.contains(active)) {
+        event.preventDefault();
+        first.focus();
+      } else if (event.shiftKey && active === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && active === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, [mobileOpen, isDesktop]);
   // Longest matching href wins, so /admin/questions/import does not also light up /admin/questions.
   const activeHref = navItems
     .filter((item) => !item.disabled && (pathname === item.href || pathname.startsWith(`${item.href}/`)))
@@ -66,7 +105,7 @@ export function DashboardShell({
 
   return (
     <div className={styles.shell}>
-      <aside className={cn(styles.sidebar, mobileOpen && styles.sidebarOpen)}>
+      <aside id="dashboard-sidebar" ref={sidebarRef} className={cn(styles.sidebar, mobileOpen && styles.sidebarOpen)}>
         <div className={styles.brand}>{renderBrand(brandLabel)}</div>
         <nav aria-label={t.nav.mainNavigation} className={styles.nav}>
           {navItems.map((item) =>
@@ -95,9 +134,11 @@ export function DashboardShell({
       <div className={styles.main}>
         <header className={styles.topbar}>
           <button
+            ref={toggleRef}
             className={styles.menuToggle}
-            aria-label={t.nav.openNavigation}
+            aria-label={mobileOpen ? t.nav.closeNavigation : t.nav.openNavigation}
             aria-expanded={mobileOpen}
+            aria-controls="dashboard-sidebar"
             onClick={() => setMobileOpen((value) => !value)}
           >
             ☰

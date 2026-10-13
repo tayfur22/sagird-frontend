@@ -29,7 +29,7 @@
   font-size: var(--font-size-3xl);
   font-weight: var(--font-weight-bold);
   line-height: var(--line-height-tight);
-  color: var(--color-text);
+  color: var(--color-primary);
 }
 
 .scoreDivider {
@@ -52,7 +52,8 @@
   margin: 0;
   padding: var(--space-4);
   background: var(--color-background);
-  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
 }
 
 .detailRow {

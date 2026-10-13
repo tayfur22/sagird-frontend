@@ -9,10 +9,12 @@
   font-weight: var(--font-weight-bold);
   line-height: var(--line-height-tight);
   margin-bottom: var(--space-1);
+  overflow-wrap: break-word;
 }
 
 .subtitle {
   color: var(--color-text-muted);
+  max-width: 40rem;
 }
 
 .section {
@@ -22,8 +24,11 @@
 }
 
 .sectionTitle {
+  padding-left: var(--space-3);
+  border-left: 4px solid var(--teal-500);
   font-size: var(--font-size-lg);
   font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-tight);
 }
 
 .skeletonCard {
